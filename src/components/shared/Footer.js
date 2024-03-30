@@ -3,11 +3,11 @@ import Link from "next/link";
 const Footer = () => {
   return (
     <footer className="bg-white p-6  text-black shadow-xl border-t-2 border-black-800">
-      <div className="flex justify-around py-6 space-x-4 p-0">
-        <ul>
+      <div className="flex justify-around py-6 space-x-4 p-0 flex-wrap max-md:flex-col max-md:justify-center max-md:items-center max-md:gap-5">
+        <ul className="">
             quality materials good designs, <br/> professional craftsmanship and <br/> sustainability
         </ul>
-        <ul className="p-0 leading-9">
+        <ul className="p-0  max-lg:items-center">
           <li className="font-semibold mb-5">Shops</li>
           <li className="mb-2"><Link href="">Clothing</Link></li>
           <li className="mb-2"><Link href="">Shoes</Link></li>
@@ -16,7 +16,7 @@ const Footer = () => {
           <li className="mb-2"><Link href="">Sale</Link></li>
           <li className="mb-2"><Link href="">Gift Cards</Link></li>
         </ul>
-        <ul className="p-0 leading-9">
+        <ul className="p-0  max-lg:items-center">
           <li className="font-semibold mb-5">Gift Cards</li>
           <li className="mb-2"><Link href="">Buy Gift Cards</Link></li>
           <li className="mb-2"><Link href="">About Gift Cards</Link></li>
@@ -25,7 +25,7 @@ const Footer = () => {
           <li className="mb-2"><Link href="">Subscribe</Link></li>
         </ul>
 
-        <ul className="p-0 ">
+        <ul className="p-0  max-lg:items-center">
           <li className="font-semibold mb-5">About store</li>
           <li className="mb-2"><Link href="" >About Us</Link></li>
           <li className="mb-2"><Link href="">Support</Link></li>
@@ -34,14 +34,14 @@ const Footer = () => {
           <li className="mb-2"><Link href="">Investors</Link></li>
         </ul>
 
-        <ul className="p-0 leading-9">
+        <ul className="p-0 max-lg:items-center">
           <li className="font-semibold mb-5">Legal</li>
           <li className="mb-2">Legal Notice</li>
           <li className="mb-2">Privacy Policy</li>
           <li className="mb-2">Terms and Conditions</li>
         </ul>
       </div>
-      <p className="mt-10 text-center">
+      <p className="mt-10 text-center py-10 border-t-[#ddd] border-t-[1px]">
         © {new Date().getFullYear()} Synergy-IT. All rights reserved.
       </p>
     </footer>
