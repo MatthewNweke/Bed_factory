@@ -11,7 +11,7 @@ import bed_img8 from '../../assets/bed_img8.jpg';
 const Products = () => {
   return (
     <div className="my-10 max-md:px-5">
-      <div className="grid grid-cols-3 grid-rows-11 place-items-center items-center content-center gap-[2.75rem] max-gap-x-[1rem]">
+      <div className="grid grid-cols-3 grid-rows-11 place-items-center items-center content-center gap-[2.75rem] max-gap-x-[1rem] max-md:grid-cols-2 max-md:grid-rows-16  max-sm:grid-cols-1 max-sm:grid-rows-33">
         <div className="shadow-xl">
         <Image className=""
             src={bed_img2}

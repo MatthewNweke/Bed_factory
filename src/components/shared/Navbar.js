@@ -16,12 +16,13 @@ import trustpilot from "../../assets/trustpilot-icon.png";
 const Navbar = () => {
   return (
     <div className="py-5 max-xl:py-0">
-      <header className="flex flex-col relative max-xl:px-3">
+      <header className="flex flex-col relative max-xl:px-3 max-sm:px-1">
+      <button className="hidden max-sm:block absolute right-2 top-2 border-[1px] z-50 w-[10%] text-[1.2rem]  max-[400px]:py-[0.1rem] py-2 cursor-pointer">&#9776;</button>
         <nav className="h-[15vh] py-3 flex items-center gap-[5%] max-xl:flex-col ">
-          <div className="flex items-center w-[55%] justify-end gap-[10%]   max-xl:flex-col max-xl:justify-start max-xl:items-start max-xl:w-[100%] ">
+          <div className="flex items-center w-[55%] justify-end gap-[10%]  max-xl:flex-col max-xl:justify-start max-xl:items-start max-xl:w-[100%] ">
             <Link href={""}>
               <Image
-                className="max-xl:w-32"
+                className="max-xl:w-32 max-sm:w-24 "
                 src={logo}
                 width={170}
                 height={170}
@@ -30,16 +31,18 @@ const Navbar = () => {
             </Link>
             {/* Input field */}
 
-            <div className="flex items-center max-xl:w-[100%] max-xl:relative ">
-              <span className="hidden max-lg:inline text-[1.2rem] max-lg:p-3 max-lg:border-[1px] cursor-pointer">&#9776;</span>
+            <div className="flex items-center max-xl:w-[100%] max-xl:relative max-md:px-2 max-md:right-1">
+             <div className="flex items-center w-[100%] z-50 ">
+             <button className="hidden max-md:block z-50 w-[10%] text-[1.2rem]  max-[400px]:py-[0.1rem] py-2 max-lg:border-[1px] cursor-pointer">&#9776;</button>
               <input
                 type="text"
                 placeholder="Search..."
-                className="border-[#0b1a44]  bg-[#f2f2f2] border-[1.5px] outline-none h-[2.8rem] px-2  placeholder-bold rounded-none w-[25.375rem]  max-xl:w-[90%] max-xl:absolute max-xl:right-0"
+                className="border-[#0b1a44]  bg-[#f2f2f2] border-[1.5px] outline-none h-[2.8rem] px-2  placeholder-bold rounded-none w-[25.375rem]  max-md:w-[85%] max-sm:w-[80%] max-xl:w-[100%] max-xl:absolute max-md:right-[3%] max-md:h-[2.5rem] max-[400px]:h-[2rem] max-[400px]:right-0"
                 style={{ fontWeight: "bold", fontSize: "0.8rem" }}
               />
+             </div>
               <Image
-                className="relative right-[8%] cursor-pointer max-xl:absolute max-xl:right-5"
+                className="relative right-[8%] max-md:right-[5%] z-50  cursor-pointer max-xl:absolute max-xl:right-5"
                 src={search}
                 width={15}
                 height={15}
@@ -47,8 +50,11 @@ const Navbar = () => {
             </div>
           </div>
 
-          <div className="w-[40%] flex gap-[10%] max-xl:absolute max-2xl:top-14 max-xl:px-2 max-xl:left-36 max-xl:justify-end  max-xl:gap-[5%] max-xl:w-[80%] max-lg:w-[70%] max-md:w-[65%]">
-            <div className="flex items-center cursor-pointer max-xl:mr-2">
+         
+
+
+          <div className="w-[40%] flex gap-[10%] max-xl:absolute max-2xl:top-14 max-xl:px-2 max-xl:left-36 max-xl:justify-end  max-xl:gap-[5%] max-xl:w-[80%] max-lg:w-[70%] max-md:w-[60%]  max-sm:top-10 max-sm:hidden">
+            <div className="flex items-center cursor-pointer max-xl:mr-5">
               <div className="flex flex-col justify-center">
               <Image src={phoneimg} width={35} height={35} alt="" className="max-xl:w-5 max-xl:h-5"/>
               <span className="font-bold text-[0.6rem] hidden max-xl:inline">phone</span>
@@ -56,7 +62,7 @@ const Navbar = () => {
               <span className="font-bold max-xl:text-[0.8rem] max-xl:hidden">0151 548 1554</span>
             </div>
 
-            <div className="flex items-center gap-10">
+            <div className="flex items-center gap-10 ">
               <div className="flex flex-col items-center gap-1 cursor-pointer">
                 <Image src={locationimg} width={13} height={13} alt="" />
                 <span className="font-bold text-[0.6rem]">Showrooms</span>
