@@ -30,8 +30,8 @@ const Navbar = () => {
             </Link>
             {/* Input field */}
 
-            <div className="flex items-center max-xl:w-[100%] max-xl:relative max-xl:my-5">
-              <span className="hidden max-xl:inline text-[1.2rem] max-xl:p-3 max-xl:border-[1px] cursor-pointer">&#9776;</span>
+            <div className="flex items-center max-xl:w-[100%] max-xl:relative ">
+              <span className="hidden max-lg:inline text-[1.2rem] max-lg:p-3 max-lg:border-[1px] cursor-pointer">&#9776;</span>
               <input
                 type="text"
                 placeholder="Search..."
