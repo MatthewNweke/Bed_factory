@@ -1,45 +1,136 @@
+"use client"
+
+import Link from "next/link";
+import Image from "next/image";
+import logo from "../../assets/Sosoft-logo.png";
+import search from "../../assets/search.svg";
+import phoneimg from "../../assets/phoneimg.png";
+import locationimg from "../../assets/location.svg";
+import userimg from "../../assets/userimg.svg";
+import basket from "../../assets/basket.svg";
+import pricematch from "../../assets/price-match-icon.png";
+import delivery from "../../assets/delivery-icon.png";
+import fabric from "../../assets/fabric-swatches.png";
+import trustpilot from "../../assets/trustpilot-icon.png";
+
 const Navbar = () => {
   return (
-    <div className="flex flex-col">
-      <nav className="flex items-center justify-between flex-wrap bg-[#1677FF] px-6 py-4">
-        <div className="flex items-center flex-shrink-0 text-white mr-6">
-          <div className=" text-md tracking-tight flex gap-3 items-center">
-            <p className="cursor-pointer text-sm">USD</p>
-            <p className="cursor-pointer text-sm">English</p>
+    <div className="py-5 max-xl:py-0">
+      <header className="flex flex-col relative">
+        <nav className="h-[15vh] py-3 flex items-center gap-[5%] max-xl:flex-col ">
+          <div className="flex items-center w-[55%] justify-end gap-[10%] max-xl:w-[100%] max-xl:justify-between">
+            <Link href={""}>
+              <Image
+                className="max-xl:w-32"
+                src={logo}
+                width={170}
+                height={170}
+                alt="logo"
+              />
+            </Link>
+            {/* Input field */}
+
+            <div className="flex items-center">
+              <input
+                type="text"
+                placeholder="Search..."
+                className="border-[#0b1a44] bg-[#f2f2f2] border-[1.5px] outline-none h-[2.8rem] px-2  placeholder-bold rounded-none w-[25.375rem]  max-xl:w-[20rem]"
+                style={{ fontWeight: "bold", fontSize: "0.8rem" }}
+              />
+              <Image
+                className="relative right-[8%]"
+                src={search}
+                width={15}
+                height={15}
+              />
+            </div>
           </div>
-        </div>
-        
-        <div className="text-white">
-         Free delivery on orders above $50
-        </div>
-        
-        <div className=" lg:flex lg:items-center lg:w-auto ">
-          <div className="text-sm lg:flex-grow">
-            <a
-              href="#responsive-header"
-              className="block mt-4 lg:inline-block lg:mt-0 text-white mr-4"
-            >
-             Returns Policy
-            </a>
-            <a
-              href="#responsive-header"
-              className="block mt-4 lg:inline-block lg:mt-0 text-white mr-4"
-            >
-             Help $ Contact
-            </a>
-         
+
+          <div className="w-[40%] flex gap-[10%] max-xl:absolute max-xl:top-14 max-xl:left-36 max-[831px]:left-24 max-xl:gap-0">
+            <div className="flex items-center cursor-pointer max-xl:mr-2">
+              <Image src={phoneimg} width={35} height={35} alt="" className="max-xl:w-5 max-xl:h-5"/>
+              <span className="font-bold max-xl:text-[0.8rem]">0151 548 1554</span>
+            </div>
+
+            <div className="flex items-center gap-10">
+              <div className="flex flex-col items-center gap-1 cursor-pointer">
+                <Image src={locationimg} width={13} height={13} alt="" />
+                <span className="font-bold text-[0.6rem]">Showrooms</span>
+              </div>
+
+              <div className="flex flex-col items-center gap-1 cursor-pointer">
+                <Image src={userimg} width={18} height={18} alt="" />
+                <span className="font-bold text-[0.6rem]">Account</span>
+              </div>
+              <div className="flex flex-col items-center gap-1 cursor-pointer">
+                <Image src={basket} width={18} height={18} alt="" />
+                <span className="font-bold text-[0.6rem]">Basket</span>
+              </div>
+            </div>
           </div>
-        </div>
-        
-      </nav>
-    {/* <div className=""> */}
-        <ul className="p-0 w-[100%] bg-white h-[10vh] shadow-xl flex items-center gap-5 px-20">
-        <li><a href="" className="text-sm">Women</a></li>
-        <li><a href="" className="text-sm">Men</a></li>
-        <li><a href="" className="text-sm">Kids</a></li>
-        <li><a href="" className="text-sm">Gift Cards</a></li>
-        </ul>
-    {/* </div> */}
+        </nav>
+        <nav className="h-[12vh] py-3  relative max-xl:mt-10">
+          <ul className="m-0 p-0 h-[100%] text-[0.9rem] flex w-[80%]  items-center justify-between  px-2 top-0 absolute left-1/2 -translate-x-1/2 max-2xl:w-[100%] max-xl:text-[0.8rem]">
+            <li className="p-5 w-[10%] max-xl:w-[12%] text-center cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">Beds</li>
+            <li className="p-5 w-[10%] max-xl:w-[12%] text-center cursor-pointer hover:bg-[#08c] hover:text-white  font-semibold">Mattresses</li>
+            <li className="p-5 w-[10%] max-xl:w-[12%] text-center cursor-pointer hover:bg-[#08c] hover:text-white  font-semibold">Headboards</li>
+            <li className="p-5 w-[10%] max-xl:w-[12%] text-center cursor-pointer hover:bg-[#08c] hover:text-white  font-semibold">Furniture</li>
+            <li className="p-5 w-[10%] max-xl:w-[12%] text-center cursor-pointer hover:bg-[#08c] hover:text-white  font-semibold flex gap-1 justify-center">
+              <span>Custom</span>
+              <span>Sizes</span>
+             
+            </li>
+            <li className="p-5 w-[10%] max-xl:w-[12%] text-center cursor-pointer hover:bg-[#08c] hover:text-white  font-semibold">Brands</li>
+            <li className="p-5 w-[10%] max-xl:w-[12%] text-center cursor-pointer hover:bg-[#08c] hover:text-white  font-semibold">Accessories</li>
+            <li className="p-5 w-[10%] text-center cursor-pointer hover:bg-[#08c] hover:text-white  font-semibold flex gap-1 justify-center">
+              <span>Next</span>
+              <span>Day</span>
+             
+            </li>
+            <li className="p-5 w-[10%] max-xl:w-[12%] text-center cursor-pointer hover:bg-[#08c] hover:text-white  font-semibold">Sale</li>
+          </ul>
+        </nav>
+        <nav className="h-[10vh] py-3 relative">
+          <ul className="p-0 m-0 w-[75%] absolute left-1/2  top-0 h-[100%] flex justify-between -translate-x-1/2  px-2 items-center max-xl:text-[0.8rem] max-2xl:w-[100%]">
+            <li className="flex items-center gap-2">
+              <Image
+                src={pricematch}
+                width={23}
+                height={23}
+                alt="price"
+              />
+              <span>Price Match Guarantee</span>
+            </li>
+            <li className="flex items-center gap-2">
+              <Image
+                src={delivery}
+                width={23}
+                height={23}
+                alt="delivery"
+              />
+              <span>Free Delivery Over</span>
+            </li>
+            <li className="flex items-center gap-2">
+              <Image
+                src={fabric}
+                width={23}
+                height={23}
+                alt="fabric"
+              />
+              <span>Free Fabric Samples</span>
+            </li>
+            <li className="flex items-center gap-2">
+              <Image
+                src={trustpilot}
+                width={23}
+                height={23}
+                alt="trustpilot"
+              />
+              <span>Five Star Trust Pilot Reviews</span>
+            </li>
+          </ul>
+        </nav>
+      </header>
     </div>
   );
 };
