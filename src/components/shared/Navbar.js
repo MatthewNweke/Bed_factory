@@ -18,6 +18,10 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [openSide, setOpenSide] = useState(false);
 
+  const removeOverlay = () => {
+    setOpenSide(!openSide);
+  };
+
   const navDropdown = () => {
     setIsOpen(!isOpen);
   };
@@ -77,7 +81,7 @@ const Navbar = () => {
 
             <div className="flex items-center max-xl:w-[100%] max-xl:relative max-md:px-2 max-md:right-1 max-sm:right-10">
               <div className="flex items-center w-[100%] z-50 ">
-                <button className="hidden max-md:block z-50 w-[10%] text-[1.2rem] max-sm:relative max-sm:left-10  max-[400px]:py-[0.1rem] py-2 max-lg:border-[1px] cursor-pointer"  onClick={sideDropdown}>
+                <button className="hidden max-md:block  w-[10%] text-[1.2rem] max-sm:relative max-sm:left-10  max-[400px]:py-[0.1rem] py-2 max-lg:border-[1px] cursor-pointer"  onClick={sideDropdown}>
                   &#9776;
                 </button>
 
@@ -191,11 +195,13 @@ const Navbar = () => {
         
         {openSide && (
         <div
+          onClick={removeOverlay}
         className={` transition-opacity ${
           openSide ? 'opacity-100' : 'opacity-0 invisible'
-        }   py-5 bg-white relative`}
+        }   py-5 bg-[#80808030] z-50 h-[100vh] w-[100%] fixed overflow-hidden`}
       >
-         <div className="w-48 shadow-xl absolute bg-white py-2">
+        {/* overlay */}
+         <div className="w-48 shadow-xl absolute bottom-[25%]  bg-white py-2" onClick={(e) => e.stopPropagation()}>
           <p className="px-2 mb-5 font-semibold">Menu</p>
          <div className="leading-9">
           <p className="border-[1px] px-2 hover:bg-[#08c] py-1 hover:text-white">Beds</p>

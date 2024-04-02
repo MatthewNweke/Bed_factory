@@ -137,7 +137,7 @@ const Products = () => {
             alt="Bed Picture"
           />
         </div>
-        <div className="shadow-xl max-sm:w-[100%] max-sm:h-[15rem]">
+        {/* <div className="shadow-xl max-sm:w-[100%] max-sm:h-[15rem]">
         <Image
         className="max-sm:w-[100%] max-sm:h-[15rem]"
             src={bed_img7}
@@ -301,7 +301,7 @@ const Products = () => {
             width={250}
             height={250}
             alt="Bed Picture"
-          /></div>
+          /></div> */}
       </div>
     </div>
   );
