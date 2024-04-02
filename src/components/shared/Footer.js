@@ -62,7 +62,7 @@ const Footer = () => {
                       <Link href="#">Reviews</Link>
                     </li>
                     <li className="mb-2 py-2 px-4 hover:bg-gray-100">
-                      <Link href="#">FAQ'S</Link>
+                      <Link href="#">FAQ&apos;S</Link>
                     </li>
                     <li className="mb-2 py-2 px-4 hover:bg-gray-100">
                       <Link href="#">Careers</Link>
@@ -85,7 +85,7 @@ const Footer = () => {
                 <Link href="#">Reviews</Link>
               </li>
               <li className="mb-2">
-                <Link href="#">FAQ'S</Link>
+                <Link href="#">FAQ&apos;S</Link>
               </li>
               <li className="mb-2">
                 <Link href="#">Careers</Link>
@@ -159,7 +159,7 @@ const Footer = () => {
 
           <ul className="p-0 m-0 max-lg:items-center leading-7 text-[0.9rem] max-xl:text-[0.85rem]">
             <div className="max-md:flex max-md:justify-between max-md:w-[100%]">
-              <li className="font-semibold  mb-5">T&Zzz's</li>{" "}
+              <li className="font-semibold  mb-5">T&Zzz&apos;s</li>{" "}
               <button
                 className="hidden max-md:inline w-10 h-10 rounded-full bg-blue-500 text-white focus:outline-none transition-transform duration-300 transform "
                 onClick={TermsDropdown}
@@ -221,7 +221,7 @@ const Footer = () => {
             </form>
           </div>
           <p className="text-[0.75rem] mb-14 max-md:hidden">
-            We won't share your details with anyone else.
+            We won&apos;t share your details with anyone else.
           </p>
           <div className="px-3 max-md:hidden">
             <div>
@@ -242,7 +242,7 @@ const Footer = () => {
 
       <div className="px-3 md:hidden">
         <p className="text-[0.75rem] mb-14 max-md:text-center max-md:mb-10">
-          We won't share your details with anyone else.
+          We won&apos;t share your details with anyone else.
         </p>
         <div>
           <p className="font-bold mb-2 max-lg:text-center">Secure Payment By</p>
