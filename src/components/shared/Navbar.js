@@ -201,7 +201,7 @@ const Navbar = () => {
         }   py-5 bg-[#80808030] z-50 h-[100vh] w-[100%] fixed overflow-hidden`}
       >
         {/* overlay */}
-         <div className="w-48 shadow-xl absolute bottom-[25%]  bg-white py-2" onClick={(e) => e.stopPropagation()}>
+         <div className="w-48 shadow-xl absolute bottom-[20%] max-md:bottom-[5%] bg-white py-2" onClick={(e) => e.stopPropagation()}>
           <p className="px-2 mb-5 font-semibold">Menu</p>
          <div className="leading-9">
           <p className="border-[1px] px-2 hover:bg-[#08c] py-1 hover:text-white">Beds</p>
