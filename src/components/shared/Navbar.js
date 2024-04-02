@@ -41,7 +41,7 @@ const Navbar = () => {
           isOpen ? 'opacity-100' : 'opacity-0 invisible'
         }  right-0 mt-2 py-5 bg-white rounded-md shadow-lg z-10 `}
       >
-         <div className="flex items-center flex-col gap-10 ">
+         <div className="flex items-center flex-col gap-10">
               <div className="flex flex-col items-center gap-1 cursor-pointer">
                 <Image src={phoneimg} width={18} height={18} alt="" />
                 <span className="font-bold text-[0.6rem]">Phone</span>
@@ -193,9 +193,9 @@ const Navbar = () => {
         <div
         className={` transition-opacity ${
           openSide ? 'opacity-100' : 'opacity-0 invisible'
-        }   mt-2 py-5 bg-white  `}
+        }   py-5 bg-white relative`}
       >
-         <div className="w-48 shadow-xl  py-2">
+         <div className="w-48 shadow-xl absolute bg-white py-2">
           <p className="px-2 mb-5 font-semibold">Menu</p>
          <div className="leading-9">
           <p className="border-[1px] px-2 hover:bg-[#08c] py-1 hover:text-white">Beds</p>
