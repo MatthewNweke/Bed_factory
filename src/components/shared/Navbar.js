@@ -16,9 +16,13 @@ import trustpilot from "../../assets/trustpilot-icon.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [openSide, setOpenSide] = useState(false);
 
-  const toggleDropdown = () => {
+  const navDropdown = () => {
     setIsOpen(!isOpen);
+  };
+  const sideDropdown = () => {
+    setOpenSide(!openSide);
   };
 
   return (
@@ -26,7 +30,7 @@ const Navbar = () => {
       <header className="flex flex-col relative max-xl:px-3 max-sm:px-1">
         <button
           className="hidden max-sm:block absolute right-2 top-2 border-[1px] z-50 w-[10%] text-[1.2rem]  max-[400px]:py-[0.1rem] py-2 cursor-pointer"
-          onClick={toggleDropdown}
+          onClick={navDropdown}
         >
           &#9776;
         </button>
@@ -69,20 +73,22 @@ const Navbar = () => {
                 alt="logo"
               />
             </Link>
-            {/* Input field */}
+            
 
-            <div className="flex items-center max-xl:w-[100%] max-xl:relative max-md:px-2 max-md:right-1">
+            <div className="flex items-center max-xl:w-[100%] max-xl:relative max-md:px-2 max-md:right-1 max-sm:right-10">
               <div className="flex items-center w-[100%] z-50 ">
-                <button className="hidden max-md:block z-50 w-[10%] text-[1.2rem]  max-[400px]:py-[0.1rem] py-2 max-lg:border-[1px] cursor-pointer">
+                <button className="hidden max-md:block z-50 w-[10%] text-[1.2rem] max-sm:relative max-sm:left-10  max-[400px]:py-[0.1rem] py-2 max-lg:border-[1px] cursor-pointer"  onClick={sideDropdown}>
                   &#9776;
                 </button>
+
                 <input
                   type="text"
                   placeholder="Search..."
-                  className="border-[#0b1a44]  bg-[#f2f2f2] border-[1.5px] outline-none h-[2.8rem] px-2  placeholder-bold rounded-none w-[25.375rem]  max-md:w-[85%] max-xl:w-[100%] max-xl:absolute max-md:right-[3%] max-md:h-[2.5rem] max-[400px]:h-[2rem] max-[400px]:right-0"
+                  className="border-[#0b1a44]  bg-[#f2f2f2] border-[1.5px] outline-none h-[2.8rem] px-2  placeholder-bold rounded-none w-[25.375rem]  max-md:w-[85%] max-xl:w-[100%] max-sm:w-[75%] max-xl:absolute max-md:right-[3%] max-md:h-[2.5rem] max-[400px]:h-[2rem] max-[400px]:right-0"
                   style={{ fontWeight: "bold", fontSize: "0.8rem" }}
                 />
               </div>
+
               <Image
                 className="relative right-[8%] max-md:right-[5%] z-50  cursor-pointer max-xl:absolute max-xl:right-5"
                 src={search}
@@ -128,7 +134,7 @@ const Navbar = () => {
             </div>
           </div>
         </nav>
-        <nav className="h-[12vh] py-3  relative max-xl:mt-24 max-md:hidden max-lg:mt-32">
+        <nav className="h-[12vh] py-3  relative max-xl:mt-24 max-md:hidden max-lg:mt-32 bg-[#EEEEEE]">
           <ul className="m-0 p-0 h-[100%] text-[0.9rem] flex w-[80%]  items-center justify-between  px-2 top-0 absolute left-1/2 -translate-x-1/2 max-2xl:w-[100%] max-xl:text-[0.8rem] flex-wrap max-xl:justify-center">
             <li className="p-4 w-[10%] max-xl:w-[12%] max-lg:w-auto max-lg:p-3 text-center cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
               Beds
@@ -181,6 +187,30 @@ const Navbar = () => {
             </li>
           </ul>
         </nav>
+
+        
+        {openSide && (
+        <div
+        className={` transition-opacity ${
+          openSide ? 'opacity-100' : 'opacity-0 invisible'
+        }   mt-2 py-5 bg-white  `}
+      >
+         <div className="w-48 shadow-xl  py-2">
+          <p className="px-2 mb-5 font-semibold">Menu</p>
+         <div className="leading-9">
+          <p className="border-[1px] px-2 hover:bg-[#08c] py-1 hover:text-white">Beds</p>
+          <p  className="border-[1px] px-2 hover:bg-[#08c] py-1 hover:text-white">Mattresses</p>
+          <p  className="border-[1px] px-2 hover:bg-[#08c] py-1 hover:text-white">Headboards</p>
+          <p  className="border-[1px] px-2 hover:bg-[#08c] py-1 hover:text-white">Furniture</p>
+          <p  className="border-[1px] px-2 hover:bg-[#08c] py-1 hover:text-white">Custom Sizes</p>
+          <p  className="border-[1px] px-2 hover:bg-[#08c] py-1 hover:text-white">Brands</p>
+          <p  className="border-[1px] px-2 hover:bg-[#08c] py-1 hover:text-white">Accessories</p>
+          <p  className="border-[1px] px-2 hover:bg-[#08c] py-1 hover:text-white">Next Day</p>
+          <p  className="border-[1px] px-2 hover:bg-[#08c] py-1 hover:text-white">Sale</p>
+        </div>
+         </div>
+      </div>
+      )}
       </header>
     </div>
   );
