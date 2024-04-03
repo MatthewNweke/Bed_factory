@@ -198,7 +198,7 @@ const Navbar = () => {
           onClick={removeOverlay}
         className={` transition-opacity ${
           openSide ? 'opacity-100' : 'opacity-0 invisible'
-        }   py-5 bg-[#80808030] z-50 h-[100vh] w-[100%] fixed overflow-hidden`}
+        }   py-5 bg-[#80808030] z-50 h-[100vh] w-[100%] left-0 fixed overflow-hidden`}
       >
         {/* overlay */}
          <div className="w-48 shadow-xl absolute bottom-[20%] max-md:bottom-[5%] bg-white py-2" onClick={(e) => e.stopPropagation()}>
