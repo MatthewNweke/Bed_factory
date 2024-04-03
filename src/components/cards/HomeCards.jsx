@@ -23,12 +23,12 @@ const HomeCards = ({ index, imageUrl, buttons }) => {
         />
         <div className="absolute bottom-0 left-0 flex justify-center flex-col items-center w-[100%] bg-[#ddd] shadow-xl py-2">
           {buttons[index].defaultText && (
-            <div className="  px-2 py-1 rounded">
+            <div className="  px-2 py-1 max-md:px-0 rounded">
               {buttons[index].defaultText}
             </div>
           )}
           {showButtonIndex !== null && buttons[showButtonIndex] && (
-            <div className="  px-5 py-2 w-[90%] rounded mt-1 border border-black ">
+            <div className="max-md:hidden  px-5 py-2 w-[90%] rounded mt-1 border border-black ">
               {buttons[showButtonIndex].buttonText}
             </div>
           )}
