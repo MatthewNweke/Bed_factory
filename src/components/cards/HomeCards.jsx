@@ -21,9 +21,9 @@ const HomeCards = ({ index, imageUrl, buttons }) => {
           style={{objectFit:'contain'}}
           className="border border-black"
         />
-        <div className="absolute bottom-0 left-0 flex justify-center flex-col items-center w-[100%] bg-[#ddd] shadow-xl py-2">
+        <div className="absolute bottom-0 left-0 flex justify-center flex-col items-center w-[100%] bg-[#ddd] shadow-xl py-2 max-md:p-0">
           {buttons[index].defaultText && (
-            <div className="  px-2 py-1 max-md:px-0 rounded">
+            <div className="  px-2 py-1 max-md:px-0 rounded max-md:text-center">
               {buttons[index].defaultText}
             </div>
           )}
