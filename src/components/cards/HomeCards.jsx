@@ -23,12 +23,12 @@ const HomeCards = ({ index, imageUrl, buttons }) => {
         />
         <div className="absolute bottom-0 py-5 left-0 flex justify-center flex-col items-center w-[100%] bg-[#ddd] shadow-xl">
           {buttons[index].defaultText && (
-            <div className="  px-2 py-1 rounded text-[2rem] max-lg:text-[1.8rem] max-md:text-[1.5rem]">
+            <div className="  px-2 py-1 rounded text-[2rem] max-lg:text-[1.8rem] max-md:text-[1.5rem] max-sm:text-[1.2rem]">
               {buttons[index].defaultText}
             </div>
           )}
           {showButtonIndex !== null && buttons[showButtonIndex] && (
-            <div className="  px-5 py-2 w-[80%] text-center rounded mt-1 border border-black text-[1.5rem] max-lg:text-[1.2rem] max-md:text-[1rem]">
+            <div className="  px-5 py-2 w-[80%] text-center rounded mt-1 border border-black text-[1.5rem] max-lg:text-[1.3rem] max-md:text-[1.2rem]  max-sm:text-[1rem]">
               {buttons[showButtonIndex].buttonText}
             </div>
           )}

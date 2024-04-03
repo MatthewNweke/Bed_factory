@@ -40,7 +40,7 @@ export default function Home() {
     <main className="">
       <CarouselSlider />
       <div className="flex justify-center items-center my-10">
-        <div className="grid grid-cols-3 gap-2 md:gap-5 lg:gap-2 max-xl:grid-cols-2 overflow-x-hidden max-md:grid-cols-1">
+        <div className="grid grid-cols-3 gap-5 max-md:gap-10 max-sm:gap-12 max-xl:grid-cols-2 overflow-x-hidden max-md:grid-cols-1">
           {images.map((imageUrl, index) => (
             <HomeCards key={index} index={index} imageUrl={imageUrl} buttons={buttons} />
           ))}
