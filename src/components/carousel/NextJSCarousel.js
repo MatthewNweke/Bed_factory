@@ -6,7 +6,7 @@ import { Carousel } from "react-responsive-carousel";
 function NextJsCarousel() {
   return (
     <div className="">
-      <Carousel autoPlay={true} interval={3000} className="">
+      <Carousel autoPlay={true} interval={3000} showThumbs={false} infiniteLoop={true} className="">
         <div>
           <img src="/Conway-Mobile-Banner.jpg" alt="image1" />
         </div>
