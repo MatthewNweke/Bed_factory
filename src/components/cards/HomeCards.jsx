@@ -28,7 +28,7 @@ const HomeCards = ({ index, imageUrl, buttons }) => {
             </div>
           )}
           {showButtonIndex !== null && buttons[showButtonIndex] && (
-            <div className="max-md:hidden  px-5 py-2 w-[90%] rounded mt-1 border border-black ">
+            <div className="max-md:hidden text-center  px-5 py-2 w-[90%] rounded mt-1 border border-black ">
               {buttons[showButtonIndex].buttonText}
             </div>
           )}

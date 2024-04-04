@@ -138,36 +138,37 @@ const Navbar = () => {
             </div>
           </div>
         </nav>
-        <nav className="h-[12vh] py-3  relative max-xl:mt-24 max-md:hidden max-lg:mt-32 bg-[#EEEEEE]">
-          <ul className="m-0 p-0 h-[100%] text-[0.9rem] flex w-[80%]  items-center justify-between  px-2 top-0 absolute left-1/2 -translate-x-1/2 max-2xl:w-[100%] max-xl:text-[0.8rem] flex-wrap max-xl:justify-center">
+        <nav className="h-[12vh] py-5  relative max-xl:mt-24 max-md:hidden max-lg:mt-32 bg-[#EEEEEE]">
+          <ul className="m-0 p-0 h-[100%]  text-[0.9rem] flex w-[100%]  items-center justify-center top-0 absolute max-xl:text-[0.8rem] flex-wrap max-xl:justify-center">
             <li className="p-4 w-[10%] max-xl:w-[12%] max-lg:w-auto max-lg:p-3 text-center cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
-              Beds
+              Home
             </li>
-            <li className="p-4 w-[10%] max-xl:w-[12%] max-lg:w-auto  max-lg:p-3 text-center cursor-pointer hover:bg-[#08c] hover:text-white  font-semibold">
-              Mattresses
+            <li className="p-4  max-lg:w-auto  max-lg:p-3 text-center cursor-pointer hover:bg-[#08c] hover:text-white  font-semibold">
+              Bed Frames
             </li>
-            <li className="p-4 w-[10%] max-xl:w-[12%] max-lg:w-auto max-lg:p-3 text-center cursor-pointer hover:bg-[#08c] hover:text-white  font-semibold">
-              Headboards
+            <li className="p-4   max-lg:w-auto max-lg:p-3 text-center cursor-pointer hover:bg-[#08c] hover:text-white  font-semibold">
+              Orthopaedic Mattress
             </li>
-            <li className="p-4 w-[10%] max-xl:w-[12%] max-lg:w-auto max-lg:p-3 text-center cursor-pointer hover:bg-[#08c] hover:text-white  font-semibold">
-              Furniture
+            <li className="p-4  max-lg:w-auto max-lg:p-3 text-center cursor-pointer hover:bg-[#08c] hover:text-white  font-semibold">
+              Premium Range
             </li>
-            <li className="p-4 w-[10%] max-xl:w-[12%] max-lg:w-auto max-lg:p-3 text-center cursor-pointer hover:bg-[#08c] hover:text-white  font-semibold flex gap-1 justify-center">
-              <span>Custom</span>
-              <span>Sizes</span>
+            <li className="p-4  max-lg:w-auto max-lg:p-3 text-center cursor-pointer hover:bg-[#08c] hover:text-white  font-semibold flex gap-1 justify-center">
+              Elegant Range (Wood Filling)
             </li>
-            <li className="p-4 w-[10%] max-xl:w-[12%] max-lg:w-auto max-lg:p-3 text-center cursor-pointer hover:bg-[#08c] hover:text-white  font-semibold">
-              Brands
+            <li className="p-4 max-lg:w-auto max-lg:p-3 text-center cursor-pointer hover:bg-[#08c] hover:text-white  font-semibold">
+              Bedroom Accessories
             </li>
-            <li className="p-4 w-[10%] max-xl:w-[12%] max-lg:w-auto max-lg:p-3 text-center cursor-pointer hover:bg-[#08c] hover:text-white  font-semibold">
-              Accessories
+            <li className="p-4 max-lg:w-auto max-lg:p-3 text-center cursor-pointer hover:bg-[#08c] hover:text-white  font-semibold">
+              Terms and Conditions
             </li>
-            <li className="p-4 w-[10%] text-center cursor-pointer hover:bg-[#08c] hover:text-white  font-semibold flex gap-1 justify-center">
-              <span>Next</span>
-              <span>Day</span>
+            <li className="p-4 text-center cursor-pointer hover:bg-[#08c] hover:text-white  font-semibold flex gap-1 justify-center">
+              Order Swatches
             </li>
-            <li className="p-4 w-[10%] max-xl:w-[12%] max-lg:w-auto max-lg:p-3 text-center cursor-pointer hover:bg-[#08c] hover:text-white  font-semibold">
-              Sale
+            <li className="p-4   max-lg:w-auto max-lg:p-3 text-center cursor-pointer hover:bg-[#08c] hover:text-white  font-semibold">
+              Contact Us
+            </li>
+            <li className="p-4  max-lg:w-auto max-lg:p-3 text-center cursor-pointer hover:bg-[#08c] hover:text-white  font-semibold">
+              Customer Photos
             </li>
           </ul>
         </nav>

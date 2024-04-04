@@ -103,7 +103,7 @@ export default function Home() {
         <Image src="/gfw_logo.png" alt="gfw_logo" width={100} height={100} />
       </div>
 
-      <div className="leading-7 py-10 text-[1.1rem] px-3 w-[80%] relative left-1/2 -translate-x-1/2">
+      <div className="leading-7 py-10 text-[1.1rem] px-3 w-[80%] relative left-1/2 -translate-x-1/2 max-md:w-[90%] max-sm:w-[100%] max-sm:px-3">
         <p className="text-[1.5rem] font-semibold mb-5">Welcome to Bed Factory Direct</p>
          Welcome to Bed Factory Direct We have over
         30 years experience in manufacturing and supplying a high standard of
