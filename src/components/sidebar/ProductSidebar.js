@@ -17,9 +17,9 @@ const ProductSidebar = () => {
   ];
 
   return (
-    <div>
-      <div className="min-h-[50vh] p-2 w-64">
-        <nav className="mt-10">
+    <div className="max-lg:hidden">
+      <div className="min-h-[50vh] p-2 w-64 max-lg:w-100%]">
+        <nav className="">
           <ul>
             {sidebarItems.map((item, index) => (
               <li
