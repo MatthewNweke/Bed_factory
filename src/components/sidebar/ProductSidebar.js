@@ -29,20 +29,21 @@ const ProductSidebar = () => {
                 <a href="#" className="block py-2 px-4">
                   {item}
                   {index < 3 && (
-                    <span className="absolute right-0 top-3 -mt-3 mr-3">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                        class="h-5 w-5"
-                      >
-                        <path
-                          fill-rule="evenodd"
-                          d="M13.293 7.293a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 01-1.414-1.414L14.586 11H4a1 1 0 010-2h10.586l-1.293-1.293a1 1 0 010-1.414z"
-                          clip-rule="evenodd"
-                        />
-                      </svg>
-                    </span>
+                    <span className="absolute right-0 top-1/2 transform -translate-y-1/2 mr-3">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                      className="h-5 w-5"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M13.293 7.293a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 01-1.414-1.414L14.586 11H4a1 1 0 010-2h10.586l-1.293-1.293a1 1 0 010-1.414z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                  </span>
+                  
                   )}
                 </a>
                 {index < 3 && (
