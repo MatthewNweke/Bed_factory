@@ -1,4 +1,13 @@
-
+.image-container {
+    max-width: 100%; /* Set maximum width to prevent image from overflowing */
+    height: auto; /* Allow height to adjust according to the image aspect ratio */
+  }
+  
+  .image-container img {
+    width: 100%; /* Make image fill its container horizontally */
+    height: auto; /* Allow height to adjust according to the image aspect ratio */
+  }
+  
 
 @media (min-width:768px) {
     .carousel-container {

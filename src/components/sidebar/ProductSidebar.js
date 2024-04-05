@@ -29,7 +29,7 @@ const ProductSidebar = () => {
                 <a href="#" className="block py-2 px-4">
                   {item}
                   {index < 3 && (
-                    <span className="absolute right-0 top-3 -mt-1 mr-3">
+                    <span className="absolute right-0 top-3 -mt-3 mr-3">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 20 20"
@@ -46,7 +46,7 @@ const ProductSidebar = () => {
                   )}
                 </a>
                 {index < 3 && (
-                  <div className="hidden group-hover:block absolute top-0 -right-44 bg-white text-black shadow-xl p-2">
+                  <div className="hidden group-hover:block absolute top-0 z-50 -right-44 bg-white text-black shadow-xl p-2">
                     <ul>
                       <li>
                         <a href="#" className="block py-2 px-4">
