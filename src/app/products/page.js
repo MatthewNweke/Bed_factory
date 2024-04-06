@@ -19,7 +19,7 @@ const Products = () => {
     switch (selectedValue) {
       case "option1":
         return (
-          <div className="grid grid-cols-4 place-items-center mt-5 w-[80%] gap-2 max-sm:grid-cols-2">
+          <div className="grid grid-cols-4 place-items-center mt-5 w-[80%] gap-2 max-2xl:grid-cols-3 max-sm:grid-cols-2">
             <div className="border-[1px] rounded-lg h-[6rem] w-[6rem] relative">
               <Image
                 src="/ignore4.jpg"
@@ -36,7 +36,7 @@ const Products = () => {
         );
       case "option2":
         return (
-          <div className="grid grid-cols-5  mt-5  gap-2 max-sm:grid-cols-2">
+          <div className="grid grid-cols-5  mt-5  gap-2 max-2xl:grid-cols-3 max-sm:grid-cols-2">
             <div className="border-[1px] rounded-lg h-[6rem] w-[6rem]"></div>
             <div className="border-[1px] rounded-lg h-[6rem] w-[6rem]"></div>
             <div className="border-[1px] rounded-lg h-[6rem] w-[6rem]"></div>
@@ -46,7 +46,7 @@ const Products = () => {
         );
       case "option3":
         return (
-          <div className="grid grid-cols-5 place-items-center gap-2 mt-5 max-sm:grid-cols-2">
+          <div className="grid grid-cols-5 place-items-center gap-2 mt-5 max-2xl:grid-cols-3 max-sm:grid-cols-2">
             <div className="border-[1px] rounded-lg h-[6rem] w-[6rem] "></div>
             <div className="border-[1px] rounded-lg h-[6rem] w-[6rem]"></div>
             <div className="border-[1px] rounded-lg h-[6rem] w-[6rem]"></div>
@@ -58,7 +58,7 @@ const Products = () => {
         );
       case "option4":
         return (
-          <div className="grid grid-cols-5 place-items-center gap-2 mt-5 max-sm:grid-cols-2">
+          <div className="grid grid-cols-5 place-items-center gap-2 mt-5 max-2xl:grid-cols-3 max-sm:grid-cols-2">
             <div className="border-[1px] rounded-lg h-[6rem] w-[6rem] "></div>
             <div className="border-[1px] rounded-lg h-[6rem] w-[6rem]"></div>
             <div className="border-[1px] rounded-lg h-[6rem] w-[6rem]"></div>
@@ -70,7 +70,7 @@ const Products = () => {
         );
       case "option5":
         return (
-          <div className="grid grid-cols-5 place-items-center gap-2 mt-5 max-sm:grid-cols-2">
+          <div className="grid grid-cols-5 place-items-center gap-2 mt-5 max-2xl:grid-cols-3 max-sm:grid-cols-2">
             <div className="border-[1px] rounded-lg h-[6rem] w-[6rem] "></div>
             <div className="border-[1px] rounded-lg h-[6rem] w-[6rem]"></div>
             <div className="border-[1px] rounded-lg h-[6rem] w-[6rem]"></div>
@@ -82,7 +82,7 @@ const Products = () => {
         );
       case "option6":
         return (
-          <div className="grid grid-cols-5 place-items-center gap-2 mt-5 max-sm:grid-cols-2">
+          <div className="grid grid-cols-5 place-items-center gap-2 mt-5 max-2xl:grid-cols-3 max-sm:grid-cols-2">
             <div className="border-[1px] rounded-lg h-[6rem] w-[6rem] "></div>
             <div className="border-[1px] rounded-lg h-[6rem] w-[6rem]"></div>
             <div className="border-[1px] rounded-lg h-[6rem] w-[6rem]"></div>
@@ -94,7 +94,7 @@ const Products = () => {
         );
       default:
         return (
-          <div className="grid grid-cols-5 place-items-center gap-2 mt-5 max-sm:grid-cols-2">
+          <div className="grid grid-cols-5 place-items-center gap-2 mt-5 max-2xl:grid-cols-3 max-sm:grid-cols-2">
             <div className="border-[1px] rounded-lg h-[6rem] w-[6rem] "></div>
             <div className="border-[1px] rounded-lg h-[6rem] w-[6rem]"></div>
             <div className="border-[1px] rounded-lg h-[6rem] w-[6rem]"></div>
@@ -238,7 +238,7 @@ const Products = () => {
                   Linen +£50
                 </p>
               </div>
-              <div className="grid grid-cols-5 place-items-center gap-2 mt-5 max-sm:grid-cols-2 grid-cols-gap-1">
+              <div className="grid grid-cols-5 place-items-center gap-2 mt-5 max-2xl:grid-cols-3 max-sm:grid-cols-2 grid-cols-gap-1">
                 <div className="border-[1px] rounded-lg h-[6rem] w-[6rem] "></div>
                 <div className="border-[1px] rounded-lg h-[6rem] w-[6rem]"></div>
                 <div className="border-[1px] rounded-lg h-[6rem] w-[6rem]"></div>
@@ -251,7 +251,7 @@ const Products = () => {
               <p className="text-[#777] mt-5 mb-1 max-sm:text-center">
                 Teddy Boucle £75
               </p>
-              <div className="grid grid-cols-5 place-items-center gap-2 mt-5 max-sm:grid-cols-2 grid-cols-gap-1">
+              <div className="grid grid-cols-5 place-items-center gap-2 mt-5 max-2xl:grid-cols-3 max-sm:grid-cols-2 grid-cols-gap-1">
                 <div className="border-[1px] rounded-lg h-[6rem] w-[6rem] "></div>
                 <div className="border-[1px] rounded-lg h-[6rem] w-[6rem]"></div>
                 <div className="border-[1px] rounded-lg h-[6rem] w-[6rem]"></div>
@@ -264,7 +264,7 @@ const Products = () => {
               <p className="text-[#777] mt-5 mb-1 max-sm:text-center">
                 Coniston Spice Velvet +£50
               </p>
-              <div className="grid grid-cols-5  mt-5  gap-2 max-sm:grid-cols-2 grid-cols-gap-1">
+              <div className="grid grid-cols-5  mt-5  gap-2 max-sm:grid-cols-2 max-2xl:grid-cols-3 grid-cols-gap-1">
                 <div className="border-[1px] rounded-lg h-[6rem] w-[6rem]"></div>
                 <div className="border-[1px] rounded-lg h-[6rem] w-[6rem]"></div>
                 <div className="border-[1px] rounded-lg h-[6rem] w-[6rem]"></div>
@@ -274,7 +274,7 @@ const Products = () => {
               <p className="text-[#777] mt-5 mb-1 max-sm:text-center">
                 Chenille - Corded +£25
               </p>
-              <div className="grid grid-cols-5 place-items-center gap-2 mt-5 max-sm:grid-cols-2 grid-cols-gap-1">
+              <div className="grid grid-cols-5 place-items-center gap-2 mt-5 max-2xl:grid-cols-3 max-sm:grid-cols-2 grid-cols-gap-1">
                 <div className="border-[1px] rounded-lg h-[6rem] w-[6rem] "></div>
                 <div className="border-[1px] rounded-lg h-[6rem] w-[6rem]"></div>
                 <div className="border-[1px] rounded-lg h-[6rem] w-[6rem]"></div>
@@ -285,7 +285,7 @@ const Products = () => {
               <p className="text-[#777] mt-5 mb-1 max-sm:text-center">
                 Crush Velvet +£25
               </p>
-              <div className="grid grid-cols-5 place-items-center gap-2 mt-5 max-sm:grid-cols-2 grid-cols-gap-1">
+              <div className="grid grid-cols-5 place-items-center gap-2 mt-5 max-2xl:grid-cols-3 max-sm:grid-cols-2 grid-cols-gap-1">
                 <div className="border-[1px] rounded-lg h-[6rem] w-[6rem] "></div>
                 <div className="border-[1px] rounded-lg h-[6rem] w-[6rem]"></div>
                 <div className="border-[1px] rounded-lg h-[6rem] w-[6rem]"></div>
@@ -296,7 +296,7 @@ const Products = () => {
               <p className="text-[#777] mt-5 mb-1 max-sm:text-center">
                 Naples Velvet +£75
               </p>
-              <div className="grid grid-cols-5 place-items-center gap-2 mt-5 max-sm:grid-cols-2 grid-cols-gap-1">
+              <div className="grid grid-cols-5 place-items-center gap-2 mt-5 max-2xl:grid-cols-3 max-sm:grid-cols-2 grid-cols-gap-1">
                 <div className="border-[1px] rounded-lg h-[6rem] w-[6rem] "></div>
                 <div className="border-[1px] rounded-lg h-[6rem] w-[6rem]"></div>
                 <div className="border-[1px] rounded-lg h-[6rem] w-[6rem]"></div>
@@ -309,7 +309,7 @@ const Products = () => {
               <p className="text-[#777] mt-5 mb-1 max-sm:text-center">
                 Wool +£50
               </p>
-              <div className="grid grid-cols-5  mt-5  gap-2 max-sm:grid-cols-2 grid-cols-gap-1">
+              <div className="grid grid-cols-5  mt-5  gap-2 max-2xl:grid-cols-3 max-sm:grid-cols-2 grid-cols-gap-1">
                 <div className="border-[1px] rounded-lg h-[6rem] w-[6rem]"></div>
                 <div className="border-[1px] rounded-lg h-[6rem] w-[6rem]"></div>
                 <div className="border-[1px] rounded-lg h-[6rem] w-[6rem]"></div>
@@ -319,7 +319,7 @@ const Products = () => {
               <p className="text-[#777] mt-5 mb-1 max-sm:text-center">
                 Plush Velvet +£50
               </p>
-              <div className="grid grid-cols-5 place-items-center gap-2 mt-5 max-sm:grid-cols-2 grid-cols-gap-1">
+              <div className="grid grid-cols-5 place-items-center gap-2 mt-5 max-2xl:grid-cols-3 max-sm:grid-cols-2 grid-cols-gap-1">
                 <div className="border-[1px] rounded-lg h-[6rem] w-[6rem] "></div>
                 <div className="border-[1px] rounded-lg h-[6rem] w-[6rem]"></div>
                 <div className="border-[1px] rounded-lg h-[6rem] w-[6rem]"></div>
@@ -338,7 +338,7 @@ const Products = () => {
               <p className="text-[#777] mt-5 mb-1 max-sm:text-center">
                 Ascot - Weave +£50
               </p>
-              <div className="grid grid-cols-5 place-items-center gap-2 mt-5 max-sm:grid-cols-2 grid-cols-gap-1">
+              <div className="grid grid-cols-5 place-items-center gap-2 mt-5 max-2xl:grid-cols-3 max-sm:grid-cols-2 grid-cols-gap-1">
                 <div className="border-[1px] rounded-lg h-[6rem] w-[6rem] "></div>
                 <div className="border-[1px] rounded-lg h-[6rem] w-[6rem]"></div>
                 <div className="border-[1px] rounded-lg h-[6rem] w-[6rem]"></div>
@@ -349,7 +349,7 @@ const Products = () => {
               <p className="text-[#777] mt-5 mb-1 max-sm:text-center">
                 Rustique Velvet +£125
               </p>
-              <div className="grid grid-cols-5 place-items-center gap-2 mt-5 max-sm:grid-cols-2 grid-cols-gap-1">
+              <div className="grid grid-cols-5 place-items-center gap-2 mt-5 max-2xl:grid-cols-3 max-sm:grid-cols-2 grid-cols-gap-1">
                 <div className="border-[1px] rounded-lg h-[6rem] w-[6rem] "></div>
                 <div className="border-[1px] rounded-lg h-[6rem] w-[6rem]"></div>
                 <div className="border-[1px] rounded-lg h-[6rem] w-[6rem]"></div>
@@ -360,7 +360,7 @@ const Products = () => {
               <p className="text-[#777] mt-5 mb-1 max-sm:text-center">
                 Tweed +£125
               </p>
-              <div className="grid grid-cols-3 place-items-center gap-2 mt-5 w-[60%] max-sm:grid-cols-2 grid-cols-gap-1 max-sm:w-[100%]">
+              <div className="grid grid-cols-3 place-items-center gap-2 mt-5 w-[60%] max-2xl:grid-cols-3 max-sm:grid-cols-2 grid-cols-gap-1 max-2xl:w-[100%]">
                 <div className="border-[1px] rounded-lg h-[6rem] w-[6rem] "></div>
                 <div className="border-[1px] rounded-lg h-[6rem] w-[6rem]"></div>
                 <div className="border-[1px] rounded-lg h-[6rem] w-[6rem]"></div>
@@ -368,7 +368,7 @@ const Products = () => {
               <p className="text-[#777] mt-5 mb-1 max-sm:text-center">
                 Alesia Velvet +£125
               </p>
-              <div className="grid grid-cols-3 place-items-center gap-2 mt-5 w-[60%] max-sm:grid-cols-2 grid-cols-gap-1 max-sm:w-[100%]">
+              <div className="grid grid-cols-3 place-items-center gap-2 mt-5 w-[60%] max-2xl:grid-cols-3 max-sm:grid-cols-2 grid-cols-gap-1 max-2xl:w-[100%]">
                 <div className="border-[1px] rounded-lg h-[6rem] w-[6rem] "></div>
                 <div className="border-[1px] rounded-lg h-[6rem] w-[6rem]"></div>
                 <div className="border-[1px] rounded-lg h-[6rem] w-[6rem]"></div>
@@ -380,7 +380,7 @@ const Products = () => {
                 </p>
                 <p className="font-semibold">FEET TYPE: * </p>
               </div>
-              <div className="grid grid-cols-5 place-items-center gap-2 mt-5 max-sm:grid-cols-2 grid-cols-gap-1">
+              <div className="grid grid-cols-5 place-items-center gap-2 mt-5 max-2xl:grid-cols-3 max-sm:grid-cols-2 grid-cols-gap-1">
                 <div className="border-[1px] rounded-lg h-[6rem] w-[6rem] "></div>
                 <div className="border-[1px] rounded-lg h-[6rem] w-[6rem]"></div>
                 <div className="border-[1px] rounded-lg h-[6rem] w-[6rem]"></div>
