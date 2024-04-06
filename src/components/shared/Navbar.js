@@ -18,16 +18,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [openSide, setOpenSide] = useState(false);
 
-  const removeOverlay = () => {
-    setOpenSide(!openSide);
-  };
-
-  const navDropdown = () => {
-    setIsOpen(!isOpen);
-  };
-  const sideDropdown = () => {
-    setOpenSide(!openSide);
-  };
+ 
 
   return (
     <div className="py-5 max-xl:py-0">
