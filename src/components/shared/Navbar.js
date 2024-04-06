@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import logo from "../../assets/Sosoft-logo.png";
@@ -15,10 +15,45 @@ import fabric from "../../assets/fabric-swatches.png";
 import trustpilot from "../../assets/trustpilot-icon.png";
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [openSide, setOpenSide] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
- 
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
+  
+  useEffect(() => {
+    const handleToggleScroll = () => {
+      // Toggle the body scroll based on dropdown state
+      document.body.style.overflow = isDropdownOpen ? "hidden" : "auto";
+    };
+
+    handleToggleScroll();
+
+    return () => {
+      document.body.style.overflow = "auto"; // Reset overflow when component unmounts
+    };
+  }, [isDropdownOpen]);
+  
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (isDropdownOpen) {
+        // Check if the click occurred inside the dropdown or on the hamburger icon
+        if (
+          !event.target.closest(".dropdown-content") &&
+          !event.target.closest(".hamburger-icon")
+        ) {
+          setIsDropdownOpen(false);
+        }
+      }
+    };
+    
+
+    document.body.addEventListener("click", handleClickOutside);
+
+    return () => {
+      document.body.removeEventListener("click", handleClickOutside);
+    };
+  }, [isDropdownOpen]);
 
   return (
     <div className="py-5 max-xl:py-0">
@@ -61,18 +96,23 @@ const Navbar = () => {
               </div>
             </div>
           </div>
-
+          {isDropdownOpen && (
+          <div
+            className="fixed top-[24%] left-0 w-full h-full bg-[#00000066] z-50"
+            onClick={() => setIsDropdownOpen(false)}
+          ></div>
+        )}
           <div className="w-[40%] flex gap-[10%] max-xl:absolute max-xl:h-[15vh] max-xl:top-0 max-xl:items-center  right-0 max-xl:justify-end  max-xl:gap-[5%] max-xl:w-[80%] max-lg:w-[70%] max-md:w-[60%]    max-xl:px-5 max-sm:items-center">
             <div className="flex items-center cursor-pointer mr-5">
-              <div className="flex flex-col justify-center">
+              <div className="flex flex-col justify-center max-sm:ml-5">
                 <Image
                   src={phoneimg}
                   width={35}
                   height={35}
-                  alt=""
+                  alt="phone"
                   className="max-xl:w-5 max-xl:h-5"
                 />
-                <span className="font-bold text-[0.6rem] hidden max-xl:inline">
+                <span className="font-bold text-[0.6rem] hidden max-xl:inline ">
                   phone
                 </span>
               </div>
@@ -146,7 +186,10 @@ const Navbar = () => {
         </nav>
 
         <div className=" relative w-[100%] hidden max-md:flex border-[2px] border-[#e3e3e5]">
-          <div className="w-[10%] cursor-pointer flex items-center justify-center">
+          <div
+            className="w-[10%] cursor-pointer flex items-center justify-center hamburger-icon"
+            onClick={toggleDropdown}
+          >
             <span className="text-[1.2rem] font-bold">&#9776;</span>
           </div>
           <input
@@ -163,6 +206,46 @@ const Navbar = () => {
               height={15}
             />
           </div>
+        </div>
+
+       
+
+        <div className="z-50">
+          {isDropdownOpen && (
+            <div className="absolute top-[24vh] bg-white  py-2 border-[2px] border-[#e3e3e5] dropdown-content w-[50%]">
+              <div className="text-[0.9rem] px-4 py-2 cursor-pointer bg-[#08c] text-white font-semibold my-5">
+                  Menu
+                </div>
+              <div className="h-[100%] w-[100%]">
+              
+                <div className="text-[0.9rem] px-4 py-2 cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
+                  Beds
+                </div>
+                <div className="text-[0.9rem] px-4 py-2  cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
+                  Headboards
+                </div>
+                <div className="text-[0.9rem] px-4 py-2 cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
+                  Furniture
+                </div>
+                <div className="text-[0.9rem] px-4 py-2  cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
+                  Custom Sizes
+                </div>
+                <div className="text-[0.9rem] px-4 py-2 cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
+                  Brands
+                </div>
+                <div className="text-[0.9rem] px-4 py-2  cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
+                  Accessories
+                </div>
+                <div className="text-[0.9rem] px-4 py-2  cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
+                  Next Day
+                </div>
+                <div className="text-[0.9rem] px-4 py-2  cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
+                  Sale
+                </div>
+              </div>
+              {/* Add more dropdown items as needed */}
+            </div>
+          )}
         </div>
 
         <nav className="h-[10vh] py-3 relative max-md:hidden">
@@ -185,52 +268,6 @@ const Navbar = () => {
             </li>
           </ul>
         </nav>
-
-        {openSide && (
-          <div
-            onClick={removeOverlay}
-            className={` transition-opacity ${
-              openSide ? "opacity-100" : "opacity-0 invisible"
-            }   py-5 bg-[#80808030] z-50 h-[100vh] w-[100%] left-0 fixed overflow-hidden`}
-          >
-            {/* overlay */}
-            <div
-              className="w-48 shadow-xl absolute bottom-[20%]  bg-white py-2"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <p className="px-2 mb-5 font-semibold">Menu</p>
-              <div className="leading-9">
-                <p className="border-[1px] px-2 hover:bg-[#08c] py-1 hover:text-white">
-                  Beds
-                </p>
-                <p className="border-[1px] px-2 hover:bg-[#08c] py-1 hover:text-white">
-                  Mattresses
-                </p>
-                <p className="border-[1px] px-2 hover:bg-[#08c] py-1 hover:text-white">
-                  Headboards
-                </p>
-                <p className="border-[1px] px-2 hover:bg-[#08c] py-1 hover:text-white">
-                  Furniture
-                </p>
-                <p className="border-[1px] px-2 hover:bg-[#08c] py-1 hover:text-white">
-                  Custom Sizes
-                </p>
-                <p className="border-[1px] px-2 hover:bg-[#08c] py-1 hover:text-white">
-                  Brands
-                </p>
-                <p className="border-[1px] px-2 hover:bg-[#08c] py-1 hover:text-white">
-                  Accessories
-                </p>
-                <p className="border-[1px] px-2 hover:bg-[#08c] py-1 hover:text-white">
-                  Next Day
-                </p>
-                <p className="border-[1px] px-2 hover:bg-[#08c] py-1 hover:text-white">
-                  Sale
-                </p>
-              </div>
-            </div>
-          </div>
-        )}
       </header>
     </div>
   );
