@@ -55,6 +55,34 @@ const Navbar = () => {
     };
   }, [isDropdownOpen]);
 
+
+  const [hoverState, setHoverState] = useState({
+    home: false,
+    bed: false,
+    orthopaedic: false,
+    premium: false,
+    elegant: false,
+    bedroom: false,
+    terms: false,
+    order: false,
+    contact: false,
+    customer: false,
+  });
+
+  const handleMouseEnter = (item) => {
+    setHoverState((prevState) => ({
+      ...prevState,
+      [item]: true,
+    }));
+  };
+
+  const handleMouseLeave = (item) => {
+    setHoverState((prevState) => ({
+      ...prevState,
+      [item]: false,
+    }));
+  };
+
   return (
     <div className="py-5 max-xl:py-0">
       <header className="flex flex-col relative max-xl:px-3 max-sm:px-1">
@@ -62,7 +90,7 @@ const Navbar = () => {
           <div className="flex items-center w-[55%] justify-end gap-[10%] max-xl:gap-[5%]  max-xl:w-[100%] max-sm:h-[100%]">
             <Link href={""}>
               <Image
-                className="max-xl:w-32 max-sm:w-24 "
+                className="max-xl:w-32 max-sm:w-24"
                 src={logo}
                 width={170}
                 height={170}
@@ -102,9 +130,9 @@ const Navbar = () => {
             onClick={() => setIsDropdownOpen(false)}
           ></div>
         )}
-          <div className="w-[40%] flex gap-[10%] max-xl:absolute max-xl:h-[15vh] max-xl:top-0 max-xl:items-center  right-0 max-xl:justify-end  max-xl:gap-[5%] max-xl:w-[80%] max-lg:w-[70%] max-md:w-[60%]    max-xl:px-5 max-sm:items-center">
-            <div className="flex items-center cursor-pointer mr-5">
-              <div className="flex flex-col justify-center max-sm:ml-5">
+          <div className="w-[40%] flex gap-[10%] max-xl:absolute max-xl:h-[15vh] max-xl:top-0 max-xl:items-center  right-0 max-xl:justify-end  max-xl:gap-[5%] max-xl:w-[80%] max-lg:w-[70%] max-md:w-[60%] max-xl:px-5 max-sm:items-center">
+            <div className="flex items-center cursor-pointer mr-5 max-sm:mr-2">
+              <div className="flex flex-col justify-center">
                 <Image
                   src={phoneimg}
                   width={35}
@@ -121,7 +149,7 @@ const Navbar = () => {
               </span>
             </div>
 
-            <div className="flex items-center gap-10 ">
+            <div className="flex items-center gap-10 max-sm:gap-5">
               <div className="flex flex-col items-center gap-1 cursor-pointer">
                 <Image src={locationimg} width={13} height={13} alt="" />
                 <span className="font-bold text-[0.6rem]">Showrooms</span>
@@ -140,9 +168,34 @@ const Navbar = () => {
         </nav>
         <nav className=" relative  max-md:hidden  bg-[#EEEEEE] py-3 px-3">
           <ul className="m-0 p-0 h-[100%]  text-[0.9rem] flex items-center justify-center flex-wrap max-xl:text-[0.8rem] max-2xl:w-[100%]">
-            <li className="p-4   max-lg:p-3  cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
-              Home
-            </li>
+            <li
+          className="p-4 max-lg:p-3 cursor-pointer hover:bg-[#08c] hover:text-white font-semibold relative"
+          onMouseEnter={() => handleMouseEnter("home")}
+          onMouseLeave={() => handleMouseLeave("home")}
+        >
+          Home
+          {hoverState.home && (
+            <div className="absolute top-full left-0  py-2 border-[2px] border-[#e3e3e5] w-full">
+              {/* Dropdown menu content */}
+              <p>lorem</p>
+              <p>lorem</p>
+              <p>lorem</p>
+              <p>lorem</p>
+              <p>lorem</p>
+              <p>lorem</p>
+              <p>lorem</p>
+              <p>lorem</p>
+              <p>lorem</p>
+              <p>lorem</p>
+              <p>lorem</p>
+              <p>lorem</p>
+              <p>lorem</p>
+              <p>lorem</p>
+              <p>lorem</p>
+              <p>lorem</p>
+            </div>
+          )}
+        </li>
             <li className="p-4 flex gap-1   max-lg:p-3  cursor-pointer hover:bg-[#08c] hover:text-white  font-semibold">
               <span>Bed</span>
               <span>Frames</span>
