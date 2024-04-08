@@ -18,7 +18,6 @@ import trustpilot from "../../assets/trustpilot-icon.png";
 const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-  const [navDropdown, setNavDropdown] = useState(false);
 
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
@@ -28,21 +27,9 @@ const Navbar = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
 
-  const handleMouseEnter = () => {
-    setNavDropdown(true);
-  };
+ 
 
-  const handleMouseLeave = () => {
-    setNavDropdown(false);
-  };
 
-  const handleDropdownMouseEnter = () => {
-    setIsDropdownOpen(true);
-  };
-
-  const handleDropdownMouseLeave = () => {
-    setIsDropdownOpen(false);
-  };
 
   useEffect(() => {
     const handleToggleScroll = () => {
@@ -171,42 +158,42 @@ const Navbar = () => {
                 Matresses
               </li>
 
-              <div className="absolute  bottom-[3%] max-xl:bottom-[-3%] max-lg:bottom-[-6%] bg-white shadow-xl py-5 z-50 dropdowncontent hidden border-[5px] border-[#08c]">
-                <ul className="  top-0  border-[2px] w-[20%] p-3 pb-5 h-[100%]">
+              <div className="absolute  bottom-[3%] max-xl:bottom-[-3%] max-lg:bottom-[-6%] bg-white shadow-xl  z-50 dropdowncontent hidden border-[5px] border-[#08c] ">
+                <ul className="  top-0  border-[2px] w-[20%] h-[100%] p-5">
                   <li className="mb-5 font-semibold text-[1.2rem]"> Shop by Type</li>
-                <li className="mb-2"><Link href="#" className="hover:text-[#08c]">Memory Foam</Link> </li>
-                  <li className="mb-2"><Link href="#" className="hover:text-[#08c]">Pocket Sprung</Link></li>  
-                  <li className="mb-2"> <Link href="#" className="hover:text-[#08c]">Orthopaedic</Link></li>
-                  <li className="mb-2"><Link href="#" className="hover:text-[#08c]">Latex</Link></li>
-                  <li className="mb-2"><Link href="#" className="hover:text-[#08c]">Miracoil</Link></li>
-                  <li className="mb-2"><Link href="#" className="hover:text-[#08c]">Natural Fillings</Link></li>
-                  <li className="mb-2"><Link href="#" className="hover:text-[#08c]">Cut Bed Mattresses</Link></li>
-                  <li className="mb-2"><Link href="#" className="hover:text-[#08c]">Kids Mattresses</Link></li>
-                  <li className="mb-2"><Link href="#" className="hover:text-[#08c]">Next Day Mattresses</Link></li>
-                  <li className="mb-2"> <Link href="#" className="text-[#08c] font-semibold">View All Matresses</Link></li>
+                <li className="mb-1"><Link href="#" className="hover:text-[#08c]">Memory Foam</Link> </li>
+                  <li className="mb-1"><Link href="#" className="hover:text-[#08c]">Pocket Sprung</Link></li>  
+                  <li className="mb-1"> <Link href="#" className="hover:text-[#08c]">Orthopaedic</Link></li>
+                  <li className="mb-1"><Link href="#" className="hover:text-[#08c]">Latex</Link></li>
+                  <li className="mb-1"><Link href="#" className="hover:text-[#08c]">Miracoil</Link></li>
+                  <li className="mb-1"><Link href="#" className="hover:text-[#08c]">Natural Fillings</Link></li>
+                  <li className="mb-1"><Link href="#" className="hover:text-[#08c]">Cut Bed Mattresses</Link></li>
+                  <li className="mb-1"><Link href="#" className="hover:text-[#08c]">Kids Mattresses</Link></li>
+                  <li className="mb-1"><Link href="#" className="hover:text-[#08c]">Next Day Mattresses</Link></li>
+                  <li className="mb-1 "> <Link href="#" className="text-[#08c] font-semibold">View All Matresses</Link></li>
                 </ul>
-                <ul className="  top-0  border-[2px] w-[20%] p-3 pb-5 h-[100%]">
+                <ul className="  top-0  border-[2px] w-[20%]  h-[100%] p-5">
                   <li className="mb-5 font-semibold text-[1.2rem]"> Shop by Firmness</li>
-                <li className="mb-2"><Link href="#" className="hover:text-[#08c]">Extra Firm</Link> </li>
-                  <li className="mb-2"><Link href="#" className="hover:text-[#08c]">Firm</Link></li>  
-                  <li className="mb-2"> <Link href="#" className="hover:text-[#08c]">Medium Firm</Link></li>
-                  <li className="mb-2"><Link href="#" className="hover:text-[#08c]">Medium</Link></li>
-                  <li className="mb-2"><Link href="#" className="hover:text-[#08c]">Soft Firm</Link></li>
-                  <li className="mb-2"><Link href="#" className="text-[#08c] font-semibold">View All Matresses</Link></li>
+                <li className="mb-1"><Link href="#" className="hover:text-[#08c]">Extra Firm</Link> </li>
+                  <li className="mb-1"><Link href="#" className="hover:text-[#08c]">Firm</Link></li>  
+                  <li className="mb-1"> <Link href="#" className="hover:text-[#08c]">Medium Firm</Link></li>
+                  <li className="mb-1"><Link href="#" className="hover:text-[#08c]">Medium</Link></li>
+                  <li className="mb-1"><Link href="#" className="hover:text-[#08c]">Soft Firm</Link></li>
+                  <li className="mb-1"><Link href="#" className="text-[#08c] font-semibold">View All Matresses</Link></li>
   
                 </ul>
-                <ul className="  top-0  border-[2px] w-[40%] p-3 pb-5 h-[100%]">
+                <ul className="border-[2px] w-[40%]  h-[100%] p-5">
                   <li className="mb-5 font-semibold text-[1.2rem]"> Shop by Size</li>
-                <li className="mb-2"><Link href="#" className="hover:text-[#08c]">Super King(6&apos;)</Link> </li>
-                  <li className="mb-2"><Link href="#" className="hover:text-[#08c]">King Size(5&apos;)</Link></li>  
-                  <li className="mb-2"> <Link href="#" className="hover:text-[#08c]">Double(4&apos;6&apos;&apos;)</Link></li>
-                  <li className="mb-2"><Link href="#" className="hover:text-[#08c]">Small DOuble(4&apos;)</Link></li>
-                  <li className="mb-2"><Link href="#" className="hover:text-[#08c]">Single(3&apos;)</Link></li>
-                  <li className="mb-2"><Link href="#" className="hover:text-[#08c]">Small Single(2&apos;6&apos;&apos;)</Link></li>
-                  <li className="mb-2"><Link href="#" className="hover:text-[#08c]">European</Link></li>
-                  <li className="mb-2"> <Link href="#" className="text-[#08c] font-semibold">View All Matresses</Link></li>
+                <li className="mb-1"><Link href="#" className="hover:text-[#08c]">Super King(6&apos;)</Link> </li>
+                  <li className="mb-1"><Link href="#" className="hover:text-[#08c]">King Size(5&apos;)</Link></li>  
+                  <li className="mb-1"> <Link href="#" className="hover:text-[#08c]">Double(4&apos;6&apos;&apos;)</Link></li>
+                  <li className="mb-1"><Link href="#" className="hover:text-[#08c]">Small DOuble(4&apos;)</Link></li>
+                  <li className="mb-1"><Link href="#" className="hover:text-[#08c]">Single(3&apos;)</Link></li>
+                  <li className="mb-1"><Link href="#" className="hover:text-[#08c]">Small Single(2&apos;6&apos;&apos;)</Link></li>
+                  <li className="mb-1"><Link href="#" className="hover:text-[#08c]">European</Link></li>
+                  <li className="mb-1"> <Link href="#" className="text-[#08c] font-semibold">View All Matresses</Link></li>
                 </ul>
-                <ul className="  top-0  border-[2px] w-[20%]   h-[100%] relative">
+                <ul className="    border-[2px] w-[20%]   h-[100%] relative">
                  <Image
                  src="/mattress-menu.jpg"
                  alt=""
@@ -222,32 +209,32 @@ const Navbar = () => {
                 Beds
               </li>
 
-              <div className="absolute  bottom-[3%] max-xl:bottom-[-3%] max-lg:bottom-[-6%] bg-white shadow-xl py-5 z-50 dropdowncontent hidden border-[5px] border-[#08c]">
-                <ul className="  top-0  border-[2px] w-[20%] p-3 pb-5 h-[100%]">
+              <div className="absolute  bottom-[3%] max-xl:bottom-[-3%] max-lg:bottom-[-6%] bg-white shadow-xl z-50 dropdowncontent hidden border-[5px] border-[#08c]">
+                <ul className="  top-0  border-[2px] w-[20%] p-5 h-[100%]">
                   <li className="mb-5 font-semibold text-[1.2rem]"> Shop by Type</li>
-                <li className="mb-2"><Link href="#" className="hover:text-[#08c]">Memory Foam</Link> </li>
-                  <li className="mb-2"><Link href="#" className="hover:text-[#08c]">Pocket Sprung</Link></li>  
-                  <li className="mb-2"> <Link href="#" className="hover:text-[#08c]">Orthopaedic</Link></li>
-                  <li className="mb-2"><Link href="#" className="hover:text-[#08c]">Latex</Link></li>
-                  <li className="mb-2"><Link href="#" className="hover:text-[#08c]">Miracoil</Link></li>
-                  <li className="mb-2"><Link href="#" className="hover:text-[#08c]">Natural Fillings</Link></li>
-                  <li className="mb-2"><Link href="#" className="hover:text-[#08c]">Cut Bed Mattresses</Link></li>
-                  <li className="mb-2"><Link href="#" className="hover:text-[#08c]">Kids Mattresses</Link></li>
-                  <li className="mb-2"><Link href="#" className="hover:text-[#08c]">Next Day Mattresses</Link></li>
-                  <li className="mb-2"> <Link href="#" className="text-[#08c] font-semibold">View All Matresses</Link></li>
+                <li className="mb-1"><Link href="#" className="hover:text-[#08c]">Memory Foam</Link> </li>
+                  <li className="mb-1"><Link href="#" className="hover:text-[#08c]">Pocket Sprung</Link></li>  
+                  <li className="mb-1"> <Link href="#" className="hover:text-[#08c]">Orthopaedic</Link></li>
+                  <li className="mb-1"><Link href="#" className="hover:text-[#08c]">Latex</Link></li>
+                  <li className="mb-1"><Link href="#" className="hover:text-[#08c]">Miracoil</Link></li>
+                  <li className="mb-1"><Link href="#" className="hover:text-[#08c]">Natural Fillings</Link></li>
+                  <li className="mb-1"><Link href="#" className="hover:text-[#08c]">Cut Bed Mattresses</Link></li>
+                  <li className="mb-1"><Link href="#" className="hover:text-[#08c]">Kids Mattresses</Link></li>
+                  <li className="mb-1"><Link href="#" className="hover:text-[#08c]">Next Day Mattresses</Link></li>
+                  <li className="mb-1"> <Link href="#" className="text-[#08c] font-semibold">View All Matresses</Link></li>
                 </ul>
                 
-                <ul className="  top-0  border-[2px] w-[60%] p-3 pb-5 h-[100%]">
+                <ul className="  top-0  border-[2px] w-[60%] p-5 h-[100%]">
                   <li className="mb-5 font-semibold text-[1.2rem]"> Shop by Size</li>
-                <li className="mb-2"><Link href="#" className="hover:text-[#08c]">Super Kings Beds(6&apos;)</Link> </li>
-                  <li className="mb-2"><Link href="#" className="hover:text-[#08c]">King Size Beds(5&apos;)</Link></li>  
-                  <li className="mb-2"> <Link href="#" className="hover:text-[#08c]">Double Beds(4&apos;6&apos;&apos;)</Link></li>
-                  <li className="mb-2"><Link href="#" className="hover:text-[#08c]">Small DOuble Beds(4&apos;)</Link></li>
-                  <li className="mb-2"><Link href="#" className="hover:text-[#08c]">Single Beds(3&apos;)</Link></li>
-                  <li className="mb-2"><Link href="#" className="hover:text-[#08c]">Small Single Beds(2&apos;6&apos;&apos;)</Link></li>
-                  <li className="mb-2"> <Link href="#" className="text-[#08c] font-semibold">View All Beds</Link></li>
+                <li className="mb-1"><Link href="#" className="hover:text-[#08c]">Super Kings Beds(6&apos;)</Link> </li>
+                  <li className="mb-1"><Link href="#" className="hover:text-[#08c]">King Size Beds(5&apos;)</Link></li>  
+                  <li className="mb-1"> <Link href="#" className="hover:text-[#08c]">Double Beds(4&apos;6&apos;&apos;)</Link></li>
+                  <li className="mb-1"><Link href="#" className="hover:text-[#08c]">Small DOuble Beds(4&apos;)</Link></li>
+                  <li className="mb-1"><Link href="#" className="hover:text-[#08c]">Single Beds(3&apos;)</Link></li>
+                  <li className="mb-1"><Link href="#" className="hover:text-[#08c]">Small Single Beds(2&apos;6&apos;&apos;)</Link></li>
+                  <li className="mb-1"> <Link href="#" className="text-[#08c] font-semibold">View All Beds</Link></li>
                 </ul>
-                <ul className="  top-0  border-[2px] w-[20%]   h-[100%] relative">
+                <ul className="border-[2px] w-[20%] h-[100%] relative">
                  <Image
                  src="/divan-beds-menu.jpg"
                  alt=""
@@ -264,11 +251,11 @@ const Navbar = () => {
 
               <div className="absolute  bottom-[3%] max-xl:bottom-[-3%] max-lg:bottom-[-6%] bg-white shadow-xl py-5 z-50 dropdowncontent hidden border-[5px] border-[#08c]">
                 <ul className=" w-[20%] p-3 pb-5 h-[100%]">
-                <li className="mb-2"><Link href="#" className="hover:text-[#08c]">Pillows</Link> </li>
-                  <li className="mb-2"><Link href="#" className="hover:text-[#08c]">Duvetts</Link></li>  
-                  <li className="mb-2"> <Link href="#" className="hover:text-[#08c]">Mattress Toppers</Link></li>
-                  <li className="mb-2"><Link href="#" className="hover:text-[#08c]">Headboards</Link></li>
-                  <li className="mb-2"> <Link href="#" className="text-[#08c] font-semibold">All Accessories</Link></li>
+                <li className="mb-1"><Link href="#" className="hover:text-[#08c]">Pillows</Link> </li>
+                  <li className="mb-1"><Link href="#" className="hover:text-[#08c]">Duvetts</Link></li>  
+                  <li className="mb-1"> <Link href="#" className="hover:text-[#08c]">Mattress Toppers</Link></li>
+                  <li className="mb-1"><Link href="#" className="hover:text-[#08c]">Headboards</Link></li>
+                  <li className="mb-1"> <Link href="#" className="text-[#08c] font-semibold">All Accessories</Link></li>
                 </ul>
                
               </div>
@@ -278,28 +265,28 @@ const Navbar = () => {
                 <span>Sales</span>
               </li>
 
-              <div className="absolute  bottom-[3%] max-xl:bottom-[-3%] max-lg:bottom-[-6%] bg-white shadow-xl py-5 z-50 dropdowncontent hidden border-[5px] border-[#08c]">
-                <ul className="  top-0  border-[2px] w-[20%] p-3 pb-5 h-[100%]">
+              <div className="absolute  bottom-[3%] max-xl:bottom-[-3%] max-lg:bottom-[-6%] bg-white shadow-xl z-50 dropdowncontent hidden border-[5px] border-[#08c]">
+                <ul className="  top-0  border-[2px] w-[20%] p-5 h-[100%]">
                   <li className="mb-5 font-semibold text-[1.2rem]">Sale</li>
-                <li className="mb-2"><Link href="#" className="hover:text-[#08c]">Divan Beds</Link> </li>
-                  <li className="mb-2"><Link href="#" className="hover:text-[#08c]">Divan Bases Only</Link></li>  
-                  <li className="mb-2"> <Link href="#" className="hover:text-[#08c]">Bed Frames</Link></li>
-                  <li className="mb-2"><Link href="#" className="hover:text-[#08c]">Mattresses</Link></li>
-                  <li className="mb-2"><Link href="#" className="hover:text-[#08c]">Headboards</Link></li>
-                  <li className="mb-2"><Link href="#" className="hover:text-[#08c]">Furniture</Link></li>
-                  <li className="mb-2"><Link href="#" className="hover:text-[#08c]">All Sale Products</Link></li>
+                <li className="mb-1"><Link href="#" className="hover:text-[#08c]">Divan Beds</Link> </li>
+                  <li className="mb-1"><Link href="#" className="hover:text-[#08c]">Divan Bases Only</Link></li>  
+                  <li className="mb-1"> <Link href="#" className="hover:text-[#08c]">Bed Frames</Link></li>
+                  <li className="mb-1"><Link href="#" className="hover:text-[#08c]">Mattresses</Link></li>
+                  <li className="mb-1"><Link href="#" className="hover:text-[#08c]">Headboards</Link></li>
+                  <li className="mb-1"><Link href="#" className="hover:text-[#08c]">Furniture</Link></li>
+                  <li className="mb-1"><Link href="#" className="hover:text-[#08c]">All Sale Products</Link></li>
                  
                 </ul>
                 
                 <ul className="  top-0  border-[2px] w-[60%] p-3 pb-5 h-[100%]">
                   <li className="mb-5 font-semibold text-[1.2rem]"> Clearance</li>
-                <li className="mb-2"><Link href="#" className="hover:text-[#08c]">Divan Bases</Link> </li>
-                  <li className="mb-2"><Link href="#" className="hover:text-[#08c]">Mattresses</Link></li>  
-                  <li className="mb-2"> <Link href="#" className="hover:text-[#08c]">Bed Frames</Link></li>
-                  <li className="mb-2"><Link href="#" className="hover:text-[#08c]">Headboards</Link></li>
-                  <li className="mb-2"><Link href="#" className="hover:text-[#08c]">Furniture</Link></li>
-                  <li className="mb-2"><Link href="#" className="hover:text-[#08c]">Clearance Bundles</Link></li>
-                  <li className="mb-2"> <Link href="#" className="text-[#08c] font-semibold">View All Clearance</Link></li>
+                <li className="mb-1"><Link href="#" className="hover:text-[#08c]">Divan Bases</Link> </li>
+                  <li className="mb-1"><Link href="#" className="hover:text-[#08c]">Mattresses</Link></li>  
+                  <li className="mb-1"> <Link href="#" className="hover:text-[#08c]">Bed Frames</Link></li>
+                  <li className="mb-1"><Link href="#" className="hover:text-[#08c]">Headboards</Link></li>
+                  <li className="mb-1"><Link href="#" className="hover:text-[#08c]">Furniture</Link></li>
+                  <li className="mb-1"><Link href="#" className="hover:text-[#08c]">Clearance Bundles</Link></li>
+                  <li className="mb-1"> <Link href="#" className="text-[#08c] font-semibold">View All Clearance</Link></li>
                 </ul>
                 <ul className="  top-0  border-[2px] w-[20%]   h-[100%] relative">
                  <Image
@@ -371,7 +358,7 @@ const Navbar = () => {
                 <span>Menu</span>{" "}
                 <span onClick={exitDropdown}>Close &times;</span>
               </div>
-              <div className="h-[100%] w-[100%]">
+              <div className="h-[100%] w-[100%] ">
                 <div className="text-[0.9rem] flex px-4 py-2 justify-between items-center cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
                  <span> Matresses</span> <i className="fa fa-chevron-right" aria-hidden="true"></i>
                 </div>

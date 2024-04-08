@@ -39,10 +39,10 @@ color: white;
   transform: translateX(-50%);
   width: 0;
   height: 0;
-  border-left: 50px solid transparent;
-  border-right: 50px solid transparent;
-  border-bottom: 50px solid transparent;
-  border-top: 50px solid #08c;
+  border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    border-bottom: 25px solid transparent;
+    border-top: 25px solid #08c;
   z-index:100;
 }
 
@@ -57,17 +57,6 @@ color: white;
     height: auto; /* Allow height to adjust according to the image aspect ratio */
   }
   
-
-@media (max-width:1285px) {
-  .listitem::before{
-   
-    border-left: 25px solid transparent;
-    border-right: 25px solid transparent;
-    border-bottom: 25px solid transparent;
-    border-top: 25px solid #08c;
-  }
-}
-
 
 @media (min-width:768px) {
     .carousel-container {
