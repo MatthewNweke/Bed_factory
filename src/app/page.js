@@ -1,4 +1,6 @@
 // pages/index.js
+
+import '../css/styles.css'
 import React from "react";
 import Image from "next/image";
 import CarouselSlider from "@/components/carousel/CarouselSlider";
@@ -52,7 +54,7 @@ export default function Home() {
       </div>
       <div className="flex justify-around items-center my-10 flex-wrap max-lg:mx-5 max-lg:justify-center max-lg:flex-col max-lg:gap-10">
         <div className="w-[35%] max-lg:w-[50%] max-md:w-[100%]">
-          <p className="text-[2rem]  max-sm:text-[1.5rem] mb-3">
+          <p className="text-[2rem]  max-sm:text-[1.5rem] mb-3 ">
             Free Fabric Samples
           </p>
           <p className="text-[1.2rem] max-sm:text-[1rem] mb-3">

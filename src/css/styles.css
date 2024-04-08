@@ -1,3 +1,52 @@
+@font-face {
+  font-family: 'Oblik';
+  src: url('/fonts/oblik.woff2') format('woff2'),
+       url('/fonts/oblik.woff') format('woff'),
+       /* Add other formats if available */
+       url('/fonts/oblik.ttf') format('truetype');
+  /* Add font-weight and font-style if applicable */
+}
+
+.dropdowncontent{
+  width: calc(100vw - 2rem); /* Adjust as needed based on your layout's margins/paddings */
+  box-sizing: border-box;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.dropdown:hover .dropdowncontent{
+  display: flex;
+ /* padding-top: 5%; */
+}
+
+.dropdown:hover .listitem::before{
+  display: block;
+}
+
+.dropdown:hover .listitem{
+background-color: #08c;
+color: white;
+}
+.listitem::before{
+  display: none;
+  z-index: 100;
+  content: "";
+  position: absolute;
+  left:50%;
+  top: 100%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 50px solid transparent;
+  border-top: 50px solid #08c;
+  z-index:100;
+}
+
+
 .image-container {
     max-width: 100%; /* Set maximum width to prevent image from overflowing */
     height: auto; /* Allow height to adjust according to the image aspect ratio */
@@ -9,6 +58,17 @@
   }
   
 
+@media (max-width:1285px) {
+  .listitem::before{
+   
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    border-bottom: 25px solid transparent;
+    border-top: 25px solid #08c;
+  }
+}
+
+
 @media (min-width:768px) {
     .carousel-container {
         max-width: 100%; 
@@ -16,7 +76,6 @@
         margin: 2rem 0;
         
       }
-
 
       .carousel{
         height: 70vh;
