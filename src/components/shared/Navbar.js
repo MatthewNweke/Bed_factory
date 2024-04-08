@@ -1,5 +1,5 @@
 "use client";
-
+import '@fortawesome/fontawesome-free/css/all.css';
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import "../../css/styles.css";
@@ -197,12 +197,12 @@ const Navbar = () => {
                 </ul>
                 <ul className="  top-0  border-[2px] w-[40%] p-3 pb-5 h-[100%]">
                   <li className="mb-5 font-semibold text-[1.2rem]"> Shop by Size</li>
-                <li className="mb-2"><Link href="#" className="hover:text-[#08c]">Super King(6')</Link> </li>
-                  <li className="mb-2"><Link href="#" className="hover:text-[#08c]">King Size(5')</Link></li>  
-                  <li className="mb-2"> <Link href="#" className="hover:text-[#08c]">Double(4'6")</Link></li>
-                  <li className="mb-2"><Link href="#" className="hover:text-[#08c]">Small DOuble(4')</Link></li>
-                  <li className="mb-2"><Link href="#" className="hover:text-[#08c]">Single(3')</Link></li>
-                  <li className="mb-2"><Link href="#" className="hover:text-[#08c]">Small Single(2'6")</Link></li>
+                <li className="mb-2"><Link href="#" className="hover:text-[#08c]">Super King(6&apos;)</Link> </li>
+                  <li className="mb-2"><Link href="#" className="hover:text-[#08c]">King Size(5&apos;)</Link></li>  
+                  <li className="mb-2"> <Link href="#" className="hover:text-[#08c]">Double(4&apos;6&apos;&apos;)</Link></li>
+                  <li className="mb-2"><Link href="#" className="hover:text-[#08c]">Small DOuble(4&apos;)</Link></li>
+                  <li className="mb-2"><Link href="#" className="hover:text-[#08c]">Single(3&apos;)</Link></li>
+                  <li className="mb-2"><Link href="#" className="hover:text-[#08c]">Small Single(2&apos;6&apos;&apos;)</Link></li>
                   <li className="mb-2"><Link href="#" className="hover:text-[#08c]">European</Link></li>
                   <li className="mb-2"> <Link href="#" className="text-[#08c] font-semibold">View All Matresses</Link></li>
                 </ul>
@@ -239,12 +239,12 @@ const Navbar = () => {
                 
                 <ul className="  top-0  border-[2px] w-[60%] p-3 pb-5 h-[100%]">
                   <li className="mb-5 font-semibold text-[1.2rem]"> Shop by Size</li>
-                <li className="mb-2"><Link href="#" className="hover:text-[#08c]">Super Kings Beds(6')</Link> </li>
-                  <li className="mb-2"><Link href="#" className="hover:text-[#08c]">King Size Beds(5')</Link></li>  
-                  <li className="mb-2"> <Link href="#" className="hover:text-[#08c]">Double Beds(4'6")</Link></li>
-                  <li className="mb-2"><Link href="#" className="hover:text-[#08c]">Small DOuble Beds(4')</Link></li>
-                  <li className="mb-2"><Link href="#" className="hover:text-[#08c]">Single Beds(3')</Link></li>
-                  <li className="mb-2"><Link href="#" className="hover:text-[#08c]">Small Single Beds(2'6")</Link></li>
+                <li className="mb-2"><Link href="#" className="hover:text-[#08c]">Super Kings Beds(6&apos;)</Link> </li>
+                  <li className="mb-2"><Link href="#" className="hover:text-[#08c]">King Size Beds(5&apos;)</Link></li>  
+                  <li className="mb-2"> <Link href="#" className="hover:text-[#08c]">Double Beds(4&apos;6&apos;&apos;)</Link></li>
+                  <li className="mb-2"><Link href="#" className="hover:text-[#08c]">Small DOuble Beds(4&apos;)</Link></li>
+                  <li className="mb-2"><Link href="#" className="hover:text-[#08c]">Single Beds(3&apos;)</Link></li>
+                  <li className="mb-2"><Link href="#" className="hover:text-[#08c]">Small Single Beds(2&apos;6&apos;&apos;)</Link></li>
                   <li className="mb-2"> <Link href="#" className="text-[#08c] font-semibold">View All Beds</Link></li>
                 </ul>
                 <ul className="  top-0  border-[2px] w-[20%]   h-[100%] relative">
@@ -359,6 +359,7 @@ const Navbar = () => {
               src={search}
               width={15}
               height={15}
+              alt="searchbox"
             />
           </div>
         </div>
@@ -371,17 +372,17 @@ const Navbar = () => {
                 <span onClick={exitDropdown}>Close &times;</span>
               </div>
               <div className="h-[100%] w-[100%]">
-                <div className="text-[0.9rem] px-4 py-2 cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
-                  Matresses
+                <div className="text-[0.9rem] flex px-4 py-2 justify-between items-center cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
+                 <span> Matresses</span> <i className="fa fa-chevron-right" aria-hidden="true"></i>
                 </div>
-                <div className="text-[0.9rem] px-4 py-2  cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
-                  Beds
+                <div className="text-[0.9rem] px-4 py-2 flex justify-between cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
+                <span> Beds</span> <i className="fa fa-chevron-right" aria-hidden="true"></i>
                 </div>
-                <div className="text-[0.9rem] px-4 py-2 cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
-                  Accessories
+                <div className="text-[0.9rem] flex justify-between px-4 py-2 fles cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
+                <span> Accessories</span> <i className="fa fa-chevron-right" aria-hidden="true"></i>
                 </div>
-                <div className="text-[0.9rem] px-4 py-2  cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
-                  Sale
+                <div className="text-[0.9rem] px-4 py-2 flex justify-between cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
+                <span> Sale</span> <i className="fa fa-chevron-right" aria-hidden="true"></i>
                 </div>
                 <div className="text-[0.9rem] px-4 py-2 cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
                   About Us
