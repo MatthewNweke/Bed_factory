@@ -107,7 +107,7 @@ setIsMatressesOpen(!matressesOpen);
       const handleToggleScroll = () => {
         // Toggle the body scroll based on dropdown state
         document.body.style.overflow =
-          isDropdownOpen || matressesOpen  ? "hidden" : "auto";
+          isDropdownOpen || matressesOpen || BedOpen ? "hidden" : "auto";
       };
 
       handleToggleScroll();
