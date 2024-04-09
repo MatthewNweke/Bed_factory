@@ -5,6 +5,8 @@ import Image from "next/image";
 
 const HomeCards = ({ index, imageUrl, buttons }) => {
   const [showButtonIndex, setShowButtonIndex] = useState(null);
+
+  
  
   return (
     <div className="relative">

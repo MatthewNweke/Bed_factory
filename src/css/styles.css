@@ -6,7 +6,9 @@
        url('/fonts/oblik.ttf') format('truetype');
   /* Add font-weight and font-style if applicable */
 }
-
+.fa{
+  font-weight: bold;
+}
 .dropdowncontent{
   width: calc(100vw - 2.5rem); /* Adjust as needed based on your layout's margins/paddings */
   box-sizing: border-box;
