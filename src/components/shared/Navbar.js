@@ -38,6 +38,34 @@ const Navbar = () => {
     setShopByType(!setShopByType);
   };
 
+  // show matresses when backward button is clicked
+  const displayMenu = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+    setIsMatressesOpen(false);
+    setBedOpen(false);
+    setIsMatressesOpen(false);
+  };
+
+  const showMattresesBySize = () => {
+    setIsMatressesOpen(!matressesOpen);
+    setshopBySize(false);
+  };
+  const showMattresesByType = () => {
+    setIsMatressesOpen(!matressesOpen);
+    setShopByType(false);
+  };
+  const showMattresesByFirmness = () => {
+    setIsMatressesOpen(!matressesOpen);
+    setShopByFirmness(false);
+  };
+
+  // show beds when backward button is clicked
+  const showBedsBySize = () => {
+    setBedOpen(!BedOpen);
+    setshopByBedSize(false);
+    
+  };
+
   const displayShopsBedSizes = () => {
     setShopByBedType(!shopByBedType);
     setIsMatressesOpen(!matressesOpen);
@@ -197,7 +225,10 @@ const Navbar = () => {
           {matressesOpen && (
             <div
               className="fixed  left-0 top-0 w-full h-full bg-[#00000066] hidden z-50 max-md:block"
-              onClick={() => {setIsMatressesOpen(false);setBedOpen(false)}}
+              onClick={() => {
+                setIsMatressesOpen(false);
+                setBedOpen(false);
+              }}
             ></div>
           )}
           {/* {BedOpen && (
@@ -232,14 +263,14 @@ const Navbar = () => {
               onClick={() => setshopByBedSize(false)}
             ></div>
           )}
-          
+
           {shopByBedType && (
             <div
               className="fixed  left-0 top-0 w-full h-full bg-[#00000066] hidden z-50 max-md:block"
               onClick={() => setShopByBedType(false)}
             ></div>
           )}
-          
+
           <div className="w-[40%] flex gap-[10%] max-xl:absolute max-xl:h-[15vh] max-xl:top-0 max-xl:items-center  right-0 max-xl:justify-end  max-xl:gap-[5%] max-xl:w-[80%] max-lg:w-[70%] max-md:w-[60%] max-xl:px-5 max-sm:items-center">
             <div className="flex items-center cursor-pointer mr-5 max-sm:mr-2">
               <div className="flex flex-col justify-center">
@@ -738,13 +769,14 @@ const Navbar = () => {
           {isDropdownOpen && (
             <div className="fixed top-0 h-[100vh] bg-white left-0   border-[2px] border-[#e3e3e5] dropdown-content w-[60%]">
               <div className="text-[0.9rem]  flex justify-between items-center p-3 cursor-pointer bg-[#08c] text-white font-semibold">
-                <span>Menu</span>{" "}
+                <span>Menu</span>
+                {""}
                 <div onClick={exitDropdown} className="flex items-center gap-1">
                   <span>Close</span>{" "}
                   <span className="text-[1.5rem]">&times;</span>
                 </div>
               </div>
-              <div className="h-[100%] w-[100%] ">
+              <div className="h-[100%] w-[100%]">
                 <div
                   onClick={displayMatresses}
                   className="text-[0.9rem]  border-[1px] p-4 flex  gap-8 items-center cursor-pointer font-bold"
@@ -797,7 +829,14 @@ const Navbar = () => {
               {matressesOpen && (
                 <div className="mattress-dropdown h-[100vh] fixed bg-white top-0 left-0 w-[60%]">
                   <div className="text-[0.9rem] flex justify-between items-center p-3 cursor-pointer bg-[#08c] text-white font-semibold">
-                    <span>Mattresses</span>{" "}
+                    <div className="flex items-center gap-5">
+                      <i
+                        className="fa fa-chevron-left"
+                        aria-hidden="true"
+                        onClick={displayMenu}
+                      ></i>{" "}
+                      <span>Mattresses</span>{" "}
+                    </div>
                     <div
                       onClick={exitMatressesDropdown}
                       className="flex items-center gap-1"
@@ -828,9 +867,8 @@ const Navbar = () => {
                     <span> Shop by Firmness</span>{" "}
                     <i className="fa fa-chevron-right" aria-hidden="true"></i>
                   </div>
-                  <div className="text-[0.9rem] p-4 flex gap-8 items-center cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
+                  <div className="text-[0.9rem] p-4 flex gap-8 items-center cursor-pointer text-[#08c] font-semibold">
                     <span> All Matresses</span>{" "}
-                    <i className="fa fa-chevron-right" aria-hidden="true"></i>
                   </div>
                 </div>
               )}
@@ -838,7 +876,14 @@ const Navbar = () => {
               {shopBySize && (
                 <div className="bg-white  fixed top-0 w-[60%]  h-[100vh] left-0">
                   <div className="text-[0.9rem] flex justify-between items-center p-3 cursor-pointer bg-[#08c] text-white font-semibold">
-                    <span>Shop by Size</span>{" "}
+                    <div className="flex items-center gap-5">
+                      <i
+                        className="fa fa-chevron-left"
+                        aria-hidden="true"
+                        onClick={showMattresesBySize}
+                      ></i>{" "}
+                      <span>Shop By Size</span>{" "}
+                    </div>
                     <div
                       onClick={exitShopDropdown}
                       className="flex items-center gap-1"
@@ -880,7 +925,14 @@ const Navbar = () => {
               {shopByType && (
                 <div className="bg-white  fixed top-0 w-[60%]  h-[100vh] left-0">
                   <div className="text-[0.9rem] flex justify-between items-center p-3 cursor-pointer bg-[#08c] text-white font-semibold">
-                    <span>Shop by Type</span>{" "}
+                    <div className="flex items-center gap-5">
+                      <i
+                        className="fa fa-chevron-left"
+                        aria-hidden="true"
+                        onClick={showMattresesByType}
+                      ></i>{" "}
+                      <span>Shop By Type</span>{" "}
+                    </div>
                     <div
                       onClick={exitShopByTypeDropdown}
                       className="flex items-center gap-1"
@@ -925,7 +977,14 @@ const Navbar = () => {
               {shopByFirmness && (
                 <div className="bg-white  fixed top-0 w-[60%]  h-[100vh] left-0">
                   <div className="text-[0.9rem] flex justify-between items-center p-3 cursor-pointer bg-[#08c] text-white font-semibold">
-                    <span>Shop by Firmness</span>{" "}
+                    <div className="flex items-center gap-5">
+                      <i
+                        className="fa fa-chevron-left"
+                        aria-hidden="true"
+                        onClick={showMattresesByFirmness}
+                      ></i>{" "}
+                      <span>Shop By Firmness</span>{" "}
+                    </div>
                     <div
                       onClick={exitShopByFirmness}
                       className="flex items-center gap-1"
@@ -974,7 +1033,15 @@ const Navbar = () => {
           {BedOpen && (
             <div className="mattress-dropdown h-[100vh] fixed bg-white top-0 left-0 w-[60%]">
               <div className="text-[0.9rem] flex justify-between items-center p-3 cursor-pointer bg-[#08c] text-white font-semibold">
-                <span>Bed</span>{" "}
+                <div className="flex gap-5 items-center">
+                  {" "}
+                  <i
+                    className="fa fa-chevron-left"
+                    aria-hidden="true"
+                    onClick={displayMenu}
+                  ></i>{" "}
+                  <span>Bed</span>{" "}
+                </div>
                 <div
                   onClick={exitBedDropdown}
                   className="flex items-center gap-1"
@@ -1008,7 +1075,15 @@ const Navbar = () => {
           {shopByBedSize && (
             <div className="bg-white  fixed top-0 w-[60%]  h-[100vh] left-0">
               <div className="text-[0.9rem] flex justify-between items-center p-3 cursor-pointer bg-[#08c] text-white font-semibold">
-                <span>Shop by Size</span>{" "}
+
+                <div className="flex items-center gap-5">
+                  <i
+                    className="fa fa-chevron-left"
+                    aria-hidden="true"
+                    onClick={showBedsBySize}
+                  ></i>{" "}
+                  <span>Shop By Size</span>{" "}
+                </div>
                 <div
                   onClick={exitBedSizeDropdown}
                   className="flex items-center gap-1"
