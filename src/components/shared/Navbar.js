@@ -19,12 +19,11 @@ import "../../css/styles.css";
 const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-// Material sizes for Beds
-const [BedOpen, setBedOpen] = useState(false);
-const [shopByBedSize, setshopByBedSize] = useState(false);
-const [shopByBedType, setShopByBedType] = useState(false);
-const [shopByBedFirmness, setShopByBedFirmness] = useState(false);
-
+  // Material sizes for Beds
+  const [BedOpen, setBedOpen] = useState(false);
+  const [shopByBedSize, setshopByBedSize] = useState(false);
+  const [shopByBedType, setShopByBedType] = useState(false);
+  const [shopByBedFirmness, setShopByBedFirmness] = useState(false);
 
   // Material sizes for Matresses
   const [shopBySize, setshopBySize] = useState(false);
@@ -32,21 +31,29 @@ const [shopByBedFirmness, setShopByBedFirmness] = useState(false);
   const [shopByType, setShopByType] = useState(false);
   const [shopByFirmness, setShopByFirmness] = useState(false);
 
-  
   const displayBedShops = () => {
     setshopByBedSize(!shopByBedSize);
     setIsMatressesOpen(!matressesOpen);
-   };
-   const displayShopsBedSizes = () => {
+    setBedOpen(!BedOpen);
+    setShopByType(!setShopByType);
+  };
+
+  const displayShopsBedSizes = () => {
     setShopByBedType(!shopByBedType);
     setIsMatressesOpen(!matressesOpen);
-   };
-   
-   const displayBed = () => {
+    setBedOpen(!BedOpen);
+  };
+  const displayShopsBedTypes = () => {
+    setShopByBedType(!shopByBedType);
+    setIsMatressesOpen(!matressesOpen);
+    setBedOpen(!BedOpen);
+  };
+
+  const displayBed = () => {
     setBedOpen(!BedOpen);
     setIsDropdownOpen(false);
-   };
-   
+    setIsMatressesOpen(!matressesOpen);
+  };
 
   const displayMatresses = () => {
     setIsMatressesOpen(!matressesOpen);
@@ -61,15 +68,13 @@ const [shopByBedFirmness, setShopByBedFirmness] = useState(false);
     setIsMatressesOpen(!matressesOpen);
   };
   const exitShopByBedTypeDropdown = () => {
-    setBedOpen(!BedOpen);
+    setShopByBedType(!shopByBedType);
   };
-  
 
-  const displayShopByFirmness= () =>{
-setShopByFirmness(!shopByFirmness);
-setIsMatressesOpen(!matressesOpen);
-
-  }
+  const displayShopByFirmness = () => {
+    setShopByFirmness(!shopByFirmness);
+    setIsMatressesOpen(!matressesOpen);
+  };
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
     setIsMatressesOpen(false);
@@ -78,36 +83,34 @@ setIsMatressesOpen(!matressesOpen);
     setShopByFirmness(false);
   };
 
- 
+  const exitBedSizeDropdown = () => {
+    setshopByBedSize(!shopByBedSize);
+  };
   const exitDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
   const exitMatressesDropdown = () => {
     setIsMatressesOpen(!matressesOpen);
   };
+  const exitBedDropdown = () => {
+    setBedOpen(!BedOpen);
+    setIsMatressesOpen(!matressesOpen);
+  };
   const exitShopDropdown = () => {
     setshopBySize(!shopBySize);
   };
-  const exitShopByFirmness=()=>{
-    setShopByFirmness(!shopByFirmness)
-  }
+  const exitShopByFirmness = () => {
+    setShopByFirmness(!shopByFirmness);
+  };
   const exitShopByTypeDropdown = () => {
     setShopByType(!shopByType);
   };
-  
-
-
-  
- 
-
-
 
   useEffect(
     () => {
       const handleToggleScroll = () => {
         // Toggle the body scroll based on dropdown state
-        document.body.style.overflow =
-          isDropdownOpen || matressesOpen || BedOpen ? "hidden" : "auto";
+        document.body.style.overflow = isDropdownOpen ? "hidden" : "auto";
       };
 
       handleToggleScroll();
@@ -194,15 +197,15 @@ setIsMatressesOpen(!matressesOpen);
           {matressesOpen && (
             <div
               className="fixed  left-0 top-0 w-full h-full bg-[#00000066] hidden z-50 max-md:block"
-              onClick={() => setIsMatressesOpen(false)}
+              onClick={() => {setIsMatressesOpen(false);setBedOpen(false)}}
             ></div>
           )}
-          {BedOpen && (
+          {/* {BedOpen && (
             <div
               className="fixed  left-0 top-0 w-full h-full bg-[#00000066] hidden z-50 max-md:block"
               onClick={() => setBedOpen(false)}
             ></div>
-          )}
+          )} */}
 
           {shopBySize && (
             <div
@@ -222,6 +225,21 @@ setIsMatressesOpen(!matressesOpen);
               onClick={() => setShopByFirmness(false)}
             ></div>
           )}
+
+          {shopByBedSize && (
+            <div
+              className="fixed  left-0 top-0 w-full h-full bg-[#00000066] hidden z-50 max-md:block"
+              onClick={() => setshopByBedSize(false)}
+            ></div>
+          )}
+          
+          {shopByBedType && (
+            <div
+              className="fixed  left-0 top-0 w-full h-full bg-[#00000066] hidden z-50 max-md:block"
+              onClick={() => setShopByBedType(false)}
+            ></div>
+          )}
+          
           <div className="w-[40%] flex gap-[10%] max-xl:absolute max-xl:h-[15vh] max-xl:top-0 max-xl:items-center  right-0 max-xl:justify-end  max-xl:gap-[5%] max-xl:w-[80%] max-lg:w-[70%] max-md:w-[60%] max-xl:px-5 max-sm:items-center">
             <div className="flex items-center cursor-pointer mr-5 max-sm:mr-2">
               <div className="flex flex-col justify-center">
@@ -735,7 +753,10 @@ setIsMatressesOpen(!matressesOpen);
                   <i className="fa fa-chevron-right" aria-hidden="true"></i>
                 </div>
 
-                <div onClick={displayBed} className="text-[0.9rem] p-4 border-[1px] flex gap-8 cursor-pointer items-center  font-bold">
+                <div
+                  onClick={displayBed}
+                  className="text-[0.9rem] p-4 border-[1px] flex gap-8 cursor-pointer items-center  font-bold"
+                >
                   <span> Beds</span>{" "}
                   <i className="fa fa-chevron-right" aria-hidden="true"></i>
                 </div>
@@ -800,7 +821,10 @@ setIsMatressesOpen(!matressesOpen);
                     <span> Shop by Type</span>{" "}
                     <i className="fa fa-chevron-right" aria-hidden="true"></i>
                   </div>
-                  <div onClick={displayShopByFirmness} className="text-[0.9rem]  gap-8 items-center p-4 flex cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
+                  <div
+                    onClick={displayShopByFirmness}
+                    className="text-[0.9rem]  gap-8 items-center p-4 flex cursor-pointer hover:bg-[#08c] hover:text-white font-semibold"
+                  >
                     <span> Shop by Firmness</span>{" "}
                     <i className="fa fa-chevron-right" aria-hidden="true"></i>
                   </div>
@@ -898,8 +922,6 @@ setIsMatressesOpen(!matressesOpen);
                 </div>
               )}
 
-
-
               {shopByFirmness && (
                 <div className="bg-white  fixed top-0 w-[60%]  h-[100vh] left-0">
                   <div className="text-[0.9rem] flex justify-between items-center p-3 cursor-pointer bg-[#08c] text-white font-semibold">
@@ -947,43 +969,119 @@ setIsMatressesOpen(!matressesOpen);
             </div>
           </div>
 
-
-
           {/* Bed Open */}
 
           {BedOpen && (
             <div className="mattress-dropdown h-[100vh] fixed bg-white top-0 left-0 w-[60%]">
-                  <div className="text-[0.9rem] flex justify-between items-center p-3 cursor-pointer bg-[#08c] text-white font-semibold">
-                    <span>Bed</span>{" "}
-                    <div
-                      onClick={exitShopByBedTypeDropdown}
-                      className="flex items-center gap-1"
-                    >
-                      <span>Close</span>{" "}
-                      <span className="text-[1.5rem]">&times;</span>
-                    </div>
-                  </div>
-                  <div
-                    onClick={displayBedShops}
-                    className="text-[0.9rem] flex p-4 gap-8 items-center cursor-pointer hover:bg-[#08c] hover:text-white font-semibold"
-                  >
-                    <span> Shop by Size</span>{" "}
-                    <i className="fa fa-chevron-right" aria-hidden="true"></i>
-                  </div>
-
-                  <div
-                    onClick={displayShopsBedSizes}
-                    className="text-[0.9rem] p-4 flex gap-8 items-center cursor-pointer hover:bg-[#08c] hover:text-white font-semibold"
-                  >
-                    <span> Shop by Type</span>{" "}
-                    <i className="fa fa-chevron-right" aria-hidden="true"></i>
-                  </div>
-                 
-                  <div className="text-[0.9rem] p-4 flex gap-8 items-center cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
-                    <span> All Beds</span>{" "}
-                    <i className="fa fa-chevron-right" aria-hidden="true"></i>
-                  </div>
+              <div className="text-[0.9rem] flex justify-between items-center p-3 cursor-pointer bg-[#08c] text-white font-semibold">
+                <span>Bed</span>{" "}
+                <div
+                  onClick={exitBedDropdown}
+                  className="flex items-center gap-1"
+                >
+                  <span>Close</span>{" "}
+                  <span className="text-[1.5rem]">&times;</span>
                 </div>
+              </div>
+              <div
+                onClick={displayBedShops}
+                className="text-[0.9rem] flex p-4 gap-8 items-center cursor-pointer  font-semibold"
+              >
+                <span> Shop by Size</span>{" "}
+                <i className="fa fa-chevron-right" aria-hidden="true"></i>
+              </div>
+
+              <div
+                onClick={displayShopsBedTypes}
+                className="text-[0.9rem] p-4 flex gap-8 items-center cursor-pointer  font-semibold"
+              >
+                <span> Shop by Type</span>{" "}
+                <i className="fa fa-chevron-right" aria-hidden="true"></i>
+              </div>
+
+              <div className="text-[0.9rem] p-4 flex gap-8 items-center cursor-pointer  font-semibold">
+                <span> All Beds</span>{" "}
+              </div>
+            </div>
+          )}
+
+          {shopByBedSize && (
+            <div className="bg-white  fixed top-0 w-[60%]  h-[100vh] left-0">
+              <div className="text-[0.9rem] flex justify-between items-center p-3 cursor-pointer bg-[#08c] text-white font-semibold">
+                <span>Shop by Size</span>{" "}
+                <div
+                  onClick={exitBedSizeDropdown}
+                  className="flex items-center gap-1"
+                >
+                  <span>Close</span>{" "}
+                  <span className="text-[1.5rem]">&times;</span>
+                </div>
+              </div>
+              <div className="text-[0.9rem]  px-4 py-2  items-center cursor-pointer  hover:text-white font-semibold">
+                <span>Super King(6&apos;)</span>{" "}
+              </div>
+
+              <div className="text-[0.9rem] px-4 py-2  cursor-pointer   font-semibold">
+                <span> King Size(5&apos;)</span>{" "}
+              </div>
+              <div className="text-[0.9rem] px-4 py-2 fles cursor-pointer   font-semibold">
+                <span> Double(4&apos;6&apos;&apos;)</span>{" "}
+              </div>
+              <div className="text-[0.9rem] px-4 py-2  cursor-pointer   font-semibold">
+                <span> Small Double(4&apos;)</span>{" "}
+              </div>
+              <div className="text-[0.9rem] px-4 py-2  cursor-pointer   font-semibold">
+                <span> Single(3&apos;)</span>{" "}
+              </div>
+              <div className="text-[0.9rem] px-4 py-2  cursor-pointer   font-semibold">
+                <span>Small Single(2&apos;6&apos;&apos;)</span>{" "}
+              </div>
+
+              <div className="text-[0.9rem] px-4 py-2  cursor-pointer   font-semibold">
+                <Link href="#" className="text-[#08c] font-semibold">
+                  View All Beds
+                </Link>
+              </div>
+            </div>
+          )}
+          {shopByBedType && (
+            <div className="bg-white  fixed top-0 w-[60%]  h-[100vh] left-0">
+              <div className="text-[0.9rem] flex justify-between items-center p-3 cursor-pointer bg-[#08c] text-white font-semibold">
+                <span>Shop by Type</span>{" "}
+                <div
+                  onClick={exitShopByBedTypeDropdown}
+                  className="flex items-center gap-1"
+                >
+                  <span>Close</span>{" "}
+                  <span className="text-[1.5rem]">&times;</span>
+                </div>
+              </div>
+              <div className="text-[0.9rem]  px-4 py-2  items-center cursor-pointer  hover:text-white font-semibold">
+                <span>Super King(6&apos;)</span>{" "}
+              </div>
+
+              <div className="text-[0.9rem] px-4 py-2  cursor-pointer   font-semibold">
+                <span> King Size(5&apos;)</span>{" "}
+              </div>
+              <div className="text-[0.9rem] px-4 py-2 fles cursor-pointer   font-semibold">
+                <span> Double(4&apos;6&apos;&apos;)</span>{" "}
+              </div>
+              <div className="text-[0.9rem] px-4 py-2  cursor-pointer   font-semibold">
+                <span> Small Double(4&apos;)</span>{" "}
+              </div>
+              <div className="text-[0.9rem] px-4 py-2  cursor-pointer   font-semibold">
+                <span> Single(3&apos;)</span>{" "}
+              </div>
+              <div className="text-[0.9rem] px-4 py-2  cursor-pointer   font-semibold">
+                <span>Small Single(2&apos;6&apos;&apos;)</span>{" "}
+              </div>
+
+              <div className="text-[0.9rem] px-4 py-2  cursor-pointer   font-semibold">
+                <Link href="#" className="text-[#08c] font-semibold">
+                  View All Beds
+                </Link>
+              </div>
+            </div>
           )}
         </div>
 
