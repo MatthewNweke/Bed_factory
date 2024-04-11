@@ -62,7 +62,7 @@ const Navbar = () => {
   // show beds when backward button is clicked
   const showBedsBySize = () => {
     setBedOpen(!BedOpen);
-    setshopByBedSize(false);
+    setshopByBedSize(false );
     
   };
 
@@ -70,6 +70,7 @@ const Navbar = () => {
     setShopByBedType(!shopByBedType);
     setIsMatressesOpen(!matressesOpen);
     setBedOpen(!BedOpen);
+
   };
   const displayShopsBedTypes = () => {
     setShopByBedType(!shopByBedType);
@@ -147,10 +148,7 @@ const Navbar = () => {
         document.body.style.overflow = "auto"; // Reset overflow when component unmounts
       };
     },
-    [isDropdownOpen],
-    [matressesOpen],
-    [shopBySize],
-    [shopByType]
+    [isDropdownOpen]
   );
 
   useEffect(() => {
@@ -227,16 +225,16 @@ const Navbar = () => {
               className="fixed  left-0 top-0 w-full h-full bg-[#00000066] hidden z-50 max-md:block"
               onClick={() => {
                 setIsMatressesOpen(false);
-                setBedOpen(false);
+                // setBedOpen(false);
               }}
             ></div>
           )}
-          {/* {BedOpen && (
+          {BedOpen && (
             <div
               className="fixed  left-0 top-0 w-full h-full bg-[#00000066] hidden z-50 max-md:block"
               onClick={() => setBedOpen(false)}
             ></div>
-          )} */}
+          )}
 
           {shopBySize && (
             <div
