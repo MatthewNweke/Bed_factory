@@ -203,8 +203,8 @@ const Products = () => {
                   onClick={() => handleImageClick("/single.png")}
                 >
                   <Image
-                    src="/single.png"
-                    alt="openbed"
+                    src="/Single.png"
+                    alt="single1"
                     layout="fill"
                     objectFit="contain"
                   />
@@ -236,8 +236,8 @@ const Products = () => {
                   onClick={() => handleImageClick("/single2.png")}
                 >
                   <Image
-                    src="/single.png"
-                    alt="openbed"
+                    src="/Single.png"
+                    alt="single2"
                     layout="fill"
                     objectFit="contain"
                   />
