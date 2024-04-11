@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
-import ProductsPage from "@/components/Products/ImageItems";
 
 
 const Products = () => {
@@ -34,13 +33,13 @@ const Products = () => {
 
   return (
     <div >
-      <div className="my-10 w-[100%] px-5">
+      <div className="my-10 w-[100%] px-5 max-md:px-0">
         <div className="flex  w-full max-md:flex-col max-lg:flex-wrap justify-evenly gap-10 max-lg:justify-center">
           {/* <ProductSidebar /> */}
 
           <div className="w-full  flex justify-center">
             <div className="flex flex-col w-full max-xl:w-full max-lg:w-[70%] max-md:w-[90%] max-sm:w-full">
-              <div className="max-sm:w-full w-[100%] h-[70vh] relative">
+              <div className="max-sm:w-full w-[100%] h-[70vh] relative max-md:h-[60vh] max-sm:h-[50vh]">
                 <Image
                   src="/OttomanEndLiftBaseclosedBg.jpg"
                   alt="openbed"
