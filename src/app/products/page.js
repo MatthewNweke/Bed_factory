@@ -1,39 +1,78 @@
 "use client";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import Image from "next/image";
 
 
 const Products = () => {
   const [selectedImagePath, setSelectedImagePath] = useState("/single.png");
+  const [selectedImagePathType, setSelectedImagePathType] = useState("/Divan-Base-Only-b.png");
+  const [amount, setAmount] = useState("£200.00"); // Initial amount value
 
   // Handler function to update selected image path
   const handleImageClick = (path) => {
     setSelectedImagePath(path);
   };
+  const handleImageClickType = (path) => {
+    setSelectedImagePathType(path);
+  };
+
+
+  const updateAmount = () => {
+    const bedSizeAmount = getTextForImageBedSize().amount;
+    const bedTypeAmount = getTextForImageBedType().amount;
+    // Assuming both amounts are in the same currency and format
+    setAmount((parseFloat(bedSizeAmount.replace("£", "")) + parseFloat(bedTypeAmount.replace("£", ""))).toFixed(2));
+  };
 
   /// Function to get text and amount based on selected image
-  const getTextForImage = () => {
+  const getTextForImageBedSize = () => {
     switch (selectedImagePath) {
       case "/single.png":
-        return { text: "Size - Small Single 2ft6", amount: "£200.00" };
+        return { text: "Size - Small Single 2ft6", amount: "£490.00" };
       case "/single2.png":
-        return { text: "Size - Single 3ft", amount: "£200.00" };
+        return { text: "Size - Single 3ft", amount: "£490.00" };
       case "/Double-small.png":
-        return { text: "Size - Small Double 4ft", amount: "£245.00" };
+        return { text: "Size - Small Double 4ft", amount: "£310.00" };
       case "/Double-small2.png":
-        return { text: "Size - Double 4ft6", amount: "£245.00" };
+        return { text: "Size - Double 4ft6", amount: "£310.00" };
       case "/Double-small3.png":
-        return { text: "Size - King 5ft", amount: "£300.00" };
+        return { text: "Size - King 5ft", amount: "£365.00" };
       case "/Double-small4.png":
-        return { text: "Size - Superking 6ft", amount: "£350.00" };
+        return { text: "Size - Superking 6ft", amount: "£415.00" };
       default:
-        return { text: "Size - Small Single 2ft6", amount: "£200" };
+        return { text: "Size - Small Single 2ft6", amount: "£490" };
     }
   };
 
+
+
+  const getTextForImageBedType = () => {
+    switch (selectedImagePathType) {
+      case "/Divan-Base-Only-b.png.png":
+        return { text: "Type - Base Only +£0", amount: "£225.00" };
+      case "/2-Continentel-Drawer-same-side-b.png":
+        return { text: "Type - 2 Drawer Same Side +£40", amount: "£265.00" };
+      case "/2-Draw-Same-Side-b.png":
+        return { text: "Type - 2 Drawer Continental +£40", amount: "£265.00" };
+      case "/Side-Opening-Ottoman-b.jpg":
+        return { text: "Type - End Lift Ottoman Bed +£60", amount: "£490.00" };
+      case "/End-Foot-Opening.png":
+        return { text: "Type - Side Lift Ottoman Bed +£60", amount: "£490.00" };
+      
+      default:
+        return { text: "Type - Side Lift Ottoman Bed +£60", amount: "£225" };
+    }
+  };
+
+
+  useEffect(() => {
+    updateAmount();
+  }, [selectedImagePath, selectedImagePathType]);
+
+
   return (
     <div >
-      <div className="my-10 w-[100%] px-5 max-md:px-0">
+      <div className="my-10 w-[100%] px-5 max-sm:px-1">
         <div className="flex  w-full max-md:flex-col max-lg:flex-wrap justify-evenly gap-10 max-lg:justify-center">
           {/* <ProductSidebar /> */}
 
@@ -181,20 +220,22 @@ const Products = () => {
             </div>
           </div>
 
-          <div className="max-lg:mt-10  w-full ">
+
+{/* Bed Size section */}
+          <div className="max-lg:mt-10  w-full max-lg:text-center">
             <div>
-              <p>Ottoman Bed Without Headboard</p>
+              <p className="text-[1.2rem]">Ottoman Bed Without Headboard</p>
               <span className="text-[#00acbb] font-semibold text-[1.2rem]">
-                {getTextForImage().amount}
+                {amount}
               </span>
             </div>
 
-            <div className="bg-[#f1feff] h-[70vh] py-10">
+            <div className="  py-10">
               <div className="border-black border-[2px] w-[85%] my-0 mx-auto p-3 cursor-pointer rounded-2xl text-center">
-                {getTextForImage().text}
+                {getTextForImageBedSize().text}
               </div>
 
-              <div className="flex  justify-around max-sm:flex-wrap max-sm:items-center px-5 my-5 max-lg:justify- max-sm:justify-between">
+              <div className="grid bg-[#f1feff] min-h-[40vh] rounded-2xl justify-center py-10 grid-cols-5 max-xl:grid-cols-3 max-md:mt-20 max-sm:grid-cols-2 gap-8 max-sm:items-center px-5 my-5 max-lg:justify- max-sm:justify-between">
                 <div
                   className={`h-[6.25rem]  w-[6.25rem] max-md:w-[5rem] max-md:h-[5rem] px-10 rounded-lg relative cursor-pointer ${
                     selectedImagePath === "/single.png" &&
@@ -203,8 +244,8 @@ const Products = () => {
                   onClick={() => handleImageClick("/single.png")}
                 >
                   <Image
-                    src="/Single.png"
-                    alt="single1"
+                    src="/single.png"
+                    alt="openbed"
                     layout="fill"
                     objectFit="contain"
                   />
@@ -236,8 +277,8 @@ const Products = () => {
                   onClick={() => handleImageClick("/single2.png")}
                 >
                   <Image
-                    src="/Single.png"
-                    alt="single2"
+                    src="/single.png"
+                    alt="openbed"
                     layout="fill"
                     objectFit="contain"
                   />
@@ -392,8 +433,195 @@ const Products = () => {
                   )}
                 </div>
               </div>
+
+
+
+
+
+
+
+
+
+
+
+
+{/* Bed types section*/}
               <div>
-                
+              <div className="border-black border-[2px] w-[85%] my-0 mx-auto p-3 cursor-pointer rounded-2xl text-center">
+                {getTextForImageBedType().text}
+              </div>
+              <div>
+            </div>
+              <div className="grid bg-[#f1feff] min-h-[40vh] rounded-2xl justify-center py-10 grid-cols-6 max-xl:grid-cols-3 max-md:mt-20 max-sm:grid-cols-2 gap-8 max-sm:items-center px-5 my-5 max-lg:justify- max-sm:justify-between">
+                <div
+                  className={`h-[6.25rem]  w-[6.25rem] max-md:w-[5rem] max-md:h-[5rem] px-10 rounded-lg relative cursor-pointer ${
+                    selectedImagePathType === "/Divan-Base-Only-b.png" &&
+                    " border-[2px] border-black"
+                  }`}
+                  onClick={() => handleImageClickType("/Divan-Base-Only-b.png")}
+                >
+                  <Image
+                    src="/Divan-Base-Only-b.png"
+                    alt="openbed"
+                    layout="fill"
+                    objectFit="contain"
+                  />
+                  {selectedImagePathType === "/Divan-Base-Only-b.png" && (
+                    <div className="absolute -top-1 -right-[0.38rem]  bg-[#00acbb] p-2  rounded-full">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-4 w-4 text-white"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M5 13l4 4L19 7"
+                        />
+                      </svg>
+                    </div>
+                  )}
+                </div>
+
+                <div
+                  className={`h-[6.25rem] w-[6.25rem] max-md:w-[5rem] max-md:h-[5rem] px-10 rounded-lg relative cursor-pointer ${
+                    selectedImagePathType === "/2-Continentel-Drawer-same-side-b.png" &&
+                    "border-[2px] border-black"
+                  }`}
+                  onClick={() => handleImageClickType("/2-Continentel-Drawer-same-side-b.png")}
+                >
+                  <Image
+                    src="/2-Continentel-Drawer-same-side-b.png"
+                    alt="openbed"
+                    layout="fill"
+                    objectFit="contain"
+                  />
+                  {selectedImagePathType === "/2-Continentel-Drawer-same-side-b.png" && (
+                    <div className="absolute -top-1 -right-[0.38rem]  bg-[#00acbb] p-2  rounded-full">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-4 w-4 text-white"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M5 13l4 4L19 7"
+                        />
+                      </svg>
+                    </div>
+                  )}
+                </div>
+
+                <div
+                  className={`h-[6.25rem] w-[6.25rem] max-md:w-[5rem] max-md:h-[5rem] px-10 rounded-lg relative cursor-pointer ${
+                    selectedImagePathType === "/2-Draw-Same-Side-b.png" &&
+                    "border-[2px] border-black"
+                  }`}
+                  onClick={() => handleImageClickType("/2-Draw-Same-Side-b.png")}
+                >
+                  <Image
+                    src="/2-Draw-Same-Side-b.png"
+                    alt="openbed"
+                    layout="fill"
+                    objectFit="contain"
+                  />
+                  {selectedImagePathType === "/2-Draw-Same-Side-b.png" && (
+                    <div className="absolute -top-1 -right-[0.38rem]  bg-[#00acbb] p-2  rounded-full">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-4 w-4 text-white"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M5 13l4 4L19 7"
+                        />
+                      </svg>
+                    </div>
+                  )}
+                </div>
+
+                <div
+                  className={`h-[6.25rem] w-[6.25rem] max-md:w-[5rem] max-md:h-[5rem] px-10 rounded-lg relative cursor-pointer ${
+                    selectedImagePathType === "/Side-Opening-Ottoman-b.jpg" &&
+                    "border-[2px] border-black"
+                  }`}
+                  onClick={() => handleImageClickType("/Side-Opening-Ottoman-b.jpg")}
+                >
+                  <Image
+                    src="/Side-Opening-Ottoman-b.jpg"
+                    alt="openbed"
+                    layout="fill"
+                    objectFit="contain"
+                  />
+                  {selectedImagePathType === "/Side-Opening-Ottoman-b.jpg" && (
+                    <div className="absolute -top-1 -right-[0.38rem]  bg-[#00acbb] p-2  rounded-full">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-4 w-4 text-white"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M5 13l4 4L19 7"
+                        />
+                      </svg>
+                    </div>
+                  )}
+                </div>
+
+
+                <div
+                  className={`h-[6.25rem] w-[6.25rem] max-md:w-[5rem] max-md:h-[5rem] px-10 rounded-lg relative cursor-pointer ${
+                    selectedImagePathType === "/End-Foot-Opening.png" &&
+                    "border-[2px] border-black"
+                  }`}
+                  onClick={() => handleImageClickType("/End-Foot-Opening.png")}
+                >
+                  <Image
+                    src="/End-Foot-Opening.png"
+                    alt="openbed"
+                    layout="fill"
+                    objectFit="contain"
+                  />
+                  {selectedImagePathType === "/End-Foot-Opening.png" && (
+                    <div className="absolute -top-1 -right-[0.38rem]  bg-[#00acbb] p-2  rounded-full">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-4 w-4 text-white"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M5 13l4 4L19 7"
+                        />
+                      </svg>
+                    </div>
+                  )}
+                </div>
+
+               
+               
+              </div>
               </div>
               <div>
 
