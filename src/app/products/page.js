@@ -78,7 +78,7 @@ const Products = () => {
 
           <div className="w-full  flex justify-center">
             <div className="flex flex-col w-full max-xl:w-full max-lg:w-[70%] max-md:w-[90%] max-sm:w-full">
-              <div className="max-sm:w-full w-[100%] h-[70vh] relative max-md:h-[60vh] max-sm:h-[50vh]">
+              <div className="max-sm:w-full w-[100%] min-h-[60vh] relative max-md:min-h-[50vh] max-sm:min-h-[40vh]">
                 <Image
                   src="/OttomanEndLiftBaseclosedBg.jpg"
                   alt="openbed"
@@ -105,7 +105,7 @@ const Products = () => {
                 )}
               </div>
 
-              <div className="flex gap-5 w-[100%] h-[6.25rem] max-sm:h-[4rem] max-sm:w-full relative top-2">
+              <div className="flex gap-1 w-[100%] h-[6.25rem] max-sm:h-[4rem] max-sm:w-full relative top-2">
                 <div className="w-1/4  max-sm:w-1/4  max-sm:h-[full] relative">
                   <Image
                     src="/Ottoman_Bed_side_opening-small.jpg"
@@ -235,7 +235,7 @@ const Products = () => {
                 {getTextForImageBedSize().text}
               </div>
 
-              <div className="grid bg-[#f1feff] min-h-[40vh] rounded-2xl justify-center py-10 grid-cols-5 max-xl:grid-cols-3 max-md:mt-20 max-sm:grid-cols-2 gap-8 max-sm:items-center px-5 my-5 max-lg:justify- max-sm:justify-between">
+              <div className="grid bg-[#f1feff] min-h-[40vh] rounded-2xl justify-items-center py-10 grid-cols-5 max-xl:grid-cols-3 max-md:mt-20 max-sm:grid-cols-2 gap-8 max-sm:items-center px-5 my-5 max-lg:justify- max-sm:justify-between">
                 <div
                   className={`h-[6.25rem]  w-[6.25rem] max-md:w-[5rem] max-md:h-[5rem] px-10 rounded-lg relative cursor-pointer ${
                     selectedImagePath === "/single.png" &&
@@ -454,7 +454,7 @@ const Products = () => {
               </div>
               <div>
             </div>
-              <div className="grid bg-[#f1feff] min-h-[40vh] rounded-2xl justify-center py-10 grid-cols-6 max-xl:grid-cols-3 max-md:mt-20 max-sm:grid-cols-2 gap-8 max-sm:items-center px-5 my-5 max-lg:justify- max-sm:justify-between">
+              <div className="grid bg-[#f1feff] min-h-[40vh] justify-items-center rounded-2xl  py-10 grid-cols-6 max-xl:grid-cols-3 max-md:mt-20 max-sm:grid-cols-2 gap-8 max-sm:items-center px-5 my-5 max-lg:justify- max-sm:justify-between">
                 <div
                   className={`h-[6.25rem]  w-[6.25rem] max-md:w-[5rem] max-md:h-[5rem] px-10 rounded-lg relative cursor-pointer ${
                     selectedImagePathType === "/Divan-Base-Only-b.png" &&
