@@ -1,13 +1,28 @@
 "use client";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
-
+import SlipLids from "@/components/cards/SlipLids";
+import ColorPalette from "@/components/cards/ColorPalette";
 
 const Products = () => {
+  const buttonStyles = [{ padding: "0.25rem" }, { padding: "0.25rem" }];
+
   const [selectedImagePath, setSelectedImagePath] = useState("/single.png");
-  const [selectedImagePathType, setSelectedImagePathType] = useState("/Divan-Base-Only-b.png");
+  const [selectedImagePathType, setSelectedImagePathType] = useState(
+    "/Divan-Base-Only-b.png"
+  );
+  const [selectedImagePathDepth, setSelectedImagePathDepth] =
+    useState("/Deep-Base.png");
   const [amount, setAmount] = useState("£200.00"); // Initial amount value
 
+  const [showBedDephthOptions, setShowBedDephthOptions] = useState(false);
+
+  const displayDepthOptions = () => {
+    setShowBedDephthOptions(true);
+  };
+  const removeDepthOptions = () => {
+    setShowBedDephthOptions(false);
+  };
   // Handler function to update selected image path
   const handleImageClick = (path) => {
     setSelectedImagePath(path);
@@ -15,63 +30,219 @@ const Products = () => {
   const handleImageClickType = (path) => {
     setSelectedImagePathType(path);
   };
-
-
-  const updateAmount = () => {
-    const bedSizeAmount = getTextForImageBedSize().amount;
-    const bedTypeAmount = getTextForImageBedType().amount;
-    // Assuming both amounts are in the same currency and format
-    setAmount((parseFloat(bedSizeAmount.replace("£", "")) + parseFloat(bedTypeAmount.replace("£", ""))).toFixed(2));
+  const handleImageClickDepth = (path) => {
+    setSelectedImagePathDepth(path);
   };
+
+  const updateBedSizeAmount = () => {
+    const bedSizeAmount = getTextForImageBedSize().amount;
+
+    setAmount(bedSizeAmount);
+  };
+  const updateBedTypeAmount = () => {
+    const bedTypeAmount = getTextForImageBedType().amount;
+
+    setAmount(bedTypeAmount);
+  };
+  const updateBedDepthAmount = () => {
+    const bedDepthAmount = getTextForImageBedDepth().amount;
+
+    setAmount(bedDepthAmount);
+  };
+
+  // slip lids
 
   /// Function to get text and amount based on selected image
   const getTextForImageBedSize = () => {
     switch (selectedImagePath) {
       case "/single.png":
-        return { text: "Size - Small Single 2ft6", amount: "£490.00" };
+        return {
+          text: (
+            <p>
+              <span className="font-semibold">Size</span> - Small Single 2ft6
+            </p>
+          ),
+          amount: "£490.00",
+        };
       case "/single2.png":
-        return { text: "Size - Single 3ft", amount: "£490.00" };
+        return {
+          text: (
+            <p>
+              <span className="font-semibold">Size</span> - Single 3ft
+            </p>
+          ),
+          amount: "£490.00",
+        };
       case "/Double-small.png":
-        return { text: "Size - Small Double 4ft", amount: "£310.00" };
+        return {
+          text: (
+            <p>
+              <span className="font-semibold">Size</span> - Small Double 4ft
+            </p>
+          ),
+          amount: "£310.00",
+        };
       case "/Double-small2.png":
-        return { text: "Size - Double 4ft6", amount: "£310.00" };
+        return {
+          text: (
+            <p>
+              <span className="font-semibold">Size</span> - Double 4ft6
+            </p>
+          ),
+          amount: "£310.00",
+        };
       case "/Double-small3.png":
-        return { text: "Size - King 5ft", amount: "£365.00" };
+        return {
+          text: (
+            <p>
+              <span className="font-semibold">Size</span> - King 5ft
+            </p>
+          ),
+          amount: "£365.00",
+        };
       case "/Double-small4.png":
-        return { text: "Size - Superking 6ft", amount: "£415.00" };
+        return {
+          text: (
+            <p>
+              <span className="font-semibold">Size</span> - Superking 6ft
+            </p>
+          ),
+          amount: "£415.00",
+        };
       default:
-        return { text: "Size - Small Single 2ft6", amount: "£490" };
+        return {
+          text: (
+            <p>
+              <span className="font-semibold">Size</span> - Small Single 2ft6
+            </p>
+          ),
+          amount: "£490",
+        };
     }
   };
-
-
 
   const getTextForImageBedType = () => {
     switch (selectedImagePathType) {
       case "/Divan-Base-Only-b.png.png":
-        return { text: "Type - Base Only +£0", amount: "£225.00" };
+        return {
+          text: (
+            <p>
+              <span className="font-semibold">Type</span> - Base Only +£0
+            </p>
+          ),
+          amount: "£225.00",
+        };
       case "/2-Continentel-Drawer-same-side-b.png":
-        return { text: "Type - 2 Drawer Same Side +£40", amount: "£265.00" };
+        return {
+          text: (
+            <p>
+              <span className="font-semibold">Type</span> - 2 Drawer Same Side
+              +£40
+            </p>
+          ),
+          amount: "£265.00",
+        };
       case "/2-Draw-Same-Side-b.png":
-        return { text: "Type - 2 Drawer Continental +£40", amount: "£265.00" };
+        return {
+          text: (
+            <p>
+              <span className="font-semibold">Type</span> - 2 Drawer Continental
+              +£40
+            </p>
+          ),
+          amount: "£265.00",
+        };
       case "/Side-Opening-Ottoman-b.jpg":
-        return { text: "Type - End Lift Ottoman Bed +£60", amount: "£490.00" };
+        return {
+          text: (
+            <p>
+              <span className="font-semibold">Type</span> - End Lift Ottoman Bed
+              +£60
+            </p>
+          ),
+          amount: "£490.00",
+        };
       case "/End-Foot-Opening.png":
-        return { text: "Type - Side Lift Ottoman Bed +£60", amount: "£490.00" };
-      
+        return {
+          text: (
+            <p>
+              <span className="font-semibold">Type</span> - Side Lift Ottoman
+              Bed +£60
+            </p>
+          ),
+          amount: "£490.00",
+        };
       default:
-        return { text: "Type - Side Lift Ottoman Bed +£60", amount: "£225" };
+        return {
+          text: (
+            <p>
+              <span className="font-semibold">Type</span> - Side Lift Ottoman
+              Bed +£60
+            </p>
+          ),
+          amount: "£225",
+        };
     }
   };
 
+  const getTextForImageBedDepth = () => {
+    switch (selectedImagePathDepth) {
+      case "/Deep-Base.png":
+        return {
+          text: (
+            <p>
+              <span className="font-semibold">Type</span> - Base Only +£0
+            </p>
+          ),
+          amount: "£285.00",
+        };
+      case "/Standard-Base.png":
+        return {
+          text: (
+            <p>
+              <span className="font-semibold">Type</span> - 2 Drawer Same Side
+              +£40
+            </p>
+          ),
+          amount: "£465.00",
+        };
+      case "/Super-Deep-Base.png":
+        return {
+          text: (
+            <p>
+              <span className="font-semibold">Type</span> - 2 Drawer Continental
+              +£40
+            </p>
+          ),
+          amount: "£735.00",
+        };
+      default:
+        return {
+          text: (
+            <p>
+              <span className="font-semibold">Type</span> - Side Lift Ottoman
+              Bed +£60
+            </p>
+          ),
+          amount: "£285",
+        };
+    }
+  };
 
   useEffect(() => {
-    updateAmount();
-  }, [selectedImagePath, selectedImagePathType]);
+    updateBedSizeAmount();
+  }, [selectedImagePath]);
 
+  useEffect(() => {
+    updateBedTypeAmount();
+  }, [selectedImagePathType]);
+
+  useEffect(() => {
+    updateBedDepthAmount();
+  }, [selectedImagePathDepth]);
 
   return (
-    <div >
+    <div>
       <div className="my-10 w-[100%] px-5 max-sm:px-1">
         <div className="flex  w-full max-md:flex-col max-lg:flex-wrap justify-evenly gap-10 max-lg:justify-center">
           {/* <ProductSidebar /> */}
@@ -220,8 +391,7 @@ const Products = () => {
             </div>
           </div>
 
-
-{/* Bed Size section */}
+          {/* Bed Size section */}
           <div className="max-lg:mt-10  w-full max-lg:text-center">
             <div>
               <p className="text-[1.2rem]">Ottoman Bed Without Headboard</p>
@@ -230,408 +400,648 @@ const Products = () => {
               </span>
             </div>
 
-            <div className="  py-10">
-              <div className="border-black border-[2px] w-[85%] my-0 mx-auto p-3 cursor-pointer rounded-2xl text-center">
-                {getTextForImageBedSize().text}
+            <div className="  py-10 ">
+              <div className="bg-[#f1feff] min-h-[40vh] flex flex-col justify-center rounded-xl">
+                <div className="border-black border-[2px] w-[85%] mt-10 mx-auto p-3 cursor-pointer rounded-2xl text-center">
+                  {getTextForImageBedSize().text}
+                </div>
+                <div className="grid gap-y-20 rounded-2xl justify-items-center py-10 grid-cols-5 max-xl:grid-cols-3 max-md:mt-20 max-sm:grid-cols-2 gap-8 max-sm:items-center px-5 my-5 max-lg:justify- max-sm:justify-between">
+                  <div
+                    className={`h-[6.25rem]  w-[6.25rem] max-md:w-[5rem] max-md:h-[5rem] px-10 rounded-lg relative cursor-pointer ${
+                      selectedImagePath === "/single.png" &&
+                      " border-[2px] border-black"
+                    }`}
+                    onClick={() => handleImageClick("/single.png")}
+                  >
+                    <Image
+                      // add single image later
+                      src="/Double-small.png"
+                      alt="openbed"
+                      layout="fill"
+                      objectFit="contain"
+                    />
+                    {selectedImagePath === "/single.png" && (
+                      <div className="absolute -top-1 -right-[0.38rem]  bg-[#00acbb] p-2  rounded-full">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="h-4 w-4 text-white"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M5 13l4 4L19 7"
+                          />
+                        </svg>
+                      </div>
+                    )}
+                    <div className="absolute top-full mb-10 w-full left-0 text-center">
+                      Small Single 2ft6
+                    </div>
+                  </div>
+
+                  <div
+                    className={`h-[6.25rem] w-[6.25rem] max-md:w-[5rem] max-md:h-[5rem] px-10 rounded-lg relative cursor-pointer ${
+                      selectedImagePath === "/single2.png" &&
+                      "border-[2px] border-black"
+                    }`}
+                    onClick={() => handleImageClick("/single2.png")}
+                  >
+                    <Image
+                      // add single image later
+                      src="/Double-small.png"
+                      alt="openbed"
+                      layout="fill"
+                      objectFit="contain"
+                    />
+                    {selectedImagePath === "/single2.png" && (
+                      <div className="absolute -top-1 -right-[0.38rem]  bg-[#00acbb] p-2  rounded-full">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="h-4 w-4 text-white"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M5 13l4 4L19 7"
+                          />
+                        </svg>
+                      </div>
+                    )}
+                    <div className="absolute top-full mb-10 w-full left-0 text-center">
+                      Single 3ft
+                    </div>
+                  </div>
+
+                  <div
+                    className={`h-[6.25rem] w-[6.25rem] max-md:w-[5rem] max-md:h-[5rem] px-10 rounded-lg relative cursor-pointer ${
+                      selectedImagePath === "/Double-small.png" &&
+                      "border-[2px] border-black"
+                    }`}
+                    onClick={() => handleImageClick("/Double-small.png")}
+                  >
+                    <Image
+                      src="/Double-small.png"
+                      alt="openbed"
+                      layout="fill"
+                      objectFit="contain"
+                    />
+                    {selectedImagePath === "/Double-small.png" && (
+                      <div className="absolute -top-1 -right-[0.38rem]  bg-[#00acbb] p-2  rounded-full">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="h-4 w-4 text-white"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M5 13l4 4L19 7"
+                          />
+                        </svg>
+                      </div>
+                    )}
+                    <div className="absolute top-full mb-10 w-full left-0 text-center">
+                      Small Double 4ft
+                    </div>
+                  </div>
+
+                  <div
+                    className={`h-[6.25rem] w-[6.25rem] max-md:w-[5rem] max-md:h-[5rem] px-10 rounded-lg relative cursor-pointer ${
+                      selectedImagePath === "/Double-small2.png" &&
+                      "border-[2px] border-black"
+                    }`}
+                    onClick={() => handleImageClick("/Double-small2.png")}
+                  >
+                    <Image
+                      src="/Double-small.png"
+                      alt="openbed"
+                      layout="fill"
+                      objectFit="contain"
+                    />
+                    {selectedImagePath === "/Double-small2.png" && (
+                      <div className="absolute -top-1 -right-[0.38rem]  bg-[#00acbb] p-2  rounded-full">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="h-4 w-4 text-white"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M5 13l4 4L19 7"
+                          />
+                        </svg>
+                      </div>
+                    )}
+                    <div className="absolute top-full mb-10 w-full left-0 text-center">
+                      Double 4ft6
+                    </div>
+                  </div>
+
+                  <div
+                    className={`h-[6.25rem] w-[6.25rem] max-md:w-[5rem] max-md:h-[5rem]  px-10 rounded-lg relative cursor-pointer ${
+                      selectedImagePath === "/Double-small3.png" &&
+                      "border-[2px] border-black"
+                    }`}
+                    onClick={() => handleImageClick("/Double-small3.png")}
+                  >
+                    <Image
+                      src="/Double-small.png"
+                      alt="openbed"
+                      layout="fill"
+                      objectFit="contain"
+                    />
+                    {selectedImagePath === "/Double-small3.png" && (
+                      <div className="absolute -top-1 -right-[0.38rem]  bg-[#00acbb] p-2 rounded-full">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="h-4 w-4 text-white"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M5 13l4 4L19 7"
+                          />
+                        </svg>
+                      </div>
+                    )}
+                    <div className="absolute top-full mb-10 w-full left-0 text-center">
+                      King 5ft
+                    </div>
+                  </div>
+                  <div
+                    className={`h-[6.25rem] w-[6.25rem] max-md:w-[5rem] max-md:h-[5rem]  px-10 rounded-lg relative cursor-pointer ${
+                      selectedImagePath === "/Double-small4.png" &&
+                      "border-[2px] border-black"
+                    }`}
+                    onClick={() => handleImageClick("/Double-small4.png")}
+                  >
+                    <Image
+                      src="/Double-small.png"
+                      alt="openbed"
+                      layout="fill"
+                      objectFit="contain"
+                    />
+                    {selectedImagePath === "/Double-small4.png" && (
+                      <div className="absolute -top-1 -right-[0.38rem]  bg-[#00acbb] p-2 rounded-full">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="h-4 w-4 text-white"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M5 13l4 4L19 7"
+                          />
+                        </svg>
+                      </div>
+                    )}
+                    <div className="absolute top-full mb-10 w-full left-0 text-center">
+                      Super King 6ft
+                    </div>
+                  </div>
+                </div>
               </div>
 
-              <div className="grid bg-[#f1feff] min-h-[40vh] rounded-2xl justify-items-center py-10 grid-cols-5 max-xl:grid-cols-3 max-md:mt-20 max-sm:grid-cols-2 gap-8 max-sm:items-center px-5 my-5 max-lg:justify- max-sm:justify-between">
-                <div
-                  className={`h-[6.25rem]  w-[6.25rem] max-md:w-[5rem] max-md:h-[5rem] px-10 rounded-lg relative cursor-pointer ${
-                    selectedImagePath === "/single.png" &&
-                    " border-[2px] border-black"
-                  }`}
-                  onClick={() => handleImageClick("/single.png")}
-                >
-                  <Image
-                  // add single image later
-                    src="/Double-small.png"
-                    alt="openbed"
-                    layout="fill"
-                    objectFit="contain"
-                  />
-                  {selectedImagePath === "/single.png" && (
-                    <div className="absolute -top-1 -right-[0.38rem]  bg-[#00acbb] p-2  rounded-full">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-4 w-4 text-white"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M5 13l4 4L19 7"
-                        />
-                      </svg>
-                    </div>
-                  )}
+              {/* Bed types section*/}
+              <div className="bg-[#f1feff] min-h-[60vh] mt-10 flex flex-col rounded-xl">
+                <div className="border-black border-[2px] w-[85%] mt-10 mx-auto p-3 cursor-pointer rounded-2xl text-center">
+                  {getTextForImageBedType().text}
                 </div>
+                <div className="grid  justify-items-center rounded-2xl  py-10 grid-cols-6 max-xl:grid-cols-3 max-md:mt-20 max-sm:grid-cols-2 gap-8 max-sm:items-center px-5 my-5 max-lg:justify- max-sm:justify-between">
+                  <div
+                    className={`h-[6.25rem]  w-[6.25rem] max-md:w-[5rem] max-md:h-[5rem] px-10 rounded-lg relative cursor-pointer ${
+                      selectedImagePathType === "/Divan-Base-Only-b.png" &&
+                      " border-[2px] border-black"
+                    }`}
+                    onClick={() => {
+                      handleImageClickType("/Divan-Base-Only-b.png");
+                      removeDepthOptions();
+                    }}
+                  >
+                    <Image
+                      src="/Divan-Base-Only-b.png"
+                      alt="openbed"
+                      layout="fill"
+                      objectFit="contain"
+                    />
+                    {selectedImagePathType === "/Divan-Base-Only-b.png" && (
+                      <div className="absolute -top-1 -right-[0.38rem]  bg-[#00acbb] p-2  rounded-full">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="h-4 w-4 text-white"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M5 13l4 4L19 7"
+                          />
+                        </svg>
+                      </div>
+                    )}
+                    <div className="absolute top-full mb-10 w-full left-0 text-center">
+                      Base Only +£0
+                    </div>
+                  </div>
 
-                <div
-                  className={`h-[6.25rem] w-[6.25rem] max-md:w-[5rem] max-md:h-[5rem] px-10 rounded-lg relative cursor-pointer ${
-                    selectedImagePath === "/single2.png" &&
-                    "border-[2px] border-black"
-                  }`}
-                  onClick={() => handleImageClick("/single2.png")}
-                >
-                  <Image
-                  // add single image later
-                    src="/Double-small.png"
-                    alt="openbed"
-                    layout="fill"
-                    objectFit="contain"
-                  />
-                  {selectedImagePath === "/single2.png" && (
-                    <div className="absolute -top-1 -right-[0.38rem]  bg-[#00acbb] p-2  rounded-full">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-4 w-4 text-white"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M5 13l4 4L19 7"
-                        />
-                      </svg>
+                  <div
+                    className={`h-[6.25rem] w-[6.25rem] max-md:w-[5rem] max-md:h-[5rem] px-10 rounded-lg relative cursor-pointer ${
+                      selectedImagePathType ===
+                        "/2-Continentel-Drawer-same-side-b.png" &&
+                      "border-[2px] border-black"
+                    }`}
+                    onClick={() => {
+                      handleImageClickType(
+                        "/2-Continentel-Drawer-same-side-b.png"
+                      );
+                      removeDepthOptions();
+                    }}
+                  >
+                    <Image
+                      src="/2-Continentel-Drawer-same-side-b.png"
+                      alt="openbed"
+                      layout="fill"
+                      objectFit="contain"
+                    />
+                    {selectedImagePathType ===
+                      "/2-Continentel-Drawer-same-side-b.png" && (
+                      <div className="absolute -top-1 -right-[0.38rem]  bg-[#00acbb] p-2  rounded-full">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="h-4 w-4 text-white"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M5 13l4 4L19 7"
+                          />
+                        </svg>
+                      </div>
+                    )}
+                    <div className="absolute top-full mb-10 w-full left-0 text-center">
+                      2 Drawer same side +£40
                     </div>
-                  )}
-                </div>
+                  </div>
 
-                <div
-                  className={`h-[6.25rem] w-[6.25rem] max-md:w-[5rem] max-md:h-[5rem] px-10 rounded-lg relative cursor-pointer ${
-                    selectedImagePath === "/Double-small.png" &&
-                    "border-[2px] border-black"
-                  }`}
-                  onClick={() => handleImageClick("/Double-small.png")}
-                >
-                  <Image
-                    src="/Double-small.png"
-                    alt="openbed"
-                    layout="fill"
-                    objectFit="contain"
-                  />
-                  {selectedImagePath === "/Double-small.png" && (
-                    <div className="absolute -top-1 -right-[0.38rem]  bg-[#00acbb] p-2  rounded-full">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-4 w-4 text-white"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M5 13l4 4L19 7"
-                        />
-                      </svg>
+                  <div
+                    className={`h-[6.25rem] w-[6.25rem] max-md:w-[5rem] max-md:h-[5rem] px-10 rounded-lg relative cursor-pointer ${
+                      selectedImagePathType === "/2-Draw-Same-Side-b.png" &&
+                      "border-[2px] border-black"
+                    }`}
+                    onClick={() => {
+                      handleImageClickType("/2-Draw-Same-Side-b.png");
+                      removeDepthOptions();
+                    }}
+                  >
+                    <Image
+                      src="/2-Draw-Same-Side-b.png"
+                      alt="openbed"
+                      layout="fill"
+                      objectFit="contain"
+                    />
+                    {selectedImagePathType === "/2-Draw-Same-Side-b.png" && (
+                      <div className="absolute -top-1 -right-[0.38rem]  bg-[#00acbb] p-2  rounded-full">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="h-4 w-4 text-white"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M5 13l4 4L19 7"
+                          />
+                        </svg>
+                      </div>
+                    )}
+                    <div className="absolute top-full mb-10 w-full left-0 text-center">
+                      2 Drawer Continental +£40
                     </div>
-                  )}
-                </div>
+                  </div>
 
-                <div
-                  className={`h-[6.25rem] w-[6.25rem] max-md:w-[5rem] max-md:h-[5rem] px-10 rounded-lg relative cursor-pointer ${
-                    selectedImagePath === "/Double-small2.png" &&
-                    "border-[2px] border-black"
-                  }`}
-                  onClick={() => handleImageClick("/Double-small2.png")}
-                >
-                  <Image
-                    src="/Double-small.png"
-                    alt="openbed"
-                    layout="fill"
-                    objectFit="contain"
-                  />
-                  {selectedImagePath === "/Double-small2.png" && (
-                    <div className="absolute -top-1 -right-[0.38rem]  bg-[#00acbb] p-2  rounded-full">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-4 w-4 text-white"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M5 13l4 4L19 7"
-                        />
-                      </svg>
+                  <div
+                    className={`h-[6.25rem] w-[6.25rem] max-md:w-[5rem] max-md:h-[5rem] px-10 rounded-lg relative cursor-pointer ${
+                      selectedImagePathType === "/Side-Opening-Ottoman-b.jpg" &&
+                      "border-[2px] border-black"
+                    }`}
+                    onClick={() => {
+                      handleImageClickType("/Side-Opening-Ottoman-b.jpg");
+                      displayDepthOptions();
+                    }}
+                  >
+                    <Image
+                      src="/Side-Opening-Ottoman-b.jpg"
+                      alt="openbed"
+                      layout="fill"
+                      objectFit="contain"
+                    />
+                    {selectedImagePathType ===
+                      "/Side-Opening-Ottoman-b.jpg" && (
+                      <div className="absolute -top-1 -right-[0.38rem]  bg-[#00acbb] p-2  rounded-full">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="h-4 w-4 text-white"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M5 13l4 4L19 7"
+                          />
+                        </svg>
+                      </div>
+                    )}
+                    <div className="absolute top-full mb-10 w-full left-0 text-center">
+                      End lift Ottoman Bed +£60
                     </div>
-                  )}
-                </div>
+                  </div>
 
-                <div
-                  className={`h-[6.25rem] w-[6.25rem] max-md:w-[5rem] max-md:h-[5rem]  px-10 rounded-lg relative cursor-pointer ${
-                    selectedImagePath === "/Double-small3.png" &&
-                    "border-[2px] border-black"
-                  }`}
-                  onClick={() => handleImageClick("/Double-small3.png")}
-                >
-                  <Image
-                    src="/Double-small.png"
-                    alt="openbed"
-                    layout="fill"
-                    objectFit="contain"
-                  />
-                  {selectedImagePath === "/Double-small3.png" && (
-                    <div className="absolute -top-1 -right-[0.38rem]  bg-[#00acbb] p-2 rounded-full">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-4 w-4 text-white"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M5 13l4 4L19 7"
-                        />
-                      </svg>
+                  <div
+                    className={`h-[6.25rem] w-[6.25rem] max-md:w-[5rem] max-md:h-[5rem] px-10 rounded-lg relative cursor-pointer ${
+                      selectedImagePathType === "/End-Foot-Opening.png" &&
+                      "border-[2px] border-black"
+                    }`}
+                    onClick={() => {
+                      handleImageClickType("/End-Foot-Opening.png");
+                      displayDepthOptions();
+                    }}
+                  >
+                    <Image
+                      src="/End-Foot-Opening.png"
+                      alt="openbed"
+                      layout="fill"
+                      objectFit="contain"
+                    />
+                    {selectedImagePathType === "/End-Foot-Opening.png" && (
+                      <div className="absolute -top-1 -right-[0.38rem]  bg-[#00acbb] p-2  rounded-full">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="h-4 w-4 text-white"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M5 13l4 4L19 7"
+                          />
+                        </svg>
+                      </div>
+                    )}
+                    <div className="absolute top-full mb-10 w-full left-0 text-center">
+                      Side Lift Ottoman Bed +£60
                     </div>
-                  )}
-                </div>
-                <div
-                  className={`h-[6.25rem] w-[6.25rem] max-md:w-[5rem] max-md:h-[5rem]  px-10 rounded-lg relative cursor-pointer ${
-                    selectedImagePath === "/Double-small4.png" &&
-                    "border-[2px] border-black"
-                  }`}
-                  onClick={() => handleImageClick("/Double-small4.png")}
-                >
-                  <Image
-                    src="/Double-small.png"
-                    alt="openbed"
-                    layout="fill"
-                    objectFit="contain"
-                  />
-                  {selectedImagePath === "/Double-small4.png" && (
-                    <div className="absolute -top-1 -right-[0.38rem]  bg-[#00acbb] p-2 rounded-full">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-4 w-4 text-white"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M5 13l4 4L19 7"
-                        />
-                      </svg>
-                    </div>
-                  )}
+                  </div>
                 </div>
               </div>
 
+              {/* <div><ProductsPage/></div> */}
+              {/* Bed Depth section : */}
 
+              {showBedDephthOptions && (
+                <div className="bg-[#f1feff] relative min-h-[70vh] mt-10 flex flex-col rounded-xl">
+                  <div className="border-black border-[2px] w-[85%] mt-10 mx-auto p-3 cursor-pointer rounded-2xl text-center">
+                    {getTextForImageBedDepth().text}
+                  </div>
+                  <div className="grid  justify-items-center rounded-2xl  py-10 grid-cols-4 max-xl:grid-cols-3 max-md:mt-20 max-sm:grid-cols-2 gap-8 max-sm:items-center px-5 my-5 max-lg:justify- max-sm:justify-between">
+                    <div
+                      className={`h-[6.25rem]  w-[6.25rem] max-md:w-[5rem] max-md:h-[5rem] px-10 rounded-lg relative cursor-pointer ${
+                        selectedImagePathDepth === "/Deep-Base.png" &&
+                        " border-[2px] border-black"
+                      }`}
+                      onClick={() => handleImageClickDepth("/Deep-Base.png")}
+                    >
+                      <Image
+                        src="/Deep-Base.png"
+                        alt="deepbase"
+                        layout="fill"
+                        objectFit="contain"
+                      />
+                      {selectedImagePathDepth === "/Deep-Base.png" && (
+                        <div className="absolute -top-1 -right-[0.38rem]  bg-[#00acbb] p-2  rounded-full">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="h-4 w-4 text-white"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M5 13l4 4L19 7"
+                            />
+                          </svg>
+                        </div>
+                      )}
 
+                      <div className="absolute top-full mb-10 w-full left-0 text-center">
+                        Standard Depth 23cm ( Base Height 37cm ) +£0
+                      </div>
+                    </div>
 
+                    <div
+                      className={`h-[6.25rem] w-[6.25rem] max-md:w-[5rem] max-md:h-[5rem] px-10 rounded-lg relative cursor-pointer ${
+                        selectedImagePathDepth === "/Standard-Base.png" &&
+                        "border-[2px] border-black"
+                      }`}
+                      onClick={() =>
+                        handleImageClickDepth("/Standard-Base.png")
+                      }
+                    >
+                      <Image
+                        src="/Standard-Base.png"
+                        alt="openbed"
+                        layout="fill"
+                        objectFit="contain"
+                      />
+                      {selectedImagePathDepth === "/Standard-Base.png" && (
+                        <div className="absolute -top-1 -right-[0.38rem]  bg-[#00acbb] p-2  rounded-full">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="h-4 w-4 text-white"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M5 13l4 4L19 7"
+                            />
+                          </svg>
+                        </div>
+                      )}
+                      <div className="absolute top-full mb-10 w-full left-0 text-center">
+                        Deep Base Depth 30.5cm (Base Height 44cm) +£180
+                      </div>
+                    </div>
 
+                    <div
+                      className={`h-[6.25rem] w-[6.25rem] max-md:w-[5rem] max-md:h-[5rem] px-10 rounded-lg relative cursor-pointer ${
+                        selectedImagePathDepth === "/Super-Deep-Base.png" &&
+                        "border-[2px] border-black"
+                      }`}
+                      onClick={() =>
+                        handleImageClickDepth("/Super-Deep-Base.png")
+                      }
+                    >
+                      <Image
+                        src="/Super-Deep-Base.png"
+                        alt="openbed"
+                        layout="fill"
+                        objectFit="contain"
+                      />
+                      {selectedImagePathDepth === "/Super-Deep-Base.png" && (
+                        <div className="absolute -top-1 -right-[0.38rem]  bg-[#00acbb] p-2  rounded-full">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="h-4 w-4 text-white"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M5 13l4 4L19 7"
+                            />
+                          </svg>
+                        </div>
+                      )}
 
+                      <div className="absolute top-full mb-10 w-full left-0 text-center">
+                        Super Deep Depth 37cm (Base Height 50cm) +£450
+                      </div>
+                    </div>
+                  </div>
+                  <div className="border-[#e0dfdf] border-[2px] absolute bottom-5 w-[85%] left-1/2 -translate-x-1/2  p-2  rounded-lg text-center">
+                    Base Height excludes mattress heights..
+                  </div>
+                </div>
+              )}
 
+              <div className="flex flex-col gap-16">
+                <SlipLids
+                  defaultText="Anti-Slip Lids - Standard Top (Bed Side Supported By Wall) +£0e"
+                  buttonTexts={[
+                    "Anti-Slip Lids - Standard Top (Bed Side Supported By Wall) +£0",
+                    "Foam Padded Bed Base +£125",
+                  ]}
+                />
 
+                <SlipLids
+                  defaultText="Base Padding - Foam Padded Bed Base +£125"
+                  buttonTexts={[
+                    "No Base Padding +£0",
+                    "Foam Padded Bed Base +£125",
+                  ]}
+                  // buttonStyles={buttonStyles}
+                />
 
+                <SlipLids
+                  defaultText="Re-enforcement - Re-Inforced Storage Area & Lids +£80"
+                  buttonTexts={[
+                    "Standard Market Build +£0",
+                    "Re-Inforced Storage Area & Lids +£80",
+                  ]}
+                  // buttonStyles={buttonStyles}
+                />
 
-
-
-{/* Bed types section*/}
+                <SlipLids
+                  defaultText="Gas Pistons - 600N Gas Pistons (Upto 55kg Mattress) (Included)"
+                  buttonTexts={[
+                    "600N Gas Pistons (Upto 55kg Mattress) (Included)",
+                    "800N Gas Pistons (55-75kg Mattress) +£25",
+                    // Add more button texts as needed
+                  ]}
+                  buttonStyles={buttonStyles}
+                />
+              </div>
               <div>
-              <div className="border-black border-[2px] w-[85%] my-0 mx-auto p-3 cursor-pointer rounded-2xl text-center">
-                {getTextForImageBedType().text}
+                <ColorPalette />
               </div>
+
               <div>
-            </div>
-              <div className="grid bg-[#f1feff] min-h-[40vh] justify-items-center rounded-2xl  py-10 grid-cols-6 max-xl:grid-cols-3 max-md:mt-20 max-sm:grid-cols-2 gap-8 max-sm:items-center px-5 my-5 max-lg:justify- max-sm:justify-between">
-                <div
-                  className={`h-[6.25rem]  w-[6.25rem] max-md:w-[5rem] max-md:h-[5rem] px-10 rounded-lg relative cursor-pointer ${
-                    selectedImagePathType === "/Divan-Base-Only-b.png" &&
-                    " border-[2px] border-black"
-                  }`}
-                  onClick={() => handleImageClickType("/Divan-Base-Only-b.png")}
-                >
-                  <Image
-                    src="/Divan-Base-Only-b.png"
-                    alt="openbed"
-                    layout="fill"
-                    objectFit="contain"
-                  />
-                  {selectedImagePathType === "/Divan-Base-Only-b.png" && (
-                    <div className="absolute -top-1 -right-[0.38rem]  bg-[#00acbb] p-2  rounded-full">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-4 w-4 text-white"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M5 13l4 4L19 7"
-                        />
-                      </svg>
-                    </div>
-                  )}
-                </div>
+                <SlipLids
+                  defaultText="Gas Pistons - 600N Gas Pistons (Upto 55kg Mattress) (Included)"
+                  buttonTexts={[
+                    "600N Gas Pistons (Upto 55kg Mattress) (Included)",
+                    "800N Gas Pistons (55-75kg Mattress) +£25",
+                    // Add more button texts as needed
+                  ]}
+                  buttonStyles={buttonStyles}
+                />
 
-                <div
-                  className={`h-[6.25rem] w-[6.25rem] max-md:w-[5rem] max-md:h-[5rem] px-10 rounded-lg relative cursor-pointer ${
-                    selectedImagePathType === "/2-Continentel-Drawer-same-side-b.png" &&
-                    "border-[2px] border-black"
-                  }`}
-                  onClick={() => handleImageClickType("/2-Continentel-Drawer-same-side-b.png")}
-                >
-                  <Image
-                    src="/2-Continentel-Drawer-same-side-b.png"
-                    alt="openbed"
-                    layout="fill"
-                    objectFit="contain"
-                  />
-                  {selectedImagePathType === "/2-Continentel-Drawer-same-side-b.png" && (
-                    <div className="absolute -top-1 -right-[0.38rem]  bg-[#00acbb] p-2  rounded-full">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-4 w-4 text-white"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M5 13l4 4L19 7"
-                        />
-                      </svg>
-                    </div>
-                  )}
-                </div>
-
-                <div
-                  className={`h-[6.25rem] w-[6.25rem] max-md:w-[5rem] max-md:h-[5rem] px-10 rounded-lg relative cursor-pointer ${
-                    selectedImagePathType === "/2-Draw-Same-Side-b.png" &&
-                    "border-[2px] border-black"
-                  }`}
-                  onClick={() => handleImageClickType("/2-Draw-Same-Side-b.png")}
-                >
-                  <Image
-                    src="/2-Draw-Same-Side-b.png"
-                    alt="openbed"
-                    layout="fill"
-                    objectFit="contain"
-                  />
-                  {selectedImagePathType === "/2-Draw-Same-Side-b.png" && (
-                    <div className="absolute -top-1 -right-[0.38rem]  bg-[#00acbb] p-2  rounded-full">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-4 w-4 text-white"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M5 13l4 4L19 7"
-                        />
-                      </svg>
-                    </div>
-                  )}
-                </div>
-
-                <div
-                  className={`h-[6.25rem] w-[6.25rem] max-md:w-[5rem] max-md:h-[5rem] px-10 rounded-lg relative cursor-pointer ${
-                    selectedImagePathType === "/Side-Opening-Ottoman-b.jpg" &&
-                    "border-[2px] border-black"
-                  }`}
-                  onClick={() => handleImageClickType("/Side-Opening-Ottoman-b.jpg")}
-                >
-                  <Image
-                    src="/Side-Opening-Ottoman-b.jpg"
-                    alt="openbed"
-                    layout="fill"
-                    objectFit="contain"
-                  />
-                  {selectedImagePathType === "/Side-Opening-Ottoman-b.jpg" && (
-                    <div className="absolute -top-1 -right-[0.38rem]  bg-[#00acbb] p-2  rounded-full">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-4 w-4 text-white"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M5 13l4 4L19 7"
-                        />
-                      </svg>
-                    </div>
-                  )}
-                </div>
-
-
-                <div
-                  className={`h-[6.25rem] w-[6.25rem] max-md:w-[5rem] max-md:h-[5rem] px-10 rounded-lg relative cursor-pointer ${
-                    selectedImagePathType === "/End-Foot-Opening.png" &&
-                    "border-[2px] border-black"
-                  }`}
-                  onClick={() => handleImageClickType("/End-Foot-Opening.png")}
-                >
-                  <Image
-                    src="/End-Foot-Opening.png"
-                    alt="openbed"
-                    layout="fill"
-                    objectFit="contain"
-                  />
-                  {selectedImagePathType === "/End-Foot-Opening.png" && (
-                    <div className="absolute -top-1 -right-[0.38rem]  bg-[#00acbb] p-2  rounded-full">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-4 w-4 text-white"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M5 13l4 4L19 7"
-                        />
-                      </svg>
-                    </div>
-                  )}
-                </div>
-
-               
-               
+                <SlipLids
+                  defaultText="Gas Pistons - 600N Gas Pistons (Upto 55kg Mattress) (Included)"
+                  buttonTexts={[
+                    "600N Gas Pistons (Upto 55kg Mattress) (Included)",
+                    "800N Gas Pistons (55-75kg Mattress) +£25",
+                    // Add more button texts as needed
+                  ]}
+                  buttonStyles={buttonStyles}
+                />
+                <SlipLids
+                  defaultText="Gas Pistons - 600N Gas Pistons (Upto 55kg Mattress) (Included)"
+                  buttonTexts={[
+                    "600N Gas Pistons (Upto 55kg Mattress) (Included)",
+                    "800N Gas Pistons (55-75kg Mattress) +£25",
+                    // Add more button texts as needed
+                  ]}
+                  buttonStyles={buttonStyles}
+                />
+                <SlipLids
+                  defaultText="Gas Pistons - 600N Gas Pistons (Upto 55kg Mattress) (Included)"
+                  buttonTexts={[
+                    "600N Gas Pistons (Upto 55kg Mattress) (Included)",
+                    "800N Gas Pistons (55-75kg Mattress) +£25",
+                    // Add more button texts as needed
+                  ]}
+                  buttonStyles={buttonStyles}
+                />
               </div>
-              </div>
-              <div>
-
-                
-                {/* <ProductsPage/> */}
-              </div>
-              <div></div>
-              <div></div>
             </div>
           </div>
         </div>
