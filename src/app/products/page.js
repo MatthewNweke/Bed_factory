@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import "animate.css/animate.min.css";
 import Image from "next/image";
 import SlipLids from "@/components/cards/SlipLids";
 import ColorPalette from "@/components/cards/ColorPalette";
@@ -240,6 +241,34 @@ const Products = () => {
   useEffect(() => {
     updateBedDepthAmount();
   }, [selectedImagePathDepth]);
+
+  const [shake, setShake] = useState(false);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setShake(true);
+      setTimeout(() => {
+        setShake(false);
+      }, 1000); // Duration of the shake animation
+    }, 5000); // Interval between each shake animation
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const [BtnAmount, setBtnAmount] = useState(1); // Initial amount
+  const [counter, setCounter] = useState(1); // Initial counter
+
+  const handleIncrease = () => {
+    setCounter(counter + 1); // Increment counter
+    setAmount(BtnAmount + BtnAmount); // Double the amount
+  };
+
+  const handleDecrease = () => {
+    if (counter > 1) {
+      setCounter(counter - 1); // Decrement counter
+      setBtnAmount(amount - amount / 2); // Halve the amount
+    }
+  };
 
   return (
     <div>
@@ -1042,6 +1071,53 @@ const Products = () => {
                   buttonStyles={buttonStyles}
                 />
               </div>
+
+              <div className="mt-12">
+      <div>
+        <p className="text-[#00acbb] font-semibold text-[1.2rem] mb-3">{amount}</p>
+
+        <div className="flex gap-5">
+          <div className="flex border-black border-[1px] justify-between items-center rounded-2xl py-[0.6rem] px-3 w-[25%]">
+            <svg
+              focusable="false"
+              className="icon icon--minus w-3 h-3 cursor-pointer"
+              viewBox="0 0 10 2"
+              role="presentation"
+              onClick={handleDecrease}
+            >
+              <path d="M10 0v2H0V0z" fill="currentColor"></path>
+            </svg>
+
+            <span>{counter}</span>
+
+            <svg
+              focusable="false"
+              className="icon icon--plus w-3 h-3 cursor-pointer"
+              viewBox="0 0 10 10"
+              role="presentation"
+              onClick={handleIncrease}
+            >
+              <path
+                d="M6 4h4v2H6v4H4V6H0V4h4V0h2v4z"
+                fill="currentColor"
+                fillRule="evenodd"
+              ></path>
+            </svg>
+          </div>
+
+          <button
+            className={`bg-[#00acbb] w-[30%] hover:bg-[#00666e] text-sm text-white font-bold py-[0.6rem] px-8 rounded-2xl ${
+              shake ? "animate__animated animate__shakeX" : ""
+            }`}
+            onClick={() => console.log("Add to cart clicked")}
+          >
+            Add to Cart
+          </button>
+        </div>
+      </div>
+    </div>
+
+              
             </div>
           </div>
         </div>
