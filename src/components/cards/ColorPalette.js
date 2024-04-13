@@ -77,16 +77,16 @@ const ColorPalette = () => {
             </div>
           </div>
         )}
-        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-2">
+        <div className="grid xl:grid-cols-6 xl:gap-8 grid-cols-3  sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-3  gap-2">
           {rowColors.map((color, index) => (
-            <div key={index} className="flex flex-col items-center">
+            <div key={index} className="flex flex-col gap-2  items-center">
               <div
                 className="w-16 sm:w-20 md:w-24 h-16 sm:h-20 md:h-24 border-[1px] rounded-md cursor-pointer transition duration-300 ease-in-out"
                 onClick={() => handleColorClick(color)}
               >
                 <img
-                  src={color} // Assuming each color in the array is a path or URL to an image
-                  alt={label} // You can set alt text to the label or any appropriate text
+                  src={color} 
+                  alt={label} 
                   className="w-full h-full object-cover rounded-md"
                 />
               </div>
