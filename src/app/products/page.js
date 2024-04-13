@@ -1074,10 +1074,10 @@ const Products = () => {
 
               <div className="mt-12">
       <div>
-        <p className="text-[#00acbb] font-semibold text-[1.2rem] mb-3">{amount}</p>
+        {/* <p className="text-[#00acbb] font-semibold text-[1.2rem] mb-3">{amount}</p> */}
 
-        <div className="flex gap-5">
-          <div className="flex border-black border-[1px] justify-between items-center rounded-2xl py-[0.6rem] px-3 w-[25%]">
+        <div className="flex gap-5 max-md:justify-center">
+          <div className="flex border-black border-[1px] justify-between items-center rounded-2xl py-[0.6rem] px-3 w-[25%] text-sm max-sm:py-[0.3rem]">
             <svg
               focusable="false"
               className="icon icon--minus w-3 h-3 cursor-pointer"
@@ -1106,7 +1106,7 @@ const Products = () => {
           </div>
 
           <button
-            className={`bg-[#00acbb] w-[30%] hover:bg-[#00666e] text-sm text-white font-bold py-[0.6rem] px-8 rounded-2xl ${
+            className={`bg-[#00acbb] w-[30%] hover:bg-[#00666e] text-sm text-white font-bold py-[0.6rem] px-8 rounded-2xl max-sm:py-[0.3rem] ${
               shake ? "animate__animated animate__shakeX" : ""
             }`}
             onClick={() => console.log("Add to cart clicked")}
