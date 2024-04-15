@@ -467,7 +467,7 @@ const Products = () => {
                 <div className="border-black border-[2px] w-[85%] mt-10 mx-auto p-3 cursor-pointer rounded-2xl text-center">
                   {getTextForImageBedSize().text}
                 </div>
-                <div className="grid gap-y-20 rounded-2xl justify-items-center py-10 grid-cols-5 max-xl:grid-cols-3 max-md:mt-20 max-sm:grid-cols-2 gap-8 max-sm:items-center px-5 my-5 max-lg:justify- max-sm:justify-between">
+                <div className="grid text-sm gap-y-20 rounded-2xl justify-items-center py-10 grid-cols-5 max-xl:grid-cols-3 max-md:mt-20 max-sm:grid-cols-2 gap-8 max-sm:items-center px-5 my-5 max-lg:justify- max-sm:justify-between">
                   <div
                     className={`h-[6.25rem]  w-[6.25rem] max-md:w-[5rem] max-md:h-[5rem] px-10 rounded-lg relative cursor-pointer ${
                       selectedImagePath === "/single.png" &&
@@ -692,7 +692,7 @@ const Products = () => {
                 <div className="border-black border-[2px] w-[85%] mt-10 mx-auto p-3 cursor-pointer rounded-2xl text-center">
                   {getTextForImageBedType().text}
                 </div>
-                <div className="grid  justify-items-center rounded-2xl  py-10 grid-cols-6 max-xl:grid-cols-3 max-md:mt-20 max-sm:grid-cols-2 gap-8 max-sm:items-center px-5 my-5 max-lg:justify- max-sm:justify-between">
+                <div className="grid text-sm justify-items-center rounded-2xl  py-10 grid-cols-6 max-xl:grid-cols-3 max-md:mt-20 max-lg:grid-cols-2 gap-8 max-sm:items-center px-5 my-5 max-xl:gap-20 max-md:gap-28  max-sm:justify-between">
                   <div
                     className={`h-[6.25rem]  w-[6.25rem] max-md:w-[5rem] max-md:h-[5rem] px-10 rounded-lg relative cursor-pointer ${
                       selectedImagePathType === "/Divan-Base-Only-b.png" &&
@@ -727,7 +727,7 @@ const Products = () => {
                         </svg>
                       </div>
                     )}
-                    <div className="absolute top-full mb-10 w-full left-0 text-center">
+                    <div className="absolute top-full mb-10 w-full  left-0 text-center">
                       Base Only +£0
                     </div>
                   </div>
@@ -903,7 +903,7 @@ const Products = () => {
                   <div className="border-black border-[2px] w-[85%] mt-10 mx-auto p-3 cursor-pointer rounded-2xl text-center">
                     {getTextForImageBedDepth().text}
                   </div>
-                  <div className="grid  justify-items-center rounded-2xl  py-10 grid-cols-4 max-xl:grid-cols-3 max-md:mt-20 max-sm:grid-cols-2 gap-8 max-sm:items-center px-5 my-5 max-lg:justify- max-sm:justify-between">
+                  <div className="grid min-h-[60vh] max-sm:min-h-[80vh] justify-items-center animate__animated  animate__fadeInDown text-sm rounded-2xl  py-10 grid-cols-4 max-xl:grid-cols-3 max-xl:gap-20 max-md:mt-20 max-sm:grid-cols-2 gap-8 max-sm:items-center px-5 my-5 max-lg:justify- max-sm:justify-between">
                     <div
                       className={`h-[6.25rem]  w-[6.25rem] max-md:w-[5rem] max-md:h-[5rem] px-10 rounded-lg relative cursor-pointer ${
                         selectedImagePathDepth === "/Deep-Base.png" &&
@@ -1018,11 +1018,13 @@ const Products = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="border-[#e0dfdf] border-[2px] absolute bottom-5 w-[85%] left-1/2 -translate-x-1/2  p-2  rounded-lg text-center">
-                    Base Height excludes mattress heights..
-                  </div>
+                  
                 </div>
               )}
+
+              <div className="border-[#e0dfdf] border-[2px] relative w-[85%] my-16 left-1/2 -translate-x-1/2  p-2  rounded-lg text-center">
+                    Base Height excludes mattress heights..
+                  </div>
 
               <div className="flex flex-col gap-16">
                 <SlipLids
@@ -1058,7 +1060,7 @@ const Products = () => {
                     "800N Gas Pistons (55-75kg Mattress) +£25",
                     // Add more button texts as needed
                   ]}
-                  buttonStyles={buttonStyles}
+                  // buttonStyles={buttonStyles}
                 />
               </div>
               <div>
@@ -1073,7 +1075,7 @@ const Products = () => {
                     "800N Gas Pistons (55-75kg Mattress) +£25",
                     // Add more button texts as needed
                   ]}
-                  buttonStyles={buttonStyles}
+                  // buttonStyles={buttonStyles}
                 />
 
                 <SlipLids

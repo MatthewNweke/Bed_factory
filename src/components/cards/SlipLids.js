@@ -16,7 +16,7 @@ const SlipLids = ({ defaultText, buttonTexts, buttonStyles }) => {
   return (
     <div>
       <div className="flex flex-col gap-5 bg-[#f1feff] py-5">
-        <div className="border-black border-[2px] w-[85%] mt-10 mx-auto p-3 cursor-pointer rounded-2xl text-center">
+        <div className="border-black border-[2px] w-[85%] mt-10 mx-auto p-2 cursor-pointer rounded-2xl text-center">
           {displayText}
         </div>
 
