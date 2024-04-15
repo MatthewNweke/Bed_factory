@@ -304,12 +304,12 @@ const Navbar = () => {
         </nav>
         <nav className=" relative  max-md:hidden  bg-[#EEEEEE] py-3 px-3">
           <ul className="m-0 p-0 h-[100%]  text-[0.9rem] flex items-center justify-between flex-wrap max-xl:text-[0.8rem] max-2xl:w-[100%]">
-            <li className="p-4 max-lg:p-3 cursor-pointer hover:bg-[#08c] hover:text-white font-semibold relative">
+            <li className="p-3 cursor-pointer hover:bg-[#08c] hover:text-white font-semibold relative">
               Home
             </li>
 
             <div className="flex flex-col items-center relative dropdown">
-              <li className="p-4 max-lg:p-3  cursor-pointer hover:bg-[#08c] hover:text-white  font-semibold relative listitem">
+              <li className="p-3  cursor-pointer hover:bg-[#08c] hover:text-white  font-semibold relative listitem">
                 Mattresses
               </li>
 
@@ -461,7 +461,7 @@ const Navbar = () => {
             </div>
 
             <div className="flex flex-col items-center relative dropdown">
-              <li className="p-4 max-lg:p-3  cursor-pointer hover:bg-[#08c] hover:text-white  font-semibold relative listitem">
+              <li className="p-3  cursor-pointer hover:bg-[#08c] hover:text-white  font-semibold relative listitem">
                 Beds
               </li>
               <div className="bottom-[3%] relative max-xl:bottom-[-3%] max-lg:bottom-[-5%] w-[60vw] bg-white shadow-xl  z-50 dropdowncontent mattress-content h-[60vh] max-lg:h-[70vh] max-lg:w-[70vw] hidden rounded-b-2xl">
@@ -470,48 +470,48 @@ const Navbar = () => {
                     {" "}
                     Shop by Type
                   </li>
-                  <li className="mb-2">
+                  <li className="">
                     <Link href="#" className="hover:text-[#08c]">
                       Memory Foam
                     </Link>{" "}
                   </li>
-                  <li className="mb-2">
+                  <li className="">
                     <Link href="#" className="hover:text-[#08c]">
                       Pocket Sprung
                     </Link>
                   </li>
-                  <li className="mb-2">
+                  <li className="">
                     {" "}
                     <Link href="#" className="hover:text-[#08c]">
                       Orthopaedic
                     </Link>
                   </li>
-                  <li className="mb-2">
+                  <li className="">
                     <Link href="#" className="hover:text-[#08c]">
                       Latex
                     </Link>
                   </li>
-                  <li className="mb-2">
+                  <li className="">
                     <Link href="#" className="hover:text-[#08c]">
                       Miracoil
                     </Link>
                   </li>
-                  <li className="mb-2">
+                  <li className="">
                     <Link href="#" className="hover:text-[#08c]">
                       Natural Fillings
                     </Link>
                   </li>
-                  <li className="mb-2">
+                  <li className="">
                     <Link href="#" className="hover:text-[#08c]">
                       Cut Bed Mattresses
                     </Link>
                   </li>
-                  <li className="mb-2">
+                  <li className="">
                     <Link href="#" className="hover:text-[#08c]">
                       Kids Mattresses
                     </Link>
                   </li>
-                  <li className="mb-2">
+                  <li className="">
                     <Link href="#" className="hover:text-[#08c]">
                       Next Day Mattresses
                     </Link>
@@ -523,35 +523,35 @@ const Navbar = () => {
                     {" "}
                     Shop by Size
                   </li>
-                  <li className="mb-2">
+                  <li className="">
                     <Link href="#" className="hover:text-[#08c]">
                       Super Kings Beds(6&apos;)
                     </Link>{" "}
                   </li>
-                  <li className="mb-2">
+                  <li className="">
                     <Link href="#" className="hover:text-[#08c]">
                       King Size Beds(5&apos;)
                     </Link>
                   </li>
-                  <li className="mb-2">
+                  <li className="">
                     {" "}
                     <Link href="#" className="hover:text-[#08c]">
-                      Double Beds(4&apos;6&apos;&apos;)
+                      Double Beds(4&apos; 6&apos;&apos;)
                     </Link>
                   </li>
-                  <li className="mb-2">
+                  <li className="">
                     <Link href="#" className="hover:text-[#08c]">
                       Small Double Beds(4&apos;)
                     </Link>
                   </li>
-                  <li className="mb-2">
+                  <li className="">
                     <Link href="#" className="hover:text-[#08c]">
                       Single Beds(3&apos;)
                     </Link>
                   </li>
-                  <li className="mb-2">
+                  <li className="">
                     <Link href="#" className="hover:text-[#08c]">
-                      Small Single Beds(2&apos;6&apos;&apos;)
+                      Small Single Beds(2&apos; 6&apos;&apos;)
                     </Link>
                   </li>{" "}
                   <li className=" absolute right-5 bottom-5">
@@ -582,7 +582,7 @@ const Navbar = () => {
               </div>
             </div>
             <div className="flex flex-col items-center relative dropdown">
-              <li className="p-4  max-lg:p-3  cursor-pointer hover:bg-[#08c] hover:text-white  font-semibold relative listitem">
+              <li className="p-3  cursor-pointer hover:bg-[#08c] hover:text-white  font-semibold relative listitem">
                 <span>Accessories</span>
               </li>
 
@@ -621,7 +621,7 @@ const Navbar = () => {
               </div>
             </div>
             <div className="flex flex-col items-center relative dropdown">
-              <li className="p-4 max-lg:p-3  cursor-pointer hover:bg-[#08c] hover:text-white  font-semibold relative listitem">
+              <li className="p-3  cursor-pointer hover:bg-[#08c] hover:text-white  font-semibold relative listitem">
                 <span>Sales</span>
               </li>
 
@@ -722,21 +722,21 @@ const Navbar = () => {
                 </div>
               </div>
             </div>
-            <li className="p-4  max-lg:p-3  cursor-pointer hover:bg-[#08c] hover:text-white  font-semibold relative listitem">
+            <li className="  p-3  cursor-pointer hover:bg-[#08c] hover:text-white  font-semibold relative listitem">
               <span>About Us</span>
             </li>
-            <li className="p-4   max-lg:p-3  cursor-pointer hover:bg-[#08c] hover:text-white  font-semibold relative listitem">
+            <li className="p-3  cursor-pointer hover:bg-[#08c] hover:text-white  font-semibold relative listitem">
               <span>Deliver Information</span>
             </li>
             {/* <div className="flex flex-col items-center relative dropdown"> */}
-            <li className="p-4 max-lg:p-3 cursor-pointer hover:bg-[#08c] hover:text-white  font-semibold relative listitem">
+            <li className="p-3 cursor-pointer hover:bg-[#08c] hover:text-white  font-semibold relative listitem">
               <span>FAQs</span>
             </li>
 
-            <li className="p-4 max-lg:p-3  cursor-pointer hover:bg-[#08c] hover:text-white  font-semibold relative listitem">
+            <li className="p-3  cursor-pointer hover:bg-[#08c] hover:text-white  font-semibold relative listitem">
               <span>Advice Centre</span>
             </li>
-            <li className="p-4 max-lg:p-3  cursor-pointer hover:bg-[#08c] hover:text-white  font-semibold relative listitem">
+            <li className="p-3  cursor-pointer hover:bg-[#08c] hover:text-white  font-semibold relative listitem">
               <span>Contact Us</span>
             </li>
           </ul>
@@ -1162,19 +1162,19 @@ const Navbar = () => {
 
         <nav className="h-[10vh] py-3 relative max-md:hidden">
           <ul className="p-0 m-0 w-[75%] absolute left-1/2  top-0 h-[100%] flex justify-between -translate-x-1/2  px-2 items-center max-xl:text-[0.8rem] max-2xl:w-[100%] max-md:hidden">
-            <li className="flex items-center gap-2">
+            <li className="flex items-center gap-2 cursor-pointer">
               <Image src={pricematch} width={23} height={23} alt="price" />
               <span>Price Match Guarantee</span>
             </li>
-            <li className="flex items-center gap-2">
+            <li className="flex items-center gap-2 cursor-pointer">
               <Image src={delivery} width={23} height={23} alt="delivery" />
               <span>Free Delivery Over</span>
             </li>
-            <li className="flex items-center gap-2">
+            <li className="flex items-center gap-2 cursor-pointer">
               <Image src={fabric} width={23} height={23} alt="fabric" />
               <span>Free Fabric Samples</span>
             </li>
-            <li className="flex items-center gap-2">
+            <li className="flex items-center gap-2 cursor-pointer">
               <Image src={trustpilot} width={23} height={23} alt="trustpilot" />
               <span>Five Star Trust Pilot Reviews</span>
             </li>
