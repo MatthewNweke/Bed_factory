@@ -1,98 +1,97 @@
 @font-face {
-  font-family: 'Oblik';
-  src: url('/fonts/oblik.woff2') format('woff2'),
-       url('/fonts/oblik.woff') format('woff'),
-       /* Add other formats if available */
-       url('/fonts/oblik.ttf') format('truetype');
+  font-family: "Oblik";
+  src: url("/fonts/oblik.woff2") format("woff2"),
+    url("/fonts/oblik.woff") format("woff"),
+    /* Add other formats if available */ url("/fonts/oblik.ttf")
+      format("truetype");
   /* Add font-weight and font-style if applicable */
 }
-.fa{
+.fa {
   font-weight: bold;
 }
-.dropdowncontent{
-  width: calc(100vw - 2.5rem); /* Adjust as needed based on your layout's margins/paddings */
+.dropdowncontent {
+   /* Adjust as needed based on your layout's margins/paddings */
   box-sizing: border-box;
-  position: fixed;
-  top: 50%;
+  position: absolute;
+  /* top: 50%; */
+  /* box-shadow:0.5px 0.5px 1px black; */
+}
+
+.mattress-content {
+  top: 100%;
+  left: 10%;
+  /* background-color: red; */
+  transform: translateX(-10%);
+}
+
+.sales-content {
+  top: 100%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  /* background-color: red; */
+  transform: translateX(-50%);
+}
+.accessories-content {
+  top: 100%;
+  left: 30%;
+  /* background-color: red; */
+  transform: translateX(-30%);
 }
 
-.dropdown:hover .dropdowncontent{
+
+.dropdown:hover .dropdowncontent {
   display: flex;
- /* padding-top: 5%; */
+  /* padding-top: 5%; */
 }
 
-.dropdown:hover .listitem::before{
+.dropdown:hover .listitem::before {
   display: block;
-  
 }
 
-.dropdown:hover .listitem{
-background-color: #08c;
-color: white;
+.dropdown:hover .listitem {
+  background-color: #08c;
+  color: white;
 }
-.listitem::before{
+.listitem::before {
   display: none;
   z-index: 100;
   content: "";
   position: absolute;
-  left:50%;
+  left: 50%;
   top: 100%;
   transform: translateX(-50%);
   width: 0;
   height: 0;
   border-left: 25px solid transparent;
-    border-right: 25px solid transparent;
-    border-bottom: 25px solid transparent;
-    border-top: 25px solid #08c;
-  z-index:100;
+  border-right: 25px solid transparent;
+  border-bottom: 25px solid transparent;
+  border-top: 25px solid #08c;
+  z-index: 100;
 }
-
 
 .image-container {
-    max-width: 100%; /* Set maximum width to prevent image from overflowing */
-    height: auto; /* Allow height to adjust according to the image aspect ratio */
-  }
-  
-  .image-container img {
-    width: 100%; /* Make image fill its container horizontally */
-    height: auto; /* Allow height to adjust according to the image aspect ratio */
-  }
-
-
-
-  /* .dropdown-menu {
-    position: absolute;
-    left: 0;
-    top: 100%;
-    width: 100%;
-    background-color: #ffffff;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease-in-out;
-    transform: translateX(250px);
-  }
-  
-  .dropdown-menu.slide-in {
-    transform: translateX(-250px);
-  } */
-  
-  
-
-@media (min-width:768px) {
-    .carousel-container {
-        max-width: 100%; 
-        max-height: 70vh;
-        margin: 2rem 0;
-        
-      }
-
-      .carousel{
-        height: 70vh;
-      }
-      img{
-        object-fit: contain;
-      }
+  max-width: 100%; /* Set maximum width to prevent image from overflowing */
+  height: auto; /* Allow height to adjust according to the image aspect ratio */
 }
-  
- 
+
+.image-container img {
+  width: 100%; /* Make image fill its container horizontally */
+  height: auto; /* Allow height to adjust according to the image aspect ratio */
+}
+
+
+
+
+/* @media (min-width: 768px) {
+  .carousel-container {
+    max-width: 100%;
+    max-height: 70vh;
+    margin: 2rem 0;
+  }
+
+  .carousel {
+    height: 70vh;
+  }
+  img {
+    object-fit: contain;
+  }
+} */
