@@ -768,7 +768,7 @@ const Navbar = () => {
 
         <div className="z-50 hidden max-md:block">
           {isDropdownOpen && (
-            <div className="fixed top-0 h-[100vh] bg-white left-0   border-[2px] border-[#e3e3e5] dropdown-content w-[60%]">
+            <div className={`absolute top-0 h-[100vh] bg-white left-0 border-[2px] border-[#e3e3e5] dropdown-content w-[60%] animate__animated animate__slideInLeft`}>
               <div className="text-[0.9rem]  flex justify-between items-center p-3 cursor-pointer bg-[#08c] text-white font-semibold">
                 <span>Menu</span>
                 {""}

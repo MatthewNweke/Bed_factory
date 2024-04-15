@@ -1,9 +1,12 @@
 "use client";
 import { useState, useEffect } from "react";
+import "@fortawesome/fontawesome-free/css/all.css";
 import "animate.css/animate.min.css";
 import Image from "next/image";
 import SlipLids from "@/components/cards/SlipLids";
 import ColorPalette from "@/components/cards/ColorPalette";
+import "../../css/styles.css";
+import Link from "next/link";
 
 const Products = () => {
   const buttonStyles = [{ padding: "0.25rem" }, { padding: "0.25rem" }];
@@ -269,6 +272,36 @@ const Products = () => {
       setBtnAmount(amount - amount / 2); // Halve the amount
     }
   };
+
+  const [isHidden, setIsHidden] = useState(false);
+
+  useEffect(() => {
+    let lastScrollTop = 0;
+    const handleScroll = () => {
+      const currentScrollTop =
+        window.pageYOffset || document.documentElement.scrollTop;
+      if (currentScrollTop > lastScrollTop) {
+        // Scrolling down
+        setIsHidden(true);
+      } else {
+        // Scrolling up
+        setIsHidden(false);
+      }
+      lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop;
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const [dropdownVisible, setDropdownVisible] = useState(false);
+
+  const toggleDropdown = () => {
+    setDropdownVisible(!dropdownVisible);
+  };
+
 
   return (
     <div>
@@ -1073,55 +1106,240 @@ const Products = () => {
               </div>
 
               <div className="mt-12">
-      <div>
-        {/* <p className="text-[#00acbb] font-semibold text-[1.2rem] mb-3">{amount}</p> */}
+                <div>
+                  {/* <p className="text-[#00acbb] font-semibold text-[1.2rem] mb-3">{amount}</p> */}
 
-        <div className="flex gap-5 max-md:justify-center">
-          <div className="flex border-black border-[1px] justify-between items-center rounded-2xl py-[0.6rem] px-3 w-[25%] text-sm max-sm:py-[0.3rem]">
-            <svg
-              focusable="false"
-              className="icon icon--minus w-3 h-3 cursor-pointer"
-              viewBox="0 0 10 2"
-              role="presentation"
-              onClick={handleDecrease}
-            >
-              <path d="M10 0v2H0V0z" fill="currentColor"></path>
-            </svg>
+                  <div className="flex gap-5 max-md:justify-center my-14  items-center">
+                    <div className="flex border-black border-[1px] justify-between items-center rounded-2xl py-[0.6rem] px-3 w-[25%] text-sm max-sm:py-[0.3rem]">
+                      <svg
+                        focusable="false"
+                        className="icon icon--minus w-3 h-3 cursor-pointer"
+                        viewBox="0 0 10 2"
+                        role="presentation"
+                        onClick={handleDecrease}
+                      >
+                        <path d="M10 0v2H0V0z" fill="currentColor"></path>
+                      </svg>
 
-            <span>{counter}</span>
+                      <span>{counter}</span>
 
-            <svg
-              focusable="false"
-              className="icon icon--plus w-3 h-3 cursor-pointer"
-              viewBox="0 0 10 10"
-              role="presentation"
-              onClick={handleIncrease}
-            >
-              <path
-                d="M6 4h4v2H6v4H4V6H0V4h4V0h2v4z"
-                fill="currentColor"
-                fillRule="evenodd"
-              ></path>
-            </svg>
-          </div>
+                      <svg
+                        focusable="false"
+                        className="icon icon--plus w-3 h-3 cursor-pointer"
+                        viewBox="0 0 10 10"
+                        role="presentation"
+                        onClick={handleIncrease}
+                      >
+                        <path
+                          d="M6 4h4v2H6v4H4V6H0V4h4V0h2v4z"
+                          fill="currentColor"
+                          fillRule="evenodd"
+                        ></path>
+                      </svg>
+                    </div>
 
-          <button
-            className={`bg-[#00acbb] w-[30%] hover:bg-[#00666e] text-sm text-white font-bold py-[0.6rem] px-8 rounded-2xl max-sm:py-[0.3rem] ${
-              shake ? "animate__animated animate__shakeX" : ""
-            }`}
-            onClick={() => console.log("Add to cart clicked")}
-          >
-            Add to Cart
-          </button>
-        </div>
-      </div>
-    </div>
+                    <button
+                      className={`bg-[#00acbb] w-[30%] hover:bg-[#00666e] text-sm text-white font-bold py-[0.6rem] px-8 rounded-2xl max-sm:py-[0.3rem] ${
+                        shake ? "animate__animated animate__shakeX" : ""
+                      }`}
+                      onClick={() => console.log("Add to cart clicked")}
+                    >
+                      Add to Cart
+                    </button>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      width="24"
+                      height="24"
+                    >
+                      <path fill="#ffffff" d="M0 0h24v24H0z" />
+                      <path
+                        d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54z"
+                        stroke="#000"
+                        stroke-width="2"
+                      />
+                    </svg>
 
-              
+                    <button className="rounded-2xl py-[0.6rem] border-[1px]  border-black px-3 w-[20%] text-sm max-sm:py-[0.3rem]">
+                      Order Swatch
+                    </button>
+                  </div>
+
+                  <div className="flex my-5 gap-5">
+                    <div className="relative h-16 w-16">
+                      <Image
+                        src="/Gpay.svg"
+                        alt="openbed"
+                        layout="fill"
+                        objectFit="contain"
+                      />
+                    </div>
+                    <div className="relative h-16 w-16">
+                      <Image
+                        src="/Applepay.svg"
+                        alt="openbed"
+                        layout="fill"
+                        objectFit="contain"
+                      />
+                    </div>
+                    <div className="relative h-16 w-16">
+                      <Image
+                        src="/Visapay.svg"
+                        alt="openbed"
+                        layout="fill"
+                        objectFit="contain"
+                      />
+                    </div>
+                    <div className="relative h-16 w-16">
+                      <Image
+                        src="/Masterpay.svg"
+                        alt="openbed"
+                        layout="fill"
+                        objectFit="contain"
+                      />
+                    </div>
+                    <div className="relative h-16 w-16">
+                      <Image
+                        src="/Masterpay2.svg"
+                        alt="openbed"
+                        layout="fill"
+                        objectFit="contain"
+                      />
+                    </div>
+
+                    <div className="relative h-16 w-16">
+                      <Image
+                        src="/shopifypay.svg"
+                        alt="openbed"
+                        layout="fill"
+                        objectFit="contain"
+                      />
+                    </div>
+                    <div className="relative h-16 w-16">
+                      <Image
+                        src="/Klarnapay.svg"
+                        alt="openbed"
+                        layout="fill"
+                        objectFit="contain"
+                      />
+                      <div className="relative h-16 w-16">
+                        <Image
+                          src="/Palpay.svg"
+                          alt="openbed"
+                          layout="fill"
+                          objectFit="contain"
+                        />
+                      </div>
+                    </div>
+                    <div className="relative h-16 w-16">
+                      <Image
+                        src="/Xpresspay.svg"
+                        alt="openbed"
+                        layout="fill"
+                        objectFit="contain"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="leading-7">
+                    <p className="font-semibold mb-5">Ask a Question</p>
+                    <p>Availability : In Stock</p>
+                    <p>
+                      Categories: all Bed Beds Beds & Bed Frames Divan Bed
+                      Double Bed Double Bed Frame Double Bed Size Double Beds
+                      Heavy Duty Ottoman End or Side Lift Ottoman bed Home page
+                      king size bed Ottoman Base Without Headboard Ottoman Bed
+                      Reinforced Divan Bed Bases Single Beds Storage Bed Super
+                      King Size Bed
+                    </p>
+                    <p>Tags: without headboard</p>
+                  </div>
+
+                  <div
+                    className={`flex w-[100%] justify-around my-10 items-center shadow-xl rounded-2xl py-2 min-h-[20vh] ${
+                      isHidden ? "animate__animated animate__backOutDown" : ""
+                    }`}
+                  >
+                    <div className="flex  w-[30%] items-center gap-2 justify-center">
+                      <div className="relative h-16 w-16">
+                        <Image
+                          src="/OttomanEndLiftBaseclosedBg.jpg"
+                          alt="openbed"
+                          layout="fill"
+                          objectFit="cover"
+                          className="rounded-[100%]"
+                        />
+                      </div>
+                      <div className="text-center w-[50%] text-sm">
+                        Ottoman Bed Without Headboard £200.00
+                      </div>
+                    </div>
+
+                    <div className="flex items-center w-[70%] gap-5 justify-center">
+                      <div className="flex border-black border-[1px] justify-between items-center rounded-2xl py-[0.6rem] px-3 w-[25%] text-sm max-sm:py-[0.3rem]">
+                        <svg
+                          focusable="false"
+                          className="icon icon--minus w-3 h-3 cursor-pointer"
+                          viewBox="0 0 10 2"
+                          role="presentation"
+                          onClick={handleDecrease}
+                        >
+                          <path d="M10 0v2H0V0z" fill="currentColor"></path>
+                        </svg>
+
+                        <span>{counter}</span>
+
+                        <svg
+                          focusable="false"
+                          className="icon icon--plus w-3 h-3 cursor-pointer"
+                          viewBox="0 0 10 10"
+                          role="presentation"
+                          onClick={handleIncrease}
+                        >
+                          <path
+                            d="M6 4h4v2H6v4H4V6H0V4h4V0h2v4z"
+                            fill="currentColor"
+                            fillRule="evenodd"
+                          ></path>
+                        </svg>
+                      </div>
+                      <button
+                        className={`bg-[#00acbb] w-[30%] hover:bg-[#00666e] text-sm text-white font-bold py-[0.5rem] px-5 rounded-2xl max-sm:py-[0.3rem] ${
+                          shake ? "animate__animated animate__shakeX" : ""
+                        }`}
+                        onClick={() => console.log("Add to cart clicked")}
+                      >
+                        Add to Cart
+                      </button>
+
+                      <div className="relative">
+                        <div className="bg-black absolute text-white p-[8px] rounded-[50%] right-0 top-0">
+                          <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-sm">
+                            0
+                          </span>
+                        </div>
+                        <i
+                          className="fa border-[1px] p-2 rounded-[50%] fa-cart-arrow-down text-[2rem] cursor-pointer"
+                          aria-hidden="true"
+                        ></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
+
+      {/* <div className="shadow-xl h-[20vh] border-[1px]">
+        <ul className="p-0 h-[100%] m-0 w-[100%] flex justify-center items-center gap-10">
+          <li className="px-[1.5rem] py-[0.5rem] border-black border-[1px] text-sm rounded-2xl cursor-pointer">Dimensions</li>
+          <li  className="px-[1.5rem] py-[0.5rem] border-black border-[1px] text-sm rounded-2xl cursor-pointer">Frequently Asked Questions</li>
+          <li  className="px-[1.5rem] py-[0.5rem] border-black border-[1px] text-sm rounded-2xl cursor-pointer">Description</li>
+          <li  className="px-[1.5rem] py-[0.5rem] border-black border-[1px] text-sm rounded-2xl cursor-pointer">Reviews</li>
+        </ul>
+      </div> */}
     </div>
   );
 };
