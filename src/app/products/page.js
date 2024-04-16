@@ -7,6 +7,7 @@ import SlipLids from "@/components/cards/SlipLids";
 import ColorPalette from "@/components/cards/ColorPalette";
 import "../../css/styles.css";
 import Link from "next/link";
+import ProductbaseDropdown from "@/components/ProductbaseDropdown";
 
 const Products = () => {
   const buttonStyles = [{ padding: "0.25rem" }, { padding: "0.25rem" }];
@@ -301,7 +302,6 @@ const Products = () => {
   const toggleDropdown = () => {
     setDropdownVisible(!dropdownVisible);
   };
-
 
   return (
     <div>
@@ -688,7 +688,7 @@ const Products = () => {
               </div>
 
               {/* Bed types section*/}
-              <div className="bg-[#f1feff] min-h-[60vh] mt-10 flex flex-col rounded-xl">
+              <div className="bg-[#f1feff] min-h-[60vh] max-sm:h-[90vh] mt-10 flex flex-col rounded-xl ">
                 <div className="border-black border-[2px] w-[85%] mt-10 mx-auto p-3 cursor-pointer rounded-2xl text-center">
                   {getTextForImageBedType().text}
                 </div>
@@ -899,11 +899,11 @@ const Products = () => {
               {/* Bed Depth section : */}
 
               {showBedDephthOptions && (
-                <div className="bg-[#f1feff] relative min-h-[70vh] mt-10 flex flex-col rounded-xl">
+                <div className="bg-[#f1feff] min-h-[60vh] mt-10 max-sm:min-h-[70vh]  flex flex-col rounded-xl animate__animated  animate__fadeInDown">
                   <div className="border-black border-[2px] w-[85%] mt-10 mx-auto p-3 cursor-pointer rounded-2xl text-center">
                     {getTextForImageBedDepth().text}
                   </div>
-                  <div className="grid min-h-[60vh] max-sm:min-h-[80vh] justify-items-center animate__animated  animate__fadeInDown text-sm rounded-2xl  py-10 grid-cols-4 max-xl:grid-cols-3 max-xl:gap-20 max-md:mt-20 max-sm:grid-cols-2 gap-8 max-sm:items-center px-5 my-5 max-lg:justify- max-sm:justify-between">
+                  <div className="grid  items-center  justify-items-center my-5 max-sm:my-20 text-sm rounded-2xl  grid-cols-4 max-sm:grid-cols-2 max-sm:gap-x-20 max-sm:gap-y-36">
                     <div
                       className={`h-[6.25rem]  w-[6.25rem] max-md:w-[5rem] max-md:h-[5rem] px-10 rounded-lg relative cursor-pointer ${
                         selectedImagePathDepth === "/Deep-Base.png" &&
@@ -936,7 +936,7 @@ const Products = () => {
                         </div>
                       )}
 
-                      <div className="absolute top-full mb-10 w-full left-0 text-center">
+                      <div className="absolute top-full mb-10 mt-2 w-full left-0 text-center">
                         Standard Depth 23cm ( Base Height 37cm ) +£0
                       </div>
                     </div>
@@ -974,7 +974,7 @@ const Products = () => {
                           </svg>
                         </div>
                       )}
-                      <div className="absolute top-full mb-10 w-full left-0 text-center">
+                      <div className="absolute top-full mb-10 mt-2 w-full left-0 text-center">
                         Deep Base Depth 30.5cm (Base Height 44cm) +£180
                       </div>
                     </div>
@@ -1013,20 +1013,19 @@ const Products = () => {
                         </div>
                       )}
 
-                      <div className="absolute top-full mb-10 w-full left-0 text-center">
+                      <div className="absolute top-full mt-2 mb-10 w-full left-0 text-center">
                         Super Deep Depth 37cm (Base Height 50cm) +£450
                       </div>
                     </div>
                   </div>
-                  
                 </div>
               )}
 
-              <div className="border-[#e0dfdf] border-[2px] relative w-[85%] my-16 left-1/2 -translate-x-1/2  p-2  rounded-lg text-center">
+              {/* <div className="border-[#e0dfdf] border-[2px] relative w-[85%] my-16 left-1/2 -translate-x-1/2  p-2  rounded-lg text-center">
                     Base Height excludes mattress heights..
-                  </div>
+                  </div> */}
 
-              <div className="flex flex-col gap-16">
+              <div className="flex flex-col gap-4 mt-4">
                 <SlipLids
                   defaultText="Anti-Slip Lids - Standard Top (Bed Side Supported By Wall) +£0e"
                   buttonTexts={[
@@ -1063,11 +1062,12 @@ const Products = () => {
                   // buttonStyles={buttonStyles}
                 />
               </div>
+
               <div>
                 <ColorPalette />
               </div>
 
-              <div>
+              <div className=" flex flex-col gap-4 mt-4">
                 <SlipLids
                   defaultText="Gas Pistons - 600N Gas Pistons (Upto 55kg Mattress) (Included)"
                   buttonTexts={[
@@ -1334,14 +1334,8 @@ const Products = () => {
         </div>
       </div>
 
-      {/* <div className="shadow-xl h-[20vh] border-[1px]">
-        <ul className="p-0 h-[100%] m-0 w-[100%] flex justify-center items-center gap-10">
-          <li className="px-[1.5rem] py-[0.5rem] border-black border-[1px] text-sm rounded-2xl cursor-pointer">Dimensions</li>
-          <li  className="px-[1.5rem] py-[0.5rem] border-black border-[1px] text-sm rounded-2xl cursor-pointer">Frequently Asked Questions</li>
-          <li  className="px-[1.5rem] py-[0.5rem] border-black border-[1px] text-sm rounded-2xl cursor-pointer">Description</li>
-          <li  className="px-[1.5rem] py-[0.5rem] border-black border-[1px] text-sm rounded-2xl cursor-pointer">Reviews</li>
-        </ul>
-      </div> */}
+      <ProductbaseDropdown/>
+     
     </div>
   );
 };
