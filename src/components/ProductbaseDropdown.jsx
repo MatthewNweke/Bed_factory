@@ -23,8 +23,8 @@ const ProductbaseDropdown = () => {
         );
       case "Frequently Asked Questions":
         return (
-          <div className=" flex justify-center items-center w-[100%]">
-            <div className="grid grid-cols-1  gap-x-4 gap-y-2 w-[100%]">
+          <div className=" flex justify-center items-center w-[100%] h-full">
+            <div className="grid grid-cols-1 place-items-center  gap-x-4 gap-y-2 w-[100%]">
               <FaqCard
                 title="What is the re-inforced option?"
                 text="The re-inforced option is a structurally stronger bed all round, this includes the lids and the storage area, we do this by increasing the number of cross beams in the base and the lids."
@@ -44,7 +44,7 @@ const ProductbaseDropdown = () => {
               />
             </div>
 
-            <div className="grid grid-cols-1 gap-x-4 gap-y-2 w-[100%]">
+            <div className="grid grid-cols-1 place-items-center gap-x-4 gap-y-2 w-[100%]">
               <FaqCard
                 title="Where do we deliver our products to?"
                 text="We deliver across the whole of mainland UK. If you live outside the mainland UK and know of a courier that can provide delivery, we can deliver to the courier warehouse if required."
@@ -71,7 +71,7 @@ const ProductbaseDropdown = () => {
               />
             </div>
 
-            <div className="grid grid-cols-1  gap-x-4 gap-y-2 w-[100%]">
+            <div className="grid grid-cols-1 place-items-center gap-x-4 gap-y-2 w-[100%]">
               <FaqCard
                 title="What mechanism do our ottoman bases use?"
                 text="Our bed bases come pre-assembled.
@@ -105,7 +105,7 @@ const ProductbaseDropdown = () => {
   };
 
   return (
-    <div className="h-[100vh]  bg-[#EEEEEE] w-[100%] my-24">
+    <div className="min-h-[150vh] bg-[#EEEEEE] w-[100%] my-24">
       <div className=" h-24 relative w-[100%]">
         <ul className="p-0 m-0 flex items-center justify-center h-[100%]  gap-5 max-sm:gap-2">
           {[

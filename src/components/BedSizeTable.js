@@ -187,7 +187,7 @@ const BedSizeTable = () => {
           </tr>
         </tbody>
       </table>
-      <div className="font-bold text-[1.1rem] mt-5 leading-6 w-[80%] p-2 my-3 -translate-x-1/2 relative left-1/2">
+      {/* <div className="font-bold text-[1.1rem] mt-5 leading-6 w-[80%] p-2 my-3 -translate-x-1/2 relative left-1/2">
         *All Wingback Floor Standing Bed Heads add a further 10cm to the width
         of the bed each. <br />
         *All Standard Floor Standing Bed Heads add approximately 8cm to the
@@ -195,7 +195,7 @@ const BedSizeTable = () => {
         *All Side Opening Ottomans are required to be fitted with spacers
         between the bed base and the headboard this adds approximately 10cm to
         the length of the bed.
-      </div>
+      </div> */}
       
     </div>
   );
