@@ -4,6 +4,7 @@ import Image from "next/image";
 const ViewedProducts = ({ baseImageSrc, overlayImageSrc }) => {
   return (
     <div className="my-10 relative products_content h-[45vh] max-sm:h-[30vh] w-[100%]">
+        
       <div className="absolute inset-0">
         <Image
           src={baseImageSrc}

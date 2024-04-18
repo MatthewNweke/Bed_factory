@@ -22,7 +22,8 @@ const ProductbaseDropdown = () => {
         );
       case "Frequently Asked Questions":
         return (
-          <div className=" flex justify-center items-center w-[100%] h-full max-lg:flex-wrap animate__animated animate__fadeIn">
+          <div>
+              <div className=" flex justify-center items-center w-[100%] h-full max-lg:flex-wrap animate__animated animate__fadeIn">
             <div className="grid grid-cols-1 place-items-center  gap-x-4 gap-y-2 w-[100%]">
               <FaqCard
                 title="What is the re-inforced option?"
@@ -96,6 +97,7 @@ const ProductbaseDropdown = () => {
                   "
               />
             </div>
+          </div>
           </div>
         );
 
