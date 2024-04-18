@@ -1360,7 +1360,7 @@ const Products = () => {
       <div className="text-center text-[1.8rem] my-10 font-semibold">
         Recently viewed products
       </div>
-      <div className="flex gap-10 px-5">
+      <div className="flex gap-4 px-5">
         <div className="mb-32 w-[25%] relative">
           <ViewedProducts
             baseImageSrc="/OttomanEndLiftBaseclosedBg.jpg"
