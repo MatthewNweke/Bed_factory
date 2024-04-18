@@ -2,7 +2,7 @@ import React from "react";
 
 const BedSizeTable = () => {
   return (
-    <div className="overflow-x-auto  bg-[#EEEEEE]  w-full text-[#1c2c39] font-semibold text-[1rem]">
+    <div className="overflow-x-auto  bg-[#EEEEEE]  w-full text-[#1c2c39] font-semibold text-[1rem] animate__animated animate__fadeIn">
       <table className="w-[80%]   divide-y divide-gray-200 relative -translate-x-1/2 left-1/2 border-[1px] border-[#00acbb]">
         <thead className="border-[1px] border-[#00acbb]  ">
           <tr className="">

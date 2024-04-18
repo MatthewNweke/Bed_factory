@@ -16,7 +16,32 @@
   /* transform: translateX(-100%); */
 
 }
+.base-image {
+  transition: opacity 0.3s ease-in-out; /* Adjust transition duration and timing function as needed */
+}
 
+.overlay-image {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out; /* Adjust transition duration and timing function as needed */
+}
+
+.products_content:hover .base-image {
+  opacity: 0;
+}
+
+.products_content:hover .overlay-image {
+  opacity: 1;
+  animation: animate__zoomOut 0.5s ease;
+}
+
+@keyframes animate__zoomOut {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.1); /* Adjust the scale factor as needed */
+  }
+}
 .hidden1 {
   opacity: 0;
   transform: translateY(-100%);

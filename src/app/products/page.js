@@ -7,7 +7,10 @@ import SlipLids from "@/components/cards/SlipLids";
 import ColorPalette from "@/components/cards/ColorPalette";
 import "../../css/styles.css";
 import Link from "next/link";
+import ViewedProducts from "@/components/cards/ViewedProducts";
 import ProductbaseDropdown from "@/components/ProductbaseDropdown";
+
+
 
 const Products = () => {
   const buttonStyles = [{ padding: "0.25rem" }, { padding: "0.25rem" }];
@@ -1332,14 +1335,26 @@ const Products = () => {
             </div>
           </div>
         </div>
+        <ProductbaseDropdown />
       </div>
-
-     <div className="bg-[red]">
-     <ProductbaseDropdown/>
-     </div>
-
-      
-     
+      <div className="grid mb-16 grid-cols-4 px-5 max-lg:grid-cols-2 items-center gap-x-4 place-items-center  max-sm:gap-x-4 w-[100%]">
+        <ViewedProducts
+          baseImageSrc="/OttomanEndLiftBaseclosedBg.jpg"
+          overlayImageSrc="/Ottoman_Bed_side_opening-small.jpg"
+        />
+        <ViewedProducts
+          baseImageSrc="/OttomanEndLiftBaseclosedBg.jpg"
+          overlayImageSrc="/Ottoman_Bed_side_opening-small.jpg"
+        />
+        <ViewedProducts
+          baseImageSrc="/OttomanEndLiftBaseclosedBg.jpg"
+          overlayImageSrc="/Ottoman_Bed_side_opening-small.jpg"
+        />
+        <ViewedProducts
+          baseImageSrc="/OttomanEndLiftBaseclosedBg.jpg"
+          overlayImageSrc="/Ottoman_Bed_side_opening-small.jpg"
+        />
+      </div>
     </div>
   );
 };
