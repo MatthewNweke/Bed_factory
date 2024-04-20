@@ -118,7 +118,7 @@ const ProductbaseDropdown = () => {
 
   return (
     <div className="bg-[#EEEEEE]">
-      <ul className="flex h-24 items-center justify-center gap-10 border-[1px] bg-[#EEEEEE] p-0 m-0 max-sm:text-sm">
+      <ul className="flex h-24 items-center justify-center gap-10 border-[1px] bg-[#EEEEEE] p-0 m-0 text-sm max-sm:gap-4 max-sm:text-[0.8rem]">
         <li
           className={`cursor-pointer ${
             selectedItem === "Dimensions"

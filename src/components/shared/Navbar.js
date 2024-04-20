@@ -46,8 +46,6 @@ const Navbar = () => {
     setIsMatressesOpen(false);
   };
 
-  
-
   const showMattresesBySize = () => {
     setIsMatressesOpen(!matressesOpen);
     setshopBySize(false);
@@ -609,7 +607,6 @@ const Navbar = () => {
                       Headboards
                     </Link>
                   </li>
-                
                 </ul>
 
                 <div className="absolute bg-[white] w-[100%] bottom-0 h-[10%]  border-t-[1px] rounded-b-2xl">
@@ -702,7 +699,6 @@ const Navbar = () => {
                       Clearance Bundles
                     </Link>
                   </li>
-                 
                 </ul>
                 <ul className="  top-0  border-[2px] w-[33%]   h-[100%] relative">
                   <Image
@@ -713,7 +709,6 @@ const Navbar = () => {
                   />
                 </ul>
 
-                
                 <div className="absolute bg-[white] w-[100%] bottom-0 h-[10%]  border-t-[1px] rounded-b-2xl ">
                   <button className="bg-[#08c] absolute right-[10%] flex gap-5 items-center text-sm text-white px-4 py-[0.6rem]  h-[100%] hover:bg-[#44bcf7] transition border-color text duration-100 ease-out delay-0">
                     <span> View All Accessories</span>
@@ -768,8 +763,14 @@ const Navbar = () => {
 
         <div className="z-50 hidden max-md:block">
           {isDropdownOpen && (
-            <div className={`absolute top-0 h-[100vh] bg-white left-0 border-[2px] border-[#e3e3e5] dropdown-content w-[60%] animate__animated animate__slideInLeft`}>
-              <div className="text-[0.9rem]  flex justify-between items-center p-3 cursor-pointer bg-[#08c] text-white font-semibold">
+            <div
+              className={`absolute top-0 h-[100vh] bg-white left-0 border-[2px] border-[#e3e3e5] dropdown-content w-[90%] animate__animated ${
+                isDropdownOpen
+                  ? "animate__slideInLeft"
+                  : "animate__slideInRight"
+              }`}
+            >
+              <div className="text-[0.9rem] flex justify-between items-center p-3 cursor-pointer bg-[#08c] text-white font-semibold">
                 <span>Menu</span>
                 {""}
                 <div onClick={exitDropdown} className="flex items-center gap-1">
@@ -780,7 +781,7 @@ const Navbar = () => {
               <div className="h-[100%] w-[100%]">
                 <div
                   onClick={displayMatresses}
-                  className="text-[0.9rem]  border-[1px] p-4 flex  gap-8 items-center cursor-pointer font-bold"
+                  className="text-[0.9rem] border-[1px] p-4 flex gap-8 items-center cursor-pointer font-bold"
                 >
                   <span> Mattresses</span>{" "}
                   <i className="fa fa-chevron-right" aria-hidden="true"></i>
@@ -788,16 +789,16 @@ const Navbar = () => {
 
                 <div
                   onClick={displayBed}
-                  className="text-[0.9rem] p-4 border-[1px] flex gap-8 cursor-pointer items-center  font-bold"
+                  className="text-[0.9rem] p-4 border-[1px] flex gap-8 cursor-pointer items-center font-bold"
                 >
                   <span> Beds</span>{" "}
                   <i className="fa fa-chevron-right" aria-hidden="true"></i>
                 </div>
-                <div className="text-[0.9rem] flex gap-8 p-4 items-center border-[1px]   cursor-pointer  font-bold">
+                <div className="text-[0.9rem] flex gap-8 p-4 items-center border-[1px] cursor-pointer font-bold">
                   <span> Accessories</span>{" "}
                   <i className="fa fa-chevron-right" aria-hidden="true"></i>
                 </div>
-                <div className="text-[0.9rem] p-4 border-[1px] items-center  flex gap-8 cursor-pointer  font-bold">
+                <div className="text-[0.9rem] p-4 border-[1px] items-center flex gap-8 cursor-pointer font-bold">
                   <span> Sale</span>{" "}
                   <i className="fa fa-chevron-right" aria-hidden="true"></i>
                 </div>
@@ -806,16 +807,16 @@ const Navbar = () => {
                   <div className="text-[0.9rem] px-4 py-2 cursor-pointer  ">
                     About Us
                   </div>
-                  <div className="text-[0.9rem] px-4 py-2  cursor-pointer  ">
+                  <div className="text-[0.9rem] px-4 py-2 cursor-pointer  ">
                     Delivery Information
                   </div>
-                  <div className="text-[0.9rem] px-4 py-2  cursor-pointer">
+                  <div className="text-[0.9rem] px-4 py-2 cursor-pointer">
                     FAQs
                   </div>
-                  <div className="text-[0.9rem] px-4 py-2  cursor-pointer ">
+                  <div className="text-[0.9rem] px-4 py-2 cursor-pointer ">
                     Advise Centre
                   </div>
-                  <div className="text-[0.9rem] px-4 py-2  cursor-pointer">
+                  <div className="text-[0.9rem] px-4 py-2 cursor-pointer">
                     Contact Us
                   </div>
                 </div>

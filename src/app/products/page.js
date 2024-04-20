@@ -304,6 +304,9 @@ const Products = () => {
     setDropdownVisible(!dropdownVisible);
   };
 
+
+  
+
   return (
     <div>
       <div className="my-10 w-[100%] px-5 max-sm:px-1">
@@ -1022,47 +1025,45 @@ const Products = () => {
                 </div>
               )}
 
-              {/* <div className="border-[#e0dfdf] border-[2px] relative w-[85%] my-16 left-1/2 -translate-x-1/2  p-2  rounded-lg text-center">
-                    Base Height excludes mattress heights..
-                  </div> */}
+              {showBedDephthOptions && (
+                <div className="flex flex-col gap-4 mt-4">
+                  <SlipLids
+                    defaultText="Anti-Slip Lids -"
+                    buttonTexts={[
+                      "Anti-Slip Lids - Standard Top (Bed Side Supported By Wall) +£0",
+                      "Foam Padded Bed Base +£125",
+                    ]}
+                  />
 
-              <div className="flex flex-col gap-4 mt-4">
-                <SlipLids
-                  defaultText="Anti-Slip Lids - Standard Top (Bed Side Supported By Wall) +£0e"
-                  buttonTexts={[
-                    "Anti-Slip Lids - Standard Top (Bed Side Supported By Wall) +£0",
-                    "Foam Padded Bed Base +£125",
-                  ]}
-                />
+                  <SlipLids
+                    defaultText="Base Padding -"
+                    buttonTexts={[
+                      "No Base Padding +£0",
+                      "Foam Padded Bed Base +£125",
+                    ]}
+                    // buttonStyles={buttonStyles}
+                  />
 
-                <SlipLids
-                  defaultText="Base Padding - Foam Padded Bed Base +£125"
-                  buttonTexts={[
-                    "No Base Padding +£0",
-                    "Foam Padded Bed Base +£125",
-                  ]}
-                  // buttonStyles={buttonStyles}
-                />
+                  <SlipLids
+                    defaultText="Re-enforcement - "
+                    buttonTexts={[
+                      "Standard Market Build +£0",
+                      "Re-Inforced Storage Area & Lids +£80",
+                    ]}
+                    // buttonStyles={buttonStyles}
+                  />
 
-                <SlipLids
-                  defaultText="Re-enforcement - Re-Inforced Storage Area & Lids +£80"
-                  buttonTexts={[
-                    "Standard Market Build +£0",
-                    "Re-Inforced Storage Area & Lids +£80",
-                  ]}
-                  // buttonStyles={buttonStyles}
-                />
-
-                <SlipLids
-                  defaultText="Gas Pistons - 600N Gas Pistons (Upto 55kg Mattress) (Included)"
-                  buttonTexts={[
-                    "600N Gas Pistons (Upto 55kg Mattress) (Included)",
-                    "800N Gas Pistons (55-75kg Mattress) +£25",
-                    // Add more button texts as needed
-                  ]}
-                  // buttonStyles={buttonStyles}
-                />
-              </div>
+                  <SlipLids
+                    defaultText="Gas Pistons - 600N Gas Pistons (Upto 55kg Mattress) (Included)"
+                    buttonTexts={[
+                      "600N Gas Pistons (Upto 55kg Mattress) (Included)",
+                      "800N Gas Pistons (55-75kg Mattress) +£25",
+                      // Add more button texts as needed
+                    ]}
+                    // buttonStyles={buttonStyles}
+                  />
+                </div>
+              )}
 
               <div>
                 <ColorPalette />
@@ -1080,28 +1081,37 @@ const Products = () => {
                 />
 
                 <SlipLids
-                  defaultText="Gas Pistons - 600N Gas Pistons (Upto 55kg Mattress) (Included)"
+                  defaultText="Would You like to add a Mattress? - No"
                   buttonTexts={[
-                    "600N Gas Pistons (Upto 55kg Mattress) (Included)",
-                    "800N Gas Pistons (55-75kg Mattress) +£25",
+                    "No",
+                    "Yes",
                     // Add more button texts as needed
                   ]}
                   buttonStyles={buttonStyles}
                 />
                 <SlipLids
-                  defaultText="Gas Pistons - 600N Gas Pistons (Upto 55kg Mattress) (Included)"
+                  defaultText="Assembly Service - No"
                   buttonTexts={[
-                    "600N Gas Pistons (Upto 55kg Mattress) (Included)",
-                    "800N Gas Pistons (55-75kg Mattress) +£25",
+                    "No",
+                    "Yes",
                     // Add more button texts as needed
                   ]}
                   buttonStyles={buttonStyles}
                 />
                 <SlipLids
-                  defaultText="Gas Pistons - 600N Gas Pistons (Upto 55kg Mattress) (Included)"
+                  defaultText="Deliver To Room Service - No"
                   buttonTexts={[
-                    "600N Gas Pistons (Upto 55kg Mattress) (Included)",
-                    "800N Gas Pistons (55-75kg Mattress) +£25",
+                    "No",
+                    "Yes",
+                    // Add more button texts as needed
+                  ]}
+                  buttonStyles={buttonStyles}
+                />
+                <SlipLids
+                  defaultText="Furniture Removal Service - No"
+                  buttonTexts={[
+                    "No",
+                    "Yes",
                     // Add more button texts as needed
                   ]}
                   buttonStyles={buttonStyles}
@@ -1360,25 +1370,20 @@ const Products = () => {
       <div className="text-center text-[1.8rem] my-10 font-semibold">
         Recently viewed products
       </div>
-      <div className="flex gap-4 px-5">
-        <div className="mb-32 w-[25%] relative">
-          <ViewedProducts
-            baseImageSrc="/OttomanEndLiftBaseclosedBg.jpg"
-            overlayImageSrc="/Ottoman_Bed_side_opening-small.jpg"
-          />
-        </div>
-        <div className="mb-32 w-[25%] relative">
-          <ViewedProducts
-            baseImageSrc="/OttomanEndLiftBaseclosedBg.jpg"
-            overlayImageSrc="/Ottoman_Bed_side_opening-small.jpg"
-          />
-        </div>
-        <div className="mb-32 w-[25%] relative">
-          <ViewedProducts
-            baseImageSrc="/OttomanEndLiftBaseclosedBg.jpg"
-            overlayImageSrc="/Ottoman_Bed_side_opening-small.jpg"
-          />
-        </div>
+      <div className="grid mb-16 grid-cols-3 px-5 max-lg:grid-cols-2 items-center gap-x-4 place-items-center  max-sm:gap-x-4 w-[100%]">
+        <ViewedProducts
+          baseImageSrc="/OttomanEndLiftBaseclosedBg.jpg"
+          overlayImageSrc="/Ottoman_Bed_side_opening-small.jpg"
+        />
+        <ViewedProducts
+          baseImageSrc="/OttomanEndLiftBaseclosedBg.jpg"
+          overlayImageSrc="/Ottoman_Bed_side_opening-small.jpg"
+        />
+        <ViewedProducts
+          baseImageSrc="/OttomanEndLiftBaseclosedBg.jpg"
+          overlayImageSrc="/Ottoman_Bed_side_opening-small.jpg"
+        />
+        
       </div>
     </div>
   );
