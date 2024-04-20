@@ -18,6 +18,7 @@ import "../../css/styles.css";
 
 const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [animationDirection, setAnimationDirection] = useState('');
 
   // Material sizes for Beds
   const [BedOpen, setBedOpen] = useState(false);
@@ -116,8 +117,27 @@ const Navbar = () => {
     setshopByBedSize(!shopByBedSize);
   };
   const exitDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
+    // Perform any necessary actions before closing the dropdown
+    // For example, triggering the animation
+    const dropdown = document.querySelector('.dropdown-content');
+    if (dropdown) {
+      dropdown.classList.remove('animate__slideInLeft');
+      dropdown.classList.add('animate__slideOutLeft');
+    }
+
+    // Delay closing the dropdown to allow the animation to finish
+    setTimeout(() => {
+      setIsDropdownOpen(false);
+    }, 1000); // Adjust the delay based on your animation duration
+
+    // Hide the backdrop
+    const backdrop = document.querySelector('.backdrop');
+    if (backdrop) {
+      backdrop.style.display = 'none';
+    }
   };
+
+
   const exitMatressesDropdown = () => {
     setIsMatressesOpen(!matressesOpen);
   };
@@ -212,8 +232,8 @@ const Navbar = () => {
           </div>
           {isDropdownOpen && (
             <div
-              className="fixed  left-0 top-0 w-full h-full bg-[#00000066] hidden z-50 max-md:block"
-              onClick={() => setIsDropdownOpen(false)}
+            className="fixed left-0 top-0 w-full h-full bg-[#00000066] z-50 max-md:block backdrop"
+            onClick={exitDropdown}
             ></div>
           )}
 
@@ -768,7 +788,9 @@ const Navbar = () => {
 
         <div className="z-50 hidden max-md:block">
           {isDropdownOpen && (
-            <div className={`absolute top-0 h-[100vh] bg-white left-0 border-[2px] border-[#e3e3e5] dropdown-content w-[90%] animate__animated animate__slideInLeft`}>
+            <div className={`absolute top-0 h-[100vh] bg-white left-0 border-[2px] animate__animated border-[#e3e3e5] dropdown-content w-[90%] ${
+              isDropdownOpen ? "animate__slideInLeft" : "animate__slideOutLeft"
+            }`}>
               <div className="text-[0.9rem]  flex justify-between items-center p-3 cursor-pointer bg-[#08c] text-white font-semibold">
                 <span>Menu</span>
                 {""}
