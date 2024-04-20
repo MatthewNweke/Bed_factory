@@ -189,6 +189,12 @@ const Navbar = () => {
     };
   }, [isDropdownOpen]);
 
+
+
+
+
+ 
+
   return (
     <div className="py-5 max-xl:py-0">
       <header className="flex flex-col relative max-xl:px-3 max-sm:px-1">
@@ -232,8 +238,8 @@ const Navbar = () => {
           </div>
           {isDropdownOpen && (
             <div
-            className="fixed left-0 top-0 w-full h-full bg-[#00000066] z-50 max-md:block backdrop"
-            onClick={exitDropdown}
+              className="fixed left-0 top-0 w-full h-full bg-[#00000066] z-50 max-md:block backdrop"
+          onClick={exitDropdown}
             ></div>
           )}
 
