@@ -107,6 +107,12 @@
   z-index: 100;
 }
 
+.custom-animation {
+  animation-delay: 0.01s;
+  animation-duration: 0.5s;
+  
+}
+
 .image-container {
   max-width: 100%; /* Set maximum width to prevent image from overflowing */
   height: auto; /* Allow height to adjust according to the image aspect ratio */

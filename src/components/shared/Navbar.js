@@ -818,7 +818,7 @@ const Navbar = () => {
         <div className="z-50 hidden max-md:block">
           {isDropdownOpen && (
             <div
-              className={`absolute top-0 h-[100vh] bg-white left-0 border-[2px] animate__animated border-[#e3e3e5] dropdown-content w-[100%] ${
+              className={`absolute top-0 h-[100vh] custom-animation bg-white left-0 border-[2px] animate__animated border-[#e3e3e5] dropdown-content w-[100%] ${
                 isDropdownOpen
                   ? "animate__slideInLeft"
                   : "animate__slideOutLeft"
