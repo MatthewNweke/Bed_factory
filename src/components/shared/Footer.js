@@ -116,7 +116,7 @@ const Footer = () => {
                       <Link href="#">Buying Guides</Link>
                     </li>
                     <li className="mb-2 py-2 px-4 hover:bg-gray-100">
-                      <Link href="#">Finance Options</Link>
+                      <Link href="#">Free Fabric Samples</Link>
                     </li>
                     <li className="mb-2 py-2 px-4 hover:bg-gray-100">
                       <Link href="">
@@ -141,7 +141,7 @@ const Footer = () => {
                 <Link href="">Free Fabric Samples</Link>
               </li> */}
               <li className="mb-2">
-                <Link href="">Finance Options</Link>
+                <Link href="">Free Fabric Samples</Link>
               </li>
               <li className="mb-2">
                 <Link href="">

@@ -786,7 +786,7 @@ const Navbar = () => {
               <span>Advice Centre</span>
             </li> */}
             <li className="p-3  cursor-pointer bg-[#08c] text-white  font-semibold relative listitem">
-              <span>Contact Us</span>
+              <span>Order Swatches</span>
             </li>
           </ul>
         </nav>
@@ -796,7 +796,7 @@ const Navbar = () => {
             className="w-[10%] cursor-pointer flex items-center justify-center hamburger-icon"
             onClick={toggleDropdown}
           >
-            <span className="text-[1.2rem] font-bold">&#9776;</span>
+            <span className="text-[1.2rem] block  font-bold">&#9776;</span>
           </div>
           <input
             type="text"
