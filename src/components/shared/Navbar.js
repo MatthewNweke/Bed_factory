@@ -18,13 +18,14 @@ import "../../css/styles.css";
 
 const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [animationDirection, setAnimationDirection] = useState('');
+  const [animationDirection, setAnimationDirection] = useState("");
 
   // Material sizes for Beds
   const [BedOpen, setBedOpen] = useState(false);
   const [shopByBedSize, setshopByBedSize] = useState(false);
   const [shopByBedType, setShopByBedType] = useState(false);
-  const [shopByBedFirmness, setShopByBedFirmness] = useState(false);
+  const [shopByBedMaterial, setShopByBedMaterial] = useState(false);
+  // const [shopByBedFirmness, setShopByBedFirmness] = useState(false);
 
   // Material sizes for Matresses
   const [shopBySize, setshopBySize] = useState(false);
@@ -32,9 +33,12 @@ const Navbar = () => {
   const [shopByType, setShopByType] = useState(false);
   const [shopByFirmness, setShopByFirmness] = useState(false);
 
+  // Material sizes for Accessories
+  const [accessoriesOpen, setIsAccessoriesOpen] = useState(false);
+
   const displayBedShops = () => {
     setshopByBedSize(!shopByBedSize);
-    setIsMatressesOpen(!matressesOpen);
+    // setIsMatressesOpen(false);
     setBedOpen(!BedOpen);
     setShopByType(!setShopByType);
   };
@@ -45,9 +49,8 @@ const Navbar = () => {
     setIsMatressesOpen(false);
     setBedOpen(false);
     setIsMatressesOpen(false);
+    setIsAccessoriesOpen(false);
   };
-
-  
 
   const showMattresesBySize = () => {
     setIsMatressesOpen(!matressesOpen);
@@ -67,6 +70,14 @@ const Navbar = () => {
     setBedOpen(!BedOpen);
     setshopByBedSize(false);
   };
+  const showBedsByType = () => {
+    setBedOpen(!BedOpen);
+    setShopByBedType(false);
+  };
+  const showBedsByMaterial = () => {
+    setBedOpen(!BedOpen);
+    setShopByBedMaterial(false);
+  };
 
   const displayShopsBedSizes = () => {
     setShopByBedType(!shopByBedType);
@@ -75,19 +86,33 @@ const Navbar = () => {
   };
   const displayShopsBedTypes = () => {
     setShopByBedType(!shopByBedType);
-    setIsMatressesOpen(!matressesOpen);
+    setIsMatressesOpen(false);
+    setBedOpen(!BedOpen);
+  };
+  const displayShopsBedMaterials = () => {
+    setShopByBedMaterial(!shopByBedMaterial);
+    setIsMatressesOpen(false);
     setBedOpen(!BedOpen);
   };
 
   const displayBed = () => {
-    setBedOpen(!BedOpen);
+    setBedOpen(true);
     setIsDropdownOpen(false);
-    setIsMatressesOpen(!matressesOpen);
+    setIsMatressesOpen(false);
+    setIsAccessoriesOpen(false);
+  };
+  const displayAccessories = () => {
+    setBedOpen(false);
+    setIsDropdownOpen(false);
+    setIsAccessoriesOpen(true);
+    setIsMatressesOpen(false);
   };
 
   const displayMatresses = () => {
     setIsMatressesOpen(!matressesOpen);
     setIsDropdownOpen(false);
+    setBedOpen(false);
+    setIsAccessoriesOpen(false);
   };
   const displayShops = () => {
     setshopBySize(!shopBySize);
@@ -99,6 +124,9 @@ const Navbar = () => {
   };
   const exitShopByBedTypeDropdown = () => {
     setShopByBedType(!shopByBedType);
+  };
+  const exitShopByBedMaterialDropdown = () => {
+    setShopByBedMaterial(!shopByBedMaterial);
   };
 
   const displayShopByFirmness = () => {
@@ -119,10 +147,10 @@ const Navbar = () => {
   const exitDropdown = () => {
     // Perform any necessary actions before closing the dropdown
     // For example, triggering the animation
-    const dropdown = document.querySelector('.dropdown-content');
+    const dropdown = document.querySelector(".dropdown-content");
     if (dropdown) {
-      dropdown.classList.remove('animate__slideInLeft');
-      dropdown.classList.add('animate__slideOutLeft');
+      dropdown.classList.remove("animate__slideInLeft");
+      dropdown.classList.add("animate__slideOutLeft");
     }
 
     // Delay closing the dropdown to allow the animation to finish
@@ -131,16 +159,20 @@ const Navbar = () => {
     }, 1000); // Adjust the delay based on your animation duration
 
     // Hide the backdrop
-    const backdrop = document.querySelector('.backdrop');
+    const backdrop = document.querySelector(".backdrop");
     if (backdrop) {
-      backdrop.style.display = 'none';
+      backdrop.style.display = "none";
     }
   };
-
 
   const exitMatressesDropdown = () => {
     setIsMatressesOpen(!matressesOpen);
   };
+
+  const exitAccessoriesDropdown = () => {
+    setIsAccessoriesOpen(!accessoriesOpen);
+  };
+
   const exitBedDropdown = () => {
     setBedOpen(!BedOpen);
     setIsMatressesOpen(!matressesOpen);
@@ -189,12 +221,6 @@ const Navbar = () => {
     };
   }, [isDropdownOpen]);
 
-
-
-
-
- 
-
   return (
     <div className="py-5 max-xl:py-0">
       <header className="flex flex-col relative max-xl:px-3 max-sm:px-1">
@@ -236,7 +262,7 @@ const Navbar = () => {
               </div>
             </div>
           </div>
-          {isDropdownOpen && (
+          {/* {isDropdownOpen && (
             <div
               className="fixed left-0 top-0 w-full h-full bg-[#00000066] z-50 max-md:block backdrop"
           onClick={exitDropdown}
@@ -252,12 +278,12 @@ const Navbar = () => {
               }}
             ></div>
           )}
-          {/* {BedOpen && (
+          {BedOpen && (
             <div
               className="fixed  left-0 top-0 w-full h-full bg-[#00000066] hidden z-50 max-md:block"
               onClick={() => setBedOpen(false)}
             ></div>
-          )} */}
+          )}
 
           {shopBySize && (
             <div
@@ -290,9 +316,9 @@ const Navbar = () => {
               className="fixed  left-0 top-0 w-full h-full bg-[#00000066] hidden z-50 max-md:block"
               onClick={() => setShopByBedType(false)}
             ></div>
-          )}
+          )} */}
 
-          <div className="w-[40%] flex gap-[10%] max-xl:absolute max-xl:h-[15vh] max-xl:top-0 max-xl:items-center  right-0 max-xl:justify-end  max-xl:gap-[5%] max-xl:w-[80%] max-lg:w-[70%] max-md:w-[60%] max-xl:px-5 max-sm:items-center">
+          <div className="w-[40%] flex gap-[10%] max-xl:absolute max-xl:h-[15vh] max-xl:top-0 max-xl:items-center  right-0 max-xl:justify-end  max-xl:gap-[5%] max-xl:w-[80%] max-lg:w-[70%] max-md:w-[100%] max-xl:px-5 max-sm:items-center">
             <div className="flex items-center cursor-pointer mr-5 max-sm:mr-2">
               <div className="flex flex-col justify-center">
                 <Image
@@ -329,7 +355,7 @@ const Navbar = () => {
           </div>
         </nav>
         <nav className=" relative  max-md:hidden  bg-[#EEEEEE] py-3 px-3">
-          <ul className="m-0 p-0 h-[100%]  text-[0.9rem] flex items-center justify-between flex-wrap max-xl:text-[0.8rem] max-2xl:w-[100%]">
+          <ul className="m-0 p-0 h-[100%]  text-[0.9rem] flex items-center justify-evenly flex-wrap max-xl:text-[0.8rem] max-2xl:w-[100%]">
             <li className="p-3 cursor-pointer hover:bg-[#08c] hover:text-white font-semibold relative">
               Home
             </li>
@@ -635,7 +661,6 @@ const Navbar = () => {
                       Headboards
                     </Link>
                   </li>
-                
                 </ul>
 
                 <div className="absolute bg-[white] w-[100%] bottom-0 h-[10%]  border-t-[1px] rounded-b-2xl">
@@ -728,7 +753,6 @@ const Navbar = () => {
                       Clearance Bundles
                     </Link>
                   </li>
-                 
                 </ul>
                 <ul className="  top-0  border-[2px] w-[33%]   h-[100%] relative">
                   <Image
@@ -739,7 +763,6 @@ const Navbar = () => {
                   />
                 </ul>
 
-                
                 <div className="absolute bg-[white] w-[100%] bottom-0 h-[10%]  border-t-[1px] rounded-b-2xl ">
                   <button className="bg-[#08c] absolute right-[10%] flex gap-5 items-center text-sm text-white px-4 py-[0.6rem]  h-[100%] hover:bg-[#44bcf7] transition border-color text duration-100 ease-out delay-0">
                     <span> View All Accessories</span>
@@ -748,21 +771,21 @@ const Navbar = () => {
                 </div>
               </div>
             </div>
-            <li className="  p-3  cursor-pointer hover:bg-[#08c] hover:text-white  font-semibold relative listitem">
+            {/* <li className="  p-3  cursor-pointer hover:bg-[#08c] hover:text-white  font-semibold relative listitem">
               <span>About Us</span>
-            </li>
-            <li className="p-3  cursor-pointer hover:bg-[#08c] hover:text-white  font-semibold relative listitem">
+            </li> */}
+            {/* <li className="p-3  cursor-pointer hover:bg-[#08c] hover:text-white  font-semibold relative listitem">
               <span>Deliver Information</span>
-            </li>
+            </li> */}
             {/* <div className="flex flex-col items-center relative dropdown"> */}
-            <li className="p-3 cursor-pointer hover:bg-[#08c] hover:text-white  font-semibold relative listitem">
+            {/* <li className="p-3 cursor-pointer hover:bg-[#08c] hover:text-white  font-semibold relative listitem">
               <span>FAQs</span>
-            </li>
+            </li> */}
 
-            <li className="p-3  cursor-pointer hover:bg-[#08c] hover:text-white  font-semibold relative listitem">
+            {/* <li className="p-3  cursor-pointer hover:bg-[#08c] hover:text-white  font-semibold relative listitem">
               <span>Advice Centre</span>
-            </li>
-            <li className="p-3  cursor-pointer hover:bg-[#08c] hover:text-white  font-semibold relative listitem">
+            </li> */}
+            <li className="p-3  cursor-pointer bg-[#08c] text-white  font-semibold relative listitem">
               <span>Contact Us</span>
             </li>
           </ul>
@@ -794,14 +817,19 @@ const Navbar = () => {
 
         <div className="z-50 hidden max-md:block">
           {isDropdownOpen && (
-            <div className={`absolute top-0 h-[100vh] bg-white left-0 border-[2px] animate__animated border-[#e3e3e5] dropdown-content w-[90%] ${
-              isDropdownOpen ? "animate__slideInLeft" : "animate__slideOutLeft"
-            }`}>
+            <div
+              className={`absolute top-0 h-[100vh] bg-white left-0 border-[2px] animate__animated border-[#e3e3e5] dropdown-content w-[100%] ${
+                isDropdownOpen
+                  ? "animate__slideInLeft"
+                  : "animate__slideOutLeft"
+              }`}
+            >
               <div className="text-[0.9rem]  flex justify-between items-center p-3 cursor-pointer bg-[#08c] text-white font-semibold">
                 <span>Menu</span>
                 {""}
                 <div onClick={exitDropdown} className="flex items-center gap-1">
-                  <span>Close</span>{" "}
+                  <span>Close</span>
+                  {""}
                   <span className="text-[1.5rem]">&times;</span>
                 </div>
               </div>
@@ -821,7 +849,10 @@ const Navbar = () => {
                   <span> Beds</span>{" "}
                   <i className="fa fa-chevron-right" aria-hidden="true"></i>
                 </div>
-                <div className="text-[0.9rem] flex gap-8 p-4 items-center border-[1px]   cursor-pointer  font-bold">
+                <div
+                  onClick={displayAccessories}
+                  className="text-[0.9rem] flex gap-8 p-4 items-center border-[1px]   cursor-pointer  font-bold"
+                >
                   <span> Accessories</span>{" "}
                   <i className="fa fa-chevron-right" aria-hidden="true"></i>
                 </div>
@@ -856,7 +887,7 @@ const Navbar = () => {
               {/* Matresses Open */}
 
               {matressesOpen && (
-                <div className="mattress-dropdown h-[100vh] fixed bg-white top-0 left-0 w-[60%]">
+                <div className="mattress-dropdown h-[100vh] fixed bg-white top-0 left-0 w-[100%]">
                   <div className="text-[0.9rem] flex justify-between items-center p-3 cursor-pointer bg-[#08c] text-white font-semibold">
                     <div className="flex items-center gap-5">
                       <i
@@ -903,7 +934,7 @@ const Navbar = () => {
               )}
 
               {shopBySize && (
-                <div className="bg-white  fixed top-0 w-[60%]  h-[100vh] left-0">
+                <div className="bg-white  fixed top-0 w-[100%] h-[100vh] left-0">
                   <div className="text-[0.9rem] flex justify-between items-center p-3 cursor-pointer bg-[#08c] text-white font-semibold">
                     <div className="flex items-center gap-5">
                       <i
@@ -921,38 +952,40 @@ const Navbar = () => {
                       <span className="text-[1.5rem]">&times;</span>
                     </div>
                   </div>
-                  <div className="text-[0.9rem]  px-4 py-2  items-center cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
-                    <span>Super King(6&apos;)</span>{" "}
-                  </div>
+                  <div className="leading-8">
+                    <div className="text-[0.9rem] border px-4 py-2  items-center cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
+                      <span>Super King(6&apos;)</span>{" "}
+                    </div>
 
-                  <div className="text-[0.9rem] px-4 py-2  cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
-                    <span> King Size(5&apos;)</span>{" "}
-                  </div>
-                  <div className="text-[0.9rem] px-4 py-2 fles cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
-                    <span> Double(4&apos;6&apos;&apos;)</span>{" "}
-                  </div>
-                  <div className="text-[0.9rem] px-4 py-2  cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
-                    <span> Small Double(4&apos;)</span>{" "}
-                  </div>
-                  <div className="text-[0.9rem] px-4 py-2  cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
-                    <span> Single(3&apos;)</span>{" "}
-                  </div>
-                  <div className="text-[0.9rem] px-4 py-2  cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
-                    <span>Small Single(2&apos;6&apos;&apos;)</span>{" "}
-                  </div>
-                  <div className="text-[0.9rem] px-4 py-2  cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
-                    <span>European</span>{" "}
-                  </div>
-                  <div className="text-[0.9rem] px-4 py-2  cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
-                    <Link href="#" className="text-[#08c] font-semibold">
-                      View All Matresses
-                    </Link>
+                    <div className="text-[0.9rem] px-4 border py-2  cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
+                      <span> King Size(5&apos;)</span>{" "}
+                    </div>
+                    <div className="text-[0.9rem] px-4 py-2 border fles cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
+                      <span> Double(4&apos; 6&apos;&apos;)</span>{" "}
+                    </div>
+                    <div className="text-[0.9rem] px-4 py-2 border  cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
+                      <span> Small Double(4&apos;)</span>{" "}
+                    </div>
+                    <div className="text-[0.9rem] px-4 py-2 border cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
+                      <span> Single(3&apos;)</span>{" "}
+                    </div>
+                    <div className="text-[0.9rem] px-4 py-2 border cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
+                      <span>Small Single(2&apos; 6&apos;&apos;)</span>{" "}
+                    </div>
+                    <div className="text-[0.9rem] px-4 py-2 border cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
+                      <span>European</span>{" "}
+                    </div>
+                    <div className="text-[0.9rem] px-4 py-2 border bg-[#eee] cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
+                      <Link href="#" className="text-[#08c] font-semibold">
+                        View All Matresses
+                      </Link>
+                    </div>
                   </div>
                 </div>
               )}
 
               {shopByType && (
-                <div className="bg-white  fixed top-0 w-[60%]  h-[100vh] left-0">
+                <div className="bg-white  fixed top-0 w-[100%]  h-[100vh] left-0">
                   <div className="text-[0.9rem] flex justify-between items-center p-3 cursor-pointer bg-[#08c] text-white font-semibold">
                     <div className="flex items-center gap-5">
                       <i
@@ -970,41 +1003,56 @@ const Navbar = () => {
                       <span className="text-[1.5rem]">&times;</span>
                     </div>
                   </div>
-                  <div className="text-[0.9rem]  px-4 py-2  items-center cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
-                    <span>Memory Foam</span>{" "}
-                  </div>
 
-                  <div className="text-[0.9rem] px-4 py-2  cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
-                    <span>Pocket Sprung</span>{" "}
-                  </div>
-                  <div className="text-[0.9rem] px-4 py-2 fles cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
-                    <span>Orthopaedic</span>{" "}
-                  </div>
-                  <div className="text-[0.9rem] px-4 py-2  cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
-                    <span>Latex</span>{" "}
-                  </div>
-                  <div className="text-[0.9rem] px-4 py-2  cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
+                  <div className="leading-8">
+                    <div className="text-[0.9rem] border  px-4 py-2  items-center cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
+                      <span>Memory Foam</span>{" "}
+                    </div>
+
+                    <div className="text-[0.9rem] px-4 py-2 border cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
+                      <span>Pocket Sprung</span>{" "}
+                    </div>
+                    <div className="text-[0.9rem] px-4 py-2 border fles cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
+                      <span>Orthopaedic</span>{" "}
+                    </div>
+                    <div className="text-[0.9rem] px-4 py-2 border cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
+                      <span>Latex</span>{" "}
+                    </div>
+                    {/* <div className="text-[0.9rem] px-4 py-2  cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
                     <span>Miracoil</span>{" "}
                   </div>
                   <div className="text-[0.9rem] px-4 py-2  cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
                     <span>Cot Bed Mattresses</span>{" "}
-                  </div>
-                  <div className="text-[0.9rem] px-4 py-2  cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
-                    <span>Kids Mattresses</span>{" "}
-                  </div>
-                  <div className="text-[0.9rem] px-4 py-2  cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
-                    <span>Next Day Mattresses</span>{" "}
-                  </div>
-                  <div className="text-[0.9rem] px-4 py-2  cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
-                    <Link href="#" className="text-[#08c] font-semibold">
-                      View All Matresses
-                    </Link>
+                  </div> */}
+                    <div className="text-[0.9rem] px-4 py-2 border cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
+                      <span>Mini Pocket</span>{" "}
+                    </div>
+                    <div className="text-[0.9rem] px-4 py-2 border cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
+                      <span>Quilted</span>{" "}
+                    </div>
+                    <div className="text-[0.9rem] px-4 py-2 border cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
+                      <span>Puffin range</span>{" "}
+                    </div>
+                    <div className="text-[0.9rem] px-4 py-2 border cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
+                      <span>Cool Gel</span>{" "}
+                    </div>
+                    <div className="text-[0.9rem] px-4 py-2 border cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
+                      <span>Kids Mattresses</span>{" "}
+                    </div>
+                    <div className="text-[0.9rem] px-4 py-2 border cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
+                      <span>Next Day Mattresses</span>{" "}
+                    </div>
+                    <div className="text-[0.9rem] px-4 py-2 border bg-[#eee] cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
+                      <Link href="#" className="text-[#08c] font-semibold">
+                        View All Matresses
+                      </Link>
+                    </div>
                   </div>
                 </div>
               )}
 
               {shopByFirmness && (
-                <div className="bg-white  fixed top-0 w-[60%]  h-[100vh] left-0">
+                <div className="bg-white  fixed top-0 w-[100%] h-[100vh] left-0">
                   <div className="text-[0.9rem] flex justify-between items-center p-3 cursor-pointer bg-[#08c] text-white font-semibold">
                     <div className="flex items-center gap-5">
                       <i
@@ -1022,35 +1070,37 @@ const Navbar = () => {
                       <span className="text-[1.5rem]">&times;</span>
                     </div>
                   </div>
-                  <div className="text-[0.9rem]  px-4 py-2  items-center cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
-                    <span>Memory Foam</span>{" "}
-                  </div>
+                  <div className="leading-8">
+                    <div className="text-[0.9rem]  px-4 py-2 border items-center cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
+                      <span>Memory Foam</span>{" "}
+                    </div>
 
-                  <div className="text-[0.9rem] px-4 py-2  cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
-                    <span>Pocket Sprung</span>{" "}
-                  </div>
-                  <div className="text-[0.9rem] px-4 py-2 fles cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
-                    <span>Orthopaedic</span>{" "}
-                  </div>
-                  <div className="text-[0.9rem] px-4 py-2  cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
-                    <span>Latex</span>{" "}
-                  </div>
-                  <div className="text-[0.9rem] px-4 py-2  cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
-                    <span>Miracoil</span>{" "}
-                  </div>
-                  <div className="text-[0.9rem] px-4 py-2  cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
-                    <span>Cot Bed Mattresses</span>{" "}
-                  </div>
-                  <div className="text-[0.9rem] px-4 py-2  cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
-                    <span>Kids Mattresses</span>{" "}
-                  </div>
-                  <div className="text-[0.9rem] px-4 py-2  cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
-                    <span>Next Day Mattresses</span>{" "}
-                  </div>
-                  <div className="text-[0.9rem] px-4 py-2  cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
-                    <Link href="#" className="text-[#08c] font-semibold">
-                      View All Matresses
-                    </Link>
+                    <div className="text-[0.9rem] px-4 py-2 border cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
+                      <span>Pocket Sprung</span>{" "}
+                    </div>
+                    <div className="text-[0.9rem] px-4 py-2 border cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
+                      <span>Orthopaedic</span>{" "}
+                    </div>
+                    <div className="text-[0.9rem] px-4 py-2 border cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
+                      <span>Latex</span>{" "}
+                    </div>
+                    <div className="text-[0.9rem] px-4 py-2 border cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
+                      <span>Miracoil</span>{" "}
+                    </div>
+                    <div className="text-[0.9rem] px-4 py-2 border cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
+                      <span>Cot Bed Mattresses</span>{" "}
+                    </div>
+                    <div className="text-[0.9rem] px-4 py-2 border cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
+                      <span>Kids Mattresses</span>{" "}
+                    </div>
+                    <div className="text-[0.9rem] px-4 py-2 border cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
+                      <span>Next Day Mattresses</span>{" "}
+                    </div>
+                    <div className="text-[0.9rem] px-4 py-2 border bg-[#eee] cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
+                      <Link href="#" className="text-[#08c] font-semibold">
+                        View All Matresses
+                      </Link>
+                    </div>
                   </div>
                 </div>
               )}
@@ -1060,7 +1110,7 @@ const Navbar = () => {
           {/* Bed Open */}
 
           {BedOpen && (
-            <div className="mattress-dropdown h-[100vh] fixed bg-white top-0 left-0 w-[60%]">
+            <div className="mattress-dropdown h-[100vh] fixed bg-white top-0 left-0 w-[100%]">
               <div className="text-[0.9rem] flex justify-between items-center p-3 cursor-pointer bg-[#08c] text-white font-semibold">
                 <div className="flex gap-5 items-center">
                   {" "}
@@ -1081,7 +1131,7 @@ const Navbar = () => {
               </div>
               <div
                 onClick={displayBedShops}
-                className="text-[0.9rem] flex p-4 gap-8 items-center cursor-pointer  font-semibold"
+                className="text-[0.9rem] flex p-4 border gap-8 items-center cursor-pointer  font-semibold"
               >
                 <span> Shop by Size</span>{" "}
                 <i className="fa fa-chevron-right" aria-hidden="true"></i>
@@ -1089,20 +1139,27 @@ const Navbar = () => {
 
               <div
                 onClick={displayShopsBedTypes}
-                className="text-[0.9rem] p-4 flex gap-8 items-center cursor-pointer  font-semibold"
+                className="text-[0.9rem] p-4 border flex gap-8 items-center cursor-pointer  font-semibold"
               >
                 <span> Shop by Type</span>{" "}
                 <i className="fa fa-chevron-right" aria-hidden="true"></i>
               </div>
+              <div
+                onClick={displayShopsBedMaterials}
+                className="text-[0.9rem] p-4 flex border gap-8 items-center cursor-pointer  font-semibold"
+              >
+                <span> Shop by Material</span>{" "}
+                <i className="fa fa-chevron-right" aria-hidden="true"></i>
+              </div>
 
-              <div className="text-[0.9rem] p-4 flex gap-8 items-center cursor-pointer  font-semibold">
+              <div className="text-[0.9rem] bg-[#eee] text-[#08c] border p-4 flex gap-8 items-center cursor-pointer  font-semibold">
                 <span> All Beds</span>{" "}
               </div>
             </div>
           )}
 
           {shopByBedSize && (
-            <div className="bg-white  fixed top-0 w-[60%]  h-[100vh] left-0">
+            <div className="bg-white  fixed top-0 w-[100%]  h-[100vh] left-0">
               <div className="text-[0.9rem] flex justify-between items-center p-3 cursor-pointer bg-[#08c] text-white font-semibold">
                 <div className="flex items-center gap-5">
                   <i
@@ -1120,37 +1177,46 @@ const Navbar = () => {
                   <span className="text-[1.5rem]">&times;</span>
                 </div>
               </div>
-              <div className="text-[0.9rem]  px-4 py-2  items-center cursor-pointer  hover:text-white font-semibold">
-                <span>Super King(6&apos;)</span>{" "}
-              </div>
+              <div className="leading-8">
+                <div className="text-[0.9rem]  px-4 py-2  items-center cursor-pointer  hover:text-white font-semibold">
+                  <span>SuperKing Beds(6&apos;)</span>{" "}
+                </div>
 
-              <div className="text-[0.9rem] px-4 py-2  cursor-pointer   font-semibold">
-                <span> King Size(5&apos;)</span>{" "}
-              </div>
-              <div className="text-[0.9rem] px-4 py-2 fles cursor-pointer   font-semibold">
-                <span> Double(4&apos;6&apos;&apos;)</span>{" "}
-              </div>
-              <div className="text-[0.9rem] px-4 py-2  cursor-pointer   font-semibold">
-                <span> Small Double(4&apos;)</span>{" "}
-              </div>
-              <div className="text-[0.9rem] px-4 py-2  cursor-pointer   font-semibold">
-                <span> Single(3&apos;)</span>{" "}
-              </div>
-              <div className="text-[0.9rem] px-4 py-2  cursor-pointer   font-semibold">
-                <span>Small Single(2&apos;6&apos;&apos;)</span>{" "}
-              </div>
+                <div className="text-[0.9rem] px-4 py-2  cursor-pointer   font-semibold">
+                  <span> King Size Beds(5&apos;)</span>{" "}
+                </div>
+                <div className="text-[0.9rem] px-4 py-2 fles cursor-pointer   font-semibold">
+                  <span> Double Beds(4&apos; 6&apos;&apos;)</span>{" "}
+                </div>
+                <div className="text-[0.9rem] px-4 py-2  cursor-pointer   font-semibold">
+                  <span> Small Double Beds(4&apos;)</span>{" "}
+                </div>
+                <div className="text-[0.9rem] px-4 py-2  cursor-pointer   font-semibold">
+                  <span> Single Beds(3&apos;)</span>{" "}
+                </div>
+                <div className="text-[0.9rem] px-4 py-2  cursor-pointer   font-semibold">
+                  <span>Small Single Beds(2&apos; 6&apos;&apos;)</span>{" "}
+                </div>
 
-              <div className="text-[0.9rem] px-4 py-2  cursor-pointer   font-semibold">
-                <Link href="#" className="text-[#08c] font-semibold">
-                  View All Beds
-                </Link>
+                <div className="text-[0.9rem] px-4 py-2  cursor-pointer   font-semibold">
+                  <Link href="#" className="text-[#08c] font-semibold">
+                    View All Beds
+                  </Link>
+                </div>
               </div>
             </div>
           )}
           {shopByBedType && (
-            <div className="bg-white  fixed top-0 w-[60%]  h-[100vh] left-0">
+            <div className="bg-white  fixed top-0 w-[100%] h-[100vh] left-0">
               <div className="text-[0.9rem] flex justify-between items-center p-3 cursor-pointer bg-[#08c] text-white font-semibold">
-                <span>Shop by Type</span>{" "}
+                <div className="flex items-center gap-5">
+                  <i
+                    className="fa fa-chevron-left"
+                    aria-hidden="true"
+                    onClick={showBedsByType}
+                  ></i>{" "}
+                  <span>Shop By Type</span>{" "}
+                </div>
                 <div
                   onClick={exitShopByBedTypeDropdown}
                   className="flex items-center gap-1"
@@ -1159,30 +1225,160 @@ const Navbar = () => {
                   <span className="text-[1.5rem]">&times;</span>
                 </div>
               </div>
-              <div className="text-[0.9rem]  px-4 py-2  items-center cursor-pointer  hover:text-white font-semibold">
-                <span>Super King(6&apos;)</span>{" "}
+              <div className="leading-8">
+                <div className="text-[0.9rem]  px-4 py-2  items-center cursor-pointer  hover:text-white font-semibold">
+                  <span>Bed frames</span>{" "}
+                </div>
+
+                <div className="text-[0.9rem] px-4 py-2  cursor-pointer   font-semibold">
+                  <span> Divan beds</span>{" "}
+                </div>
+                <div className="text-[0.9rem] px-4 py-2 fles cursor-pointer   font-semibold">
+                  <span> Sofa Beds</span>{" "}
+                </div>
+                <div className="text-[0.9rem] px-4 py-2  cursor-pointer   font-semibold">
+                  <span> Kids Beds</span>{" "}
+                </div>
+                <div className="text-[0.9rem] px-4 py-2  cursor-pointer   font-semibold">
+                  <span>Guests Beds</span>{" "}
+                </div>
+                <div className="text-[0.9rem] px-4 py-2  cursor-pointer   font-semibold">
+                  <span>Next Day Beds</span>{" "}
+                </div>
+
+                <div className="text-[0.9rem] px-4 py-2  cursor-pointer   font-semibold">
+                  <Link href="#" className="text-[#08c] font-semibold">
+                    View All Beds
+                  </Link>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {shopByBedMaterial && (
+            <div className="bg-white  fixed top-0 w-[100%] h-[100vh] left-0">
+              <div className="text-[0.9rem] flex justify-between items-center p-3 cursor-pointer bg-[#08c] text-white font-semibold">
+                <div className="flex items-center gap-5">
+                  <i
+                    className="fa fa-chevron-left"
+                    aria-hidden="true"
+                    onClick={showBedsByMaterial}
+                  ></i>{" "}
+                  <span>Shop By Material</span>{" "}
+                </div>
+                <div
+                  onClick={exitShopByBedMaterialDropdown}
+                  className="flex items-center gap-1"
+                >
+                  <span>Close</span>{" "}
+                  <span className="text-[1.5rem]">&times;</span>
+                </div>
+              </div>
+              <div className="leading-8">
+                <div className="text-[0.9rem]  px-4 py-2  items-center cursor-pointer  hover:text-white font-semibold">
+                  <span>Wooden Bed frames</span>{" "}
+                </div>
+
+                <div className="text-[0.9rem] px-4 py-2  cursor-pointer   font-semibold">
+                  <span>Fabric Bed Frames</span>{" "}
+                </div>
+                <div className="text-[0.9rem] px-4 py-2 fles cursor-pointer   font-semibold">
+                  <span> Metal Frame Beds</span>{" "}
+                </div>
+                
+                <div className="text-[0.9rem] px-4 py-2  cursor-pointer   font-semibold">
+                  <Link href="#" className="text-[#08c] font-semibold">
+                    View All Beds
+                  </Link>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {matressesOpen && (
+            <div className="mattress-dropdown h-[100vh] fixed bg-white top-0 left-0 w-[100%]">
+              <div className="text-[0.9rem] flex justify-between items-center p-3 cursor-pointer bg-[#08c] text-white font-semibold">
+                <div className="flex items-center gap-5">
+                  <i
+                    className="fa fa-chevron-left"
+                    aria-hidden="true"
+                    onClick={displayMenu}
+                  ></i>{" "}
+                  <span>Mattresses</span>{" "}
+                </div>
+                <div
+                  onClick={exitMatressesDropdown}
+                  className="flex items-center gap-1"
+                >
+                  <span>Close</span>{" "}
+                  <span className="text-[1.5rem]">&times;</span>
+                </div>
+              </div>
+              <div
+                onClick={displayShops}
+                className="text-[0.9rem] flex p-4 border gap-8 items-center cursor-pointer  font-semibold"
+              >
+                <span> Shop by Size</span>{" "}
+                <i className="fa fa-chevron-right" aria-hidden="true"></i>
               </div>
 
-              <div className="text-[0.9rem] px-4 py-2  cursor-pointer   font-semibold">
-                <span> King Size(5&apos;)</span>{" "}
+              <div
+                onClick={displayShopsSizes}
+                className="text-[0.9rem] p-4 flex border gap-8 items-center cursor-pointer  font-semibold"
+              >
+                <span> Shop by Type</span>{" "}
+                <i className="fa fa-chevron-right" aria-hidden="true"></i>
               </div>
-              <div className="text-[0.9rem] px-4 py-2 fles cursor-pointer   font-semibold">
-                <span> Double(4&apos;6&apos;&apos;)</span>{" "}
+              <div
+                onClick={displayShopByFirmness}
+                className="text-[0.9rem]  gap-8 border items-center p-4 flex cursor-pointer  font-semibold"
+              >
+                <span> Shop by Firmness</span>{" "}
+                <i className="fa fa-chevron-right" aria-hidden="true"></i>
               </div>
-              <div className="text-[0.9rem] px-4 py-2  cursor-pointer   font-semibold">
-                <span> Small Double(4&apos;)</span>{" "}
+              <div className="text-[0.9rem] p-4 bg-[#eee] flex gap-8 items-center cursor-pointer text-[#08c] font-semibold">
+                <span> All Matresses</span>{" "}
               </div>
-              <div className="text-[0.9rem] px-4 py-2  cursor-pointer   font-semibold">
-                <span> Single(3&apos;)</span>{" "}
+            </div>
+          )}
+
+          {accessoriesOpen && (
+            <div className="mattress-dropdown h-[100vh] fixed bg-white top-0 left-0 w-[100%]">
+              <div className="text-[0.9rem] flex justify-between items-center p-3 cursor-pointer bg-[#08c] text-white font-semibold">
+                <div className="flex items-center gap-5">
+                  <i
+                    className="fa fa-chevron-left"
+                    aria-hidden="true"
+                    onClick={displayMenu}
+                  ></i>{" "}
+                  <span>Accessories</span>{" "}
+                </div>
+                <div
+                  onClick={exitAccessoriesDropdown}
+                  className="flex items-center gap-1"
+                >
+                  <span>Close</span>{" "}
+                  <span className="text-[1.5rem]">&times;</span>
+                </div>
               </div>
-              <div className="text-[0.9rem] px-4 py-2  cursor-pointer   font-semibold">
-                <span>Small Single(2&apos;6&apos;&apos;)</span>{" "}
+              <div className="text-[0.9rem] border flex p-4 gap-8 items-center cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
+                <span>Pillows</span>{" "}
               </div>
 
-              <div className="text-[0.9rem] px-4 py-2  cursor-pointer   font-semibold">
-                <Link href="#" className="text-[#08c] font-semibold">
-                  View All Beds
-                </Link>
+              <div className="text-[0.9rem] border p-4 flex gap-8 items-center cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
+                <span> Duvets</span>{" "}
+              </div>
+              <div className="text-[0.9rem] border gap-8 items-center p-4 flex cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
+                <span>Mattress Protectors</span>{" "}
+              </div>
+              <div className="text-[0.9rem] border gap-8 items-center p-4 flex cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
+                <span>Mattress Toppers</span>{" "}
+              </div>
+              <div className="text-[0.9rem] border gap-8 items-center p-4 flex cursor-pointer hover:bg-[#08c] hover:text-white font-semibold">
+                <span>Headboards</span>{" "}
+              </div>
+              <div className="text-[0.9rem] p-4 border bg-[#eee] flex gap-8 items-center cursor-pointer text-[#08c] font-semibold">
+                <span> All Accessories</span>{" "}
               </div>
             </div>
           )}

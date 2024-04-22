@@ -55,18 +55,18 @@ const Footer = () => {
                     <li className="mb-2 py-2 px-4 hover:bg-gray-100">
                       <Link href="#">About Us</Link>
                     </li>
-                    <li className="mb-2 py-2 px-4 hover:bg-gray-100">
+                    {/* <li className="mb-2 py-2 px-4 hover:bg-gray-100">
                       <Link href="#">Showrooms</Link>
-                    </li>
+                    </li> */}
                     <li className="mb-2 py-2 px-4 hover:bg-gray-100">
                       <Link href="#">Reviews</Link>
                     </li>
                     <li className="mb-2 py-2 px-4 hover:bg-gray-100">
                       <Link href="#">FAQ&apos;S</Link>
                     </li>
-                    <li className="mb-2 py-2 px-4 hover:bg-gray-100">
+                    {/* <li className="mb-2 py-2 px-4 hover:bg-gray-100">
                       <Link href="#">Careers</Link>
-                    </li>
+                    </li> */}
                     <li className="mb-2 py-2 px-4 hover:bg-gray-100">
                       <Link href="#">Contact Us</Link>
                     </li>
@@ -78,18 +78,18 @@ const Footer = () => {
               <li className="mb-2">
                 <Link href="#">About Us</Link>
               </li>
-              <li className="mb-2">
+              {/* <li className="mb-2">
                 <Link href="#">Showrooms</Link>
-              </li>
+              </li> */}
               <li className="mb-2">
                 <Link href="#">Reviews</Link>
               </li>
               <li className="mb-2">
                 <Link href="#">FAQ&apos;S</Link>
               </li>
-              <li className="mb-2">
+              {/* <li className="mb-2">
                 <Link href="#">Careers</Link>
-              </li>
+              </li> */}
               <li className="mb-2">
                 <Link href="#">Contact Us</Link>
               </li>
@@ -126,9 +126,9 @@ const Footer = () => {
                     <li className="mb-2 py-2 px-4 hover:bg-gray-100">
                       <Link href="#">Delivery Services</Link>
                     </li>
-                    <li className="mb-2 py-2 px-4 hover:bg-gray-100">
+                    {/* <li className="mb-2 py-2 px-4 hover:bg-gray-100">
                       <Link href="#">Bed Factory Direct Blog</Link>
-                    </li>
+                    </li> */}
                   </ul>
                 </div>
               )}
@@ -137,9 +137,9 @@ const Footer = () => {
               <li className="mb-2">
                 <Link href="">Buying Guides</Link>
               </li>
-              <li className="mb-2">
+              {/* <li className="mb-2">
                 <Link href="">Free Fabric Samples</Link>
-              </li>
+              </li> */}
               <li className="mb-2">
                 <Link href="">Finance Options</Link>
               </li>
@@ -151,9 +151,9 @@ const Footer = () => {
               <li className="mb-2">
                 <Link href="">Delivery Services</Link>
               </li>
-              <li className="mb-2">
+              {/* <li className="mb-2">
                 <Link href="">Bed Factory Direct Blog</Link>
-              </li>
+              </li> */}
             </ul>
           </ul>
 
