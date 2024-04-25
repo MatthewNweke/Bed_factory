@@ -76,6 +76,18 @@
   width: 30vw;
 }
 
+/* You can adjust these styles as needed */
+
+/* Hamburger menu icon */
+.hamburger-menu {
+  cursor: pointer;
+}
+
+/* Sidebar transition */
+.sidebar {
+  transition: transform 0.3s ease;
+}
+
 
 .dropdown:hover .dropdowncontent {
   display: flex;

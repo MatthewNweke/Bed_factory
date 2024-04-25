@@ -437,11 +437,14 @@ const Headboards = () => {
                   </div>
                   <div>
                     <p className="px-5">
-                      Free Shipping to Nigeria <br/> Order within the next 11 Hours 30
-                      Minutes 39 Seconds for dispatch today, and you'll receive
+                      Free Shipping to Nigeria <br/> Order within the next <span className="font-semibold">11 Hours 30
+                      Minutes 39 Seconds</span> for dispatch today, and you'll receive
                       your <br/> package between May 03 and May 13
                     </p>
                   </div>
+
+                 
+
                   <div className="flex my-5 gap-5">
                     <div className="relative h-16 w-16">
                       <Image
