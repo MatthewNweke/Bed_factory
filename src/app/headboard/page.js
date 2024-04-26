@@ -438,7 +438,7 @@ const Headboards = () => {
                   <div>
                     <p className="px-5">
                       Free Shipping to Nigeria <br/> Order within the next <span className="font-semibold">11 Hours 30
-                      Minutes 39 Seconds</span> for dispatch today, and you'll receive
+                      Minutes 39 Seconds</span> for dispatch today, and you&apos;ll receive
                       your <br/> package between May 03 and May 13
                     </p>
                   </div>
