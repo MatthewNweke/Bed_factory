@@ -1,9 +1,9 @@
 import React from "react";
 
-const ProductsPage = () => {
+const CategoriesPage = () => {
   return (
     <section>
-      <h1 className="text-lg md:text-xl font-semibold mb-6">Products</h1>
+      <h1 className="text-lg md:text-xl font-semibold mb-6">Categories</h1>
       <div className="rounded-lg border bg-card text-card-foreground p-4 mb-5">
         <form className="flex flex-col xl:flex-row xl:justify-between gap-4">
           <div className="flex flex-wrap gap-3">
@@ -173,4 +173,4 @@ const ProductsPage = () => {
   );
 };
 
-export default ProductsPage;
+export default CategoriesPage;

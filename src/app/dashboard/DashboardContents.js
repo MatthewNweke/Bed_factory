@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Dashboardpage from "./DashboardPage";
-import ProductsPage from "./productsPage";
+import ProductsPage from "./ProductsPage";
+import CategoriesPage from "./CategoriesPage";
 const DashboardContents = ({ selectedItem }) => {
   // Sample content for demonstration
   const contents = {
@@ -8,7 +9,7 @@ const DashboardContents = ({ selectedItem }) => {
       <Dashboardpage/>
     ),
     Products: <ProductsPage/>,
-    Categories: <div>Categories</div>,
+    Categories: <CategoriesPage/>,
     Customers: <div>Customers</div>,
     Orders: <div>Orders</div>,
     Coupon: <div>Coupon</div>,
