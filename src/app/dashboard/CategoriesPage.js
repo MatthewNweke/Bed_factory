@@ -65,7 +65,7 @@ const CategoriesPage = () => {
               </svg>{" "}
               Bulk Action
             </button>
-            <button className="inline-flex items-center justify-center text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-destructive text-destructive-foreground hover:bg-destructive/90 min-h-12 rounded-md px-8 py-3 sm:flex-grow xl:flex-grow-0">
+            <button className="inline-flex bg-[#ef4444] text-white items-center justify-center text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-destructive text-destructive-foreground hover:bg-destructive/90 min-h-12 rounded-md px-8 py-3 sm:flex-grow xl:flex-grow-0">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -86,7 +86,7 @@ const CategoriesPage = () => {
               </svg>{" "}
               Delete
             </button>
-            <button className="inline-flex items-center justify-center text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 min-h-12 rounded-md px-8 py-3 sm:flex-grow xl:flex-grow-0">
+            <button className="inline-flex bg-[#16a34a] hover:opacity-90 text-white items-center justify-center text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 min-h-12 rounded-md px-8 py-3 sm:flex-grow xl:flex-grow-0">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -115,7 +115,7 @@ const CategoriesPage = () => {
             type="search"
           />
           <div className="flex gap-4 md:basis-1/2">
-            <button className="inline-flex items-center justify-center text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 min-h-12 rounded-md px-8 py-3 w-full">
+            <button className="inline-flex bg-[#16a34a] hover:opacity-90 text-white items-center justify-center text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 min-h-12 rounded-md px-8 py-3 w-full">
               Filter
             </button>
             <button className="inline-flex items-center justify-center text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-secondary text-secondary-foreground hover:bg-secondary/70 min-h-12 rounded-md px-8 py-3 w-full">
